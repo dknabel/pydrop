@@ -15,6 +15,7 @@ import time
 from src.audio_engine import AudioEngine
 from src.visualizer import Visualizer
 from src.menu_system import PresetMenu
+from src.playlist_manager import PlaylistManager
 
 class AudioVisualizerApp:
     def __init__(self, width=1280, height=720):
@@ -35,6 +36,10 @@ class AudioVisualizerApp:
 
         # Menu system
         self.menu = PresetMenu(self.visualizer.presets, width, height)
+
+        # Playlist manager
+        self.playlist_manager = PlaylistManager()
+        self.playlist_index = 0
 
         # FPS clock
         self.clock = pygame.time.Clock()
@@ -59,7 +64,11 @@ class AudioVisualizerApp:
                 elif not self.menu.visible:
                     # Only handle preset navigation if menu is closed
                     if event.key == pygame.K_SPACE:
-                        self.visualizer.next_preset()
+                        # If playlist is active, cycle through playlist presets
+                        if self.playlist_manager.current_playlist:
+                            self._next_playlist_preset()
+                        else:
+                            self.visualizer.next_preset()
                     elif event.key == pygame.K_LEFT:
                         self.visualizer.prev_preset()
 
@@ -166,6 +175,20 @@ class AudioVisualizerApp:
             self.clock.tick(self.fps)
         
         self.cleanup()
+
+    def _next_playlist_preset(self):
+        """Cycle to the next preset in the active playlist."""
+        current_presets = self.playlist_manager.get_current_presets()
+        if current_presets:
+            self.playlist_index = (self.playlist_index + 1) % len(current_presets)
+            preset_name = current_presets[self.playlist_index]
+
+            # Find preset index in main list
+            for i, preset in enumerate(self.visualizer.presets):
+                if preset['name'] == preset_name:
+                    self.visualizer.current_preset_idx = i
+                    print(f"Playlist: {preset_name}")
+                    break
 
     def cleanup(self):
         self.audio_engine.stop_capture()
