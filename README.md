@@ -1,4 +1,4 @@
-# Audio Visualizer (Python)
+# PyDrop
 
 A Milkdrop-style audio visualization application for desktop, built with Python, Pygame, and GLSL shaders. Features 252 presets across 25 themed categories with real-time system audio capture and visualization.
 
