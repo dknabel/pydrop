@@ -295,3 +295,111 @@ class PresetManager:
         except Exception as e:
             logger.error(f"Error deleting custom preset: {e}")
             raise
+
+
+class FavoritesManager:
+    """Manage favorite presets with file persistence.
+
+    Stores a set of favorite preset IDs in a JSON file. Allows adding,
+    removing, toggling, and checking favorite status. Supports automatic
+    persistence to disk.
+
+    Attributes:
+        favorites_file: Path to the JSON file storing favorites
+        favorites: Set of favorite preset IDs
+    """
+
+    def __init__(self, favorites_file: Path = None) -> None:
+        """Initialize FavoritesManager.
+
+        Args:
+            favorites_file: Path to favorites JSON file. Defaults to
+                ~/.audiovisualizer/favorites.json
+        """
+        if favorites_file is None:
+            favorites_file = Path.home() / ".audiovisualizer" / "favorites.json"
+        self.favorites_file = favorites_file
+        self.favorites = set()
+        self.load()
+
+    def load(self) -> None:
+        """Load favorites from file.
+
+        Attempts to load favorites from the JSON file. If file doesn't exist
+        or loading fails, initializes with empty set and logs warning.
+
+        Raises:
+            No exceptions - handles all errors gracefully with logging
+        """
+        if self.favorites_file.exists():
+            try:
+                with open(self.favorites_file, 'r') as f:
+                    data = json.load(f)
+                self.favorites = set(data.get('favorites', []))
+                logger.info(f"Loaded {len(self.favorites)} favorites")
+            except Exception as e:
+                logger.warning(f"Failed to load favorites: {e}")
+                self.favorites = set()
+        else:
+            self.favorites = set()
+
+    def save(self) -> None:
+        """Save favorites to file.
+
+        Creates parent directories if they don't exist. Raises exceptions
+        if file cannot be written.
+
+        Raises:
+            OSError: If file cannot be written
+        """
+        try:
+            self.favorites_file.parent.mkdir(parents=True, exist_ok=True)
+            with open(self.favorites_file, 'w') as f:
+                json.dump({'favorites': list(self.favorites)}, f, indent=2)
+            logger.info(f"Saved {len(self.favorites)} favorites")
+        except Exception as e:
+            logger.error(f"Error saving favorites: {e}")
+            raise
+
+    def add(self, preset_id) -> None:
+        """Add a preset to favorites.
+
+        Args:
+            preset_id: The ID of the preset to add (int or str)
+        """
+        self.favorites.add(preset_id)
+
+    def remove(self, preset_id) -> None:
+        """Remove a preset from favorites.
+
+        Args:
+            preset_id: The ID of the preset to remove (int or str)
+        """
+        self.favorites.discard(preset_id)
+
+    def toggle(self, preset_id) -> bool:
+        """Toggle favorite status of a preset.
+
+        Args:
+            preset_id: The ID of the preset to toggle
+
+        Returns:
+            True if preset is now favorited, False if removed
+        """
+        if self.is_favorite(preset_id):
+            self.remove(preset_id)
+            return False
+        else:
+            self.add(preset_id)
+            return True
+
+    def is_favorite(self, preset_id) -> bool:
+        """Check if a preset is favorited.
+
+        Args:
+            preset_id: The ID of the preset to check
+
+        Returns:
+            True if preset is in favorites, False otherwise
+        """
+        return preset_id in self.favorites
