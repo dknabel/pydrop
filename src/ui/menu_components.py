@@ -676,7 +676,7 @@ class PresetGrid(UIComponent):
             col = i % self.cards_per_row
 
             card_x = self.rect.x + 5 + col * (card_width + 5)
-            card_y = self.rect.y + row * (card_height + 5)
+            card_y = self.rect.y + self.rect.height - (row + 1) * (card_height + 5)
 
             def make_callback(preset_id: int) -> Callable[[int], None]:
                 def on_card_clicked(pid: int) -> None:
