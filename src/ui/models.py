@@ -8,10 +8,11 @@ import json
 
 @dataclass
 class Preset:
-    """Built-in preset metadata.
+    """Built-in preset metadata with audio reactivity configuration.
 
     Represents a preset that comes with the application. Contains metadata
-    about the preset such as theme, shader path, and difficulty level.
+    about the preset such as theme, shader path, color palette, and audio
+    dimension mappings for dynamic animation control.
 
     Attributes:
         id: Unique integer identifier for the preset
@@ -21,6 +22,8 @@ class Preset:
         shader: Path to the shader file used by this preset
         tags: List of tags for categorization (default: [])
         difficulty: Difficulty level: 'easy', 'medium', 'hard' (default: 'medium')
+        colors: List of 4 RGB tuples defining the color palette
+        audio_mapping: Dict mapping audio dimensions to visual controls
     """
 
     id: int
@@ -30,6 +33,13 @@ class Preset:
     shader: str
     tags: List[str] = field(default_factory=list)
     difficulty: str = "medium"
+    colors: List[tuple] = field(default_factory=lambda: [(100, 100, 100), (150, 150, 150), (200, 200, 200), (180, 180, 180)])
+    audio_mapping: Dict[str, str] = field(default_factory=lambda: {
+        "amplitude": "intensity",
+        "bass": "scale",
+        "mid": "rotation",
+        "treble": "glow"
+    })
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert preset to dictionary for JSON serialization.
@@ -53,6 +63,10 @@ class Preset:
             ValueError: If required fields are missing
         """
         try:
+            colors = data.get('colors', [(100, 100, 100), (150, 150, 150), (200, 200, 200), (180, 180, 180)])
+            # Convert color lists to tuples if needed
+            colors = [tuple(c) if isinstance(c, list) else c for c in colors]
+
             return cls(
                 id=data['id'],
                 name=data['name'],
@@ -60,7 +74,14 @@ class Preset:
                 description=data['description'],
                 shader=data['shader'],
                 tags=data.get('tags', []),
-                difficulty=data.get('difficulty', 'medium')
+                difficulty=data.get('difficulty', 'medium'),
+                colors=colors,
+                audio_mapping=data.get('audio_mapping', {
+                    "amplitude": "intensity",
+                    "bass": "scale",
+                    "mid": "rotation",
+                    "treble": "glow"
+                })
             )
         except KeyError as e:
             raise ValueError(f"Missing required field: {e}")
