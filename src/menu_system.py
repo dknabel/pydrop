@@ -114,6 +114,7 @@ class PresetMenu:
     def toggle(self):
         """Toggle menu visibility"""
         self.visible = not self.visible
+        print(f"Menu toggled: {'ON' if self.visible else 'OFF'}")
         if self.visible:
             # Reset scroll when opening menu
             self.scroll_offset = 0
@@ -230,16 +231,17 @@ class PresetMenu:
 
     def _draw_preview(self, surface, x, y, preset_idx):
         """Draw a visual preview rectangle for the preset"""
-        # Draw a large, obvious preview block
-        preview_rect = pygame.Rect(x + 1, y + 1, self.card_width - 2, self.card_height - 12)
+        # Draw a large, obvious preview block that fills the entire card
+        preview_rect = pygame.Rect(x + 2, y + 2, self.card_width - 4, self.card_height - 4)
 
-        # Get theme-based color and brighten it for visibility
+        # Get theme-based color and brighten it significantly for visibility
         color = self._get_preview_color(preset_idx)
-        bright_color = tuple(min(255, int(c * 1.5)) for c in color)
+        # Brighten the color significantly
+        bright_color = tuple(min(255, int(c * 2.0)) for c in color)
 
-        # Draw solid colored preview with bright border
+        # Draw solid colored preview with white border for high contrast
         pygame.draw.rect(surface, bright_color, preview_rect)
-        pygame.draw.rect(surface, (255, 255, 255), preview_rect, 2)  # White border for visibility
+        pygame.draw.rect(surface, (255, 255, 255), preview_rect, 3)  # Thick white border
 
     def render(self, surface):
         """Render the menu overlay organized by theme"""
