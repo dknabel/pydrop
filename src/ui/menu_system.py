@@ -280,9 +280,12 @@ class MenuSystem(UIComponent):
             else:
                 self.current_filtered_presets = self.preset_manager.filter_by_theme(category)
 
+            # Set search scope for the search bar
+            self.search_bar.search_scope = self.current_filtered_presets
+
             # Update search with current filter
             if self.search_bar.text.strip():
-                self.search_bar._perform_search()
+                self.search_bar._perform_search(self.current_filtered_presets)
             else:
                 self.preset_grid.set_presets(self.current_filtered_presets)
 

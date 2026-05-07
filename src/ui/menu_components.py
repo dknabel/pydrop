@@ -55,6 +55,7 @@ class SearchBar(TextInput):
         self.preset_manager = preset_manager
         self.on_search_changed = on_search_changed
         self.search_results: List[Preset] = []
+        self.search_scope: Optional[List[Preset]] = None  # Filtered presets to search within
 
     def handle_event(self, event: pygame.event.Event) -> None:
         """Handle input and trigger search on each event.
@@ -70,27 +71,34 @@ class SearchBar(TextInput):
         """
         try:
             super().handle_event(event)
-            self._perform_search()
+            self._perform_search(self.search_scope)
         except Exception as e:
             logger.error(f"SearchBar event handling failed: {e}")
 
-    def _perform_search(self) -> None:
+    def _perform_search(self, presets_to_search: Optional[List[Preset]] = None) -> None:
         """Perform search and call callback with results.
 
         Executes the search using PresetManager.search() and updates
         the search_results. If text is empty, returns all presets.
         Calls the on_search_changed callback with the results.
 
+        Args:
+            presets_to_search: Optional list of presets to search through.
+                If not provided, searches through all builtin presets.
+
         Raises:
             No exceptions - logs any errors gracefully
         """
         try:
+            search_pool = presets_to_search if presets_to_search else self.preset_manager.builtin_presets
+
             if self.text.strip() == "":
-                # Empty search returns all presets
-                self.search_results = self.preset_manager.builtin_presets.copy()
+                # Empty search returns all presets from the search pool
+                self.search_results = search_pool.copy()
             else:
-                # Search using PresetManager.search()
-                self.search_results = self.preset_manager.search(self.text)
+                # Search using PresetManager.search() but filter by search pool
+                all_results = self.preset_manager.search(self.text)
+                self.search_results = [p for p in all_results if p in search_pool]
 
             # Call callback with results
             if self.on_search_changed:
@@ -173,6 +181,8 @@ class CategoryFilter(UIComponent):
 
         # Sizing
         self.item_height = 25
+        self.max_dropdown_height = 200  # Max height before scrolling
+        self.dropdown_scroll = 0  # Scroll offset for dropdown items
 
     def _build_categories(self) -> Dict[str, int]:
         """Build dictionary of categories with preset counts.
@@ -270,16 +280,23 @@ class CategoryFilter(UIComponent):
             self._render_dropdown_menu(surface)
 
     def _render_dropdown_menu(self, surface: pygame.Surface) -> None:
-        """Render the dropdown menu items.
+        """Render the dropdown menu items with scrolling support.
 
         Args:
             surface: pygame.Surface to render to
         """
-        menu_y = self.rect.bottom + 2
+        max_visible_items = self.max_dropdown_height // self.item_height
+        menu_height = min(len(self.dropdown_items) - self.dropdown_scroll, max_visible_items) * self.item_height
+        menu_y = self.rect.top - menu_height
 
-        for i, (label, category, count) in enumerate(self.dropdown_items):
+        # Calculate visible range based on scroll
+        start_idx = self.dropdown_scroll
+        end_idx = min(start_idx + max_visible_items, len(self.dropdown_items))
+
+        for i in range(start_idx, end_idx):
+            label, category, count = self.dropdown_items[i]
             item_rect = pygame.Rect(
-                self.rect.x, menu_y + i * self.item_height, self.rect.width, self.item_height
+                self.rect.x, menu_y + (i - start_idx) * self.item_height, self.rect.width, self.item_height
             )
 
             # Highlight selected item
@@ -316,9 +333,18 @@ class CategoryFilter(UIComponent):
                         # Click on main button toggles dropdown
                         logger.debug("CategoryFilter button clicked - toggling dropdown")
                         self.opened = not self.opened
+                        self.dropdown_scroll = 0
                     elif self.opened:
                         # Click on dropdown item
                         self._handle_dropdown_click(x, y)
+            elif event.type == pygame.MOUSEWHEEL and self.opened:
+                if hasattr(event, 'y'):
+                    max_visible_items = self.max_dropdown_height // self.item_height
+                    max_scroll = max(0, len(self.dropdown_items) - max_visible_items)
+                    if event.y > 0:  # Scroll up
+                        self.dropdown_scroll = max(0, self.dropdown_scroll - 1)
+                    else:  # Scroll down
+                        self.dropdown_scroll = min(max_scroll, self.dropdown_scroll + 1)
         except Exception as e:
             logger.error(f"CategoryFilter event handling failed: {e}")
 
@@ -332,16 +358,22 @@ class CategoryFilter(UIComponent):
             x: X coordinate of click
             y: Y coordinate of click
         """
-        menu_y = self.rect.bottom + 2
+        max_visible_items = self.max_dropdown_height // self.item_height
+        menu_height = min(len(self.dropdown_items) - self.dropdown_scroll, max_visible_items) * self.item_height
+        menu_y = self.rect.top - menu_height
+        start_idx = self.dropdown_scroll
+        end_idx = min(start_idx + max_visible_items, len(self.dropdown_items))
 
-        for i, (label, category, count) in enumerate(self.dropdown_items):
+        for i in range(start_idx, end_idx):
+            label, category, count = self.dropdown_items[i]
             item_rect = pygame.Rect(
-                self.rect.x, menu_y + i * self.item_height, self.rect.width, self.item_height
+                self.rect.x, menu_y + (i - start_idx) * self.item_height, self.rect.width, self.item_height
             )
 
             if item_rect.collidepoint(x, y):
                 self.selected_category = category
                 self.opened = False
+                self.dropdown_scroll = 0
 
                 # Call callback with selected category
                 if self.on_category_changed:
@@ -505,12 +537,6 @@ class PresetCard(UIComponent):
         bg_color = (50, 70, 100)
         pygame.draw.rect(surface, bg_color, self.rect)
 
-        # Draw selection border (blue if selected)
-        if self.selected:
-            pygame.draw.rect(surface, (100, 150, 255), self.rect, 3)
-        else:
-            pygame.draw.rect(surface, (80, 100, 150), self.rect, 1)
-
         # Draw color block (top half of card)
         color_height = self.rect.height // 2
         color_rect = pygame.Rect(
@@ -650,7 +676,7 @@ class PresetGrid(UIComponent):
             col = i % self.cards_per_row
 
             card_x = self.rect.x + 5 + col * (card_width + 5)
-            card_y = self.rect.y + 5 + row * (card_height + 5)
+            card_y = self.rect.y + row * (card_height + 5)
 
             def make_callback(preset_id: int) -> Callable[[int], None]:
                 def on_card_clicked(pid: int) -> None:
@@ -681,6 +707,7 @@ class PresetGrid(UIComponent):
         try:
             self.presets = presets
             self.current_page = 0
+            self.selected_preset_id = None
             self.cards = self._create_cards()
         except Exception as e:
             logger.error(f"PresetGrid set_presets failed: {e}")
