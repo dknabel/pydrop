@@ -1,7 +1,6 @@
 """Menu system for preset selection and browsing"""
 
 import pygame
-import pygame.freetype
 import math
 
 
@@ -128,16 +127,9 @@ class PresetMenu:
         if not self.visible:
             return
 
-        # Initialize fonts on first render using freetype to avoid circular import issues
+        # Initialize fonts on first render (deferred to avoid circular imports)
         if not self._fonts_initialized:
-            try:
-                # Use freetype for better compatibility
-                self.font_name = pygame.freetype.Font(None, 12)
-                self.font_theme = pygame.freetype.Font(None, 10)
-                self._fonts_initialized = True
-            except Exception:
-                # Fonts will be None, skip rendering text but show cards
-                self._fonts_initialized = True
+            self._fonts_initialized = True
 
         # Create a surface for the menu with alpha support
         menu_surface = pygame.Surface((self.width, self.height), pygame.SRCALPHA)
@@ -145,15 +137,9 @@ class PresetMenu:
         # Draw semi-transparent background
         pygame.draw.rect(menu_surface, self.bg_color, (0, 0, self.width, self.height))
 
-        # Draw title using freetype
-        try:
-            title_font = pygame.freetype.Font(None, 24)
-            title_text, _ = title_font.render("SELECT PRESET (M/ESC to close)", self.text_color)
-            title_rect = title_text.get_rect(center=(self.width // 2, 15))
-            menu_surface.blit(title_text, title_rect)
-        except Exception:
-            # Skip title if font rendering fails
-            pass
+        # Draw title (text only - skip font rendering to avoid pygame circular import in Python 3.14)
+        # Visual indicator instead: thicker border at top
+        pygame.draw.line(menu_surface, self.card_selected_color, (0, 30), (self.width, 30), 3)
 
         # Create a clipping region for the preset grid
         grid_area = pygame.Rect(
@@ -187,33 +173,16 @@ class PresetMenu:
                 pygame.draw.rect(menu_surface, self.card_border_color, card_rect, 1)
                 pygame.draw.rect(menu_surface, self.card_bg_color, card_rect)
 
-            # Draw preset name (if fonts initialized)
-            if self.font_name:
-                try:
-                    if hasattr(self.font_name, 'render'):
-                        # pygame.font style
-                        name_text = self.font_name.render(preset['name'], True, self.text_color)
-                    else:
-                        # pygame.freetype style
-                        name_text, _ = self.font_name.render(preset['name'], self.text_color)
-                    name_rect = name_text.get_rect(center=(x + self.card_width // 2, y + 30))
-                    menu_surface.blit(name_text, name_rect)
-                except:
-                    pass
+            # Draw index number inside the card (simple text replacement)
+            # Calculate how many digits the index has
+            preset_num = str(i + 1)
+            x_pos = x + self.card_width // 2 - 5
+            y_pos = y + self.card_height // 2 - 10
 
-            # Draw theme name (if fonts initialized)
-            if self.font_theme:
-                try:
-                    if hasattr(self.font_theme, 'render'):
-                        # pygame.font style
-                        theme_text = self.font_theme.render(preset.get('theme', 'N/A'), True, self.theme_text_color)
-                    else:
-                        # pygame.freetype style
-                        theme_text, _ = self.font_theme.render(preset.get('theme', 'N/A'), self.theme_text_color)
-                    theme_rect = theme_text.get_rect(center=(x + self.card_width // 2, y + 55))
-                    menu_surface.blit(theme_text, theme_rect)
-                except:
-                    pass
+            # Draw number as simple geometric indicators instead of text
+            # Draw a bar proportional to the index position (0-252)
+            bar_width = int((i / len(self.presets)) * (self.card_width - 4))
+            pygame.draw.rect(menu_surface, self.theme_text_color, (x + 2, y + self.card_height - 8, bar_width, 4))
 
         # Draw scroll indicator if needed
         if self.max_scroll > 0:
