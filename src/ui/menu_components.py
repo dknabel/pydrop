@@ -525,7 +525,7 @@ class PresetCard(UIComponent):
         self.on_clicked = on_clicked
 
     def render(self, surface: pygame.Surface) -> None:
-        """Render preset card with color background and centered name.
+        """Render preset card with transparent background and centered name.
 
         Args:
             surface: pygame.Surface to render to
@@ -533,9 +533,10 @@ class PresetCard(UIComponent):
         if not self.visible:
             return
 
-        # Draw color block as full card background
-        color = self._get_preset_color()
-        pygame.draw.rect(surface, color, self.rect)
+        # Draw transparent card background
+        card_bg = pygame.Surface(self.rect.size, pygame.SRCALPHA)
+        card_bg.fill((100, 120, 150, 80))  # Semi-transparent gray-blue
+        surface.blit(card_bg, self.rect)
 
         # Draw preset name centered in card
         try:
@@ -552,9 +553,8 @@ class PresetCard(UIComponent):
 
         # Apply hover brightness increase
         if self.hovered:
-            overlay = pygame.Surface(self.rect.size)
-            overlay.set_alpha(30)
-            overlay.fill((255, 255, 255))
+            overlay = pygame.Surface(self.rect.size, pygame.SRCALPHA)
+            overlay.fill((255, 255, 255, 50))
             surface.blit(overlay, self.rect)
 
     def _get_preset_color(self) -> Tuple[int, int, int]:
