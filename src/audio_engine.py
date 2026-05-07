@@ -12,11 +12,11 @@ class AudioEngine:
         self.sample_rate = sample_rate
         self.block_size = block_size
         self.running = False
-        
+
         # Audio buffers
         self.audio_buffer = deque(maxlen=sample_rate)  # 1 second buffer
         self.lock = threading.Lock()
-        
+
         # Analysis data
         self.frequency_data = np.zeros(512)
         self.waveform_data = np.zeros(block_size)
@@ -24,6 +24,10 @@ class AudioEngine:
         self.bass = 0.0
         self.mid = 0.0
         self.treble = 0.0
+
+        # Debug
+        self.frame_count = 0
+        self.has_audio = False
 
     def audio_callback(self, indata, frames, time_info, status):
         """Callback for audio stream"""
@@ -39,13 +43,14 @@ class AudioEngine:
         """Analyze audio data for visualization"""
         if len(self.audio_buffer) < self.block_size:
             return
-        
+
         # Get latest audio block
         audio_data = np.array(list(self.audio_buffer)[-self.block_size:])
         self.waveform_data = audio_data
-        
-        # Calculate amplitude (RMS)
-        self.amplitude = float(np.sqrt(np.mean(audio_data ** 2)))
+
+        # Calculate amplitude (RMS) - boost sensitivity
+        raw_amplitude = float(np.sqrt(np.mean(audio_data ** 2)))
+        self.amplitude = min(raw_amplitude * 5.0, 1.0)  # Boost and clamp
         
         # FFT for frequency analysis
         fft = np.fft.fft(audio_data * windows.hann(len(audio_data)))
@@ -60,14 +65,27 @@ class AudioEngine:
         else:
             self.frequency_data = magnitude
         
-        # Normalize
+        # Normalize and boost
         if np.max(self.frequency_data) > 0:
             self.frequency_data = self.frequency_data / np.max(self.frequency_data)
+        # Boost sensitivity
+        self.frequency_data = np.power(self.frequency_data, 0.5) * 2.0
         
         # Extract frequency bands
         self.bass = np.mean(self.frequency_data[:50])
         self.mid = np.mean(self.frequency_data[50:200])
         self.treble = np.mean(self.frequency_data[200:])
+
+        # Debug logging
+        self.frame_count += 1
+        if self.frame_count % 30 == 0:  # Log every 30 frames (~0.7s at 44.1kHz)
+            max_val = np.max(np.abs(audio_data))
+            if max_val > 0.01:
+                self.has_audio = True
+            if not self.has_audio:
+                print(f"⚠ No audio detected - max level: {max_val:.6f}, amplitude: {self.amplitude:.3f}")
+            else:
+                print(f"✓ Audio: amp={self.amplitude:.2f}, bass={self.bass:.2f}, mid={self.mid:.2f}, treble={self.treble:.2f}")
 
     def start_capture(self):
         """Start audio capture from microphone"""
