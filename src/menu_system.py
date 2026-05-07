@@ -24,11 +24,11 @@ class PresetMenu:
         self.category_header_color = (80, 120, 200)
 
         # Grid layout
-        self.card_width = 100
-        self.card_height = 70
-        self.padding = 8
+        self.card_width = 120
+        self.card_height = 90
+        self.padding = 10
         self.margin = 20
-        self.category_height = 25
+        self.category_height = 30
 
         # Calculate grid dimensions
         self.cols = max(1, (width - 2 * self.margin) // (self.card_width + self.padding))
@@ -230,42 +230,24 @@ class PresetMenu:
 
     def _draw_preview(self, surface, x, y, preset_idx):
         """Draw a visual preview rectangle for the preset"""
-        preview_width = self.card_width - 4
-        preview_height = 35
+        # Draw a large, obvious preview block
+        preview_rect = pygame.Rect(x + 1, y + 1, self.card_width - 2, self.card_height - 12)
 
-        # Get theme-based color
+        # Get theme-based color and brighten it for visibility
         color = self._get_preview_color(preset_idx)
+        bright_color = tuple(min(255, int(c * 1.5)) for c in color)
 
-        # Draw main colored preview rectangle with border
-        pygame.draw.rect(surface, color, (x + 2, y + 2, preview_width, preview_height))
-        pygame.draw.rect(surface, self.text_color, (x + 2, y + 2, preview_width, preview_height), 1)
-
-        # Draw pattern based on shader type
-        shader = self.presets[preset_idx].get('shader', '')
-        pattern_color = tuple(min(255, c + 60) for c in color)
-
-        # Draw horizontal gradient/pattern lines
-        for i in range(0, preview_height, 4):
-            intensity = int((i / preview_height) * 100)
-            line_color = tuple(min(255, c + intensity // 3) for c in color)
-            pygame.draw.line(surface, line_color, (x + 5, y + 2 + i), (x + preview_width - 3, y + 2 + i), 1)
+        # Draw solid colored preview with bright border
+        pygame.draw.rect(surface, bright_color, preview_rect)
+        pygame.draw.rect(surface, (255, 255, 255), preview_rect, 2)  # White border for visibility
 
     def render(self, surface):
         """Render the menu overlay organized by theme"""
         if not self.visible:
             return
 
-        # Initialize fonts on first render (deferred to avoid circular imports)
-        if not self._fonts_initialized:
-            self._fonts_initialized = True
-            try:
-                # Import freetype lazily to avoid circular import at module level
-                from pygame import freetype
-                self.font_name = freetype.Font(None, 10)
-                self.font_category = freetype.Font(None, 12)
-            except Exception as e:
-                self.font_name = None
-                self.font_category = None
+        # Note: Font rendering disabled due to pygame circular import issues in Python 3.14
+        # Menu uses color-coded visual previews instead
 
         # Create a surface for the menu with alpha support
         menu_surface = pygame.Surface((self.width, self.height), pygame.SRCALPHA)
@@ -285,14 +267,10 @@ class PresetMenu:
 
             if header_y > self.margin and header_y < self.height - self.margin:
                 pygame.draw.rect(menu_surface, self.category_header_color, (self.margin, header_y, self.width - 2 * self.margin, self.category_height))
-                # Theme label (visual indicator with colored bar)
+                # Theme label (visual indicator with colored bar that spans width)
                 color = self._get_preview_color(next((idx for idx, (_, p) in enumerate(theme_presets) if p.get('theme') == theme), 0))
-                pygame.draw.rect(menu_surface, color, (self.margin + 5, header_y + 5, 10, self.category_height - 10))
-
-                # Draw category name
-                if self.font_category:
-                    name_surface, _ = self.font_category.render(theme, self.text_color)
-                    menu_surface.blit(name_surface, (self.margin + 20, header_y + 4))
+                bright_color = tuple(min(255, int(c * 1.5)) for c in color)
+                pygame.draw.rect(menu_surface, bright_color, (self.margin + 5, header_y + 5, self.width - 2 * self.margin - 10, self.category_height - 10))
 
             y_offset += self.category_height
 
@@ -322,17 +300,6 @@ class PresetMenu:
 
                 # Draw preview color bar
                 self._draw_preview(menu_surface, x, y, preset_idx)
-
-                # Draw preset name
-                if self.font_name:
-                    preset_name = preset.get('name', 'Preset')
-                    # Truncate name if too long
-                    if len(preset_name) > 10:
-                        preset_name = preset_name[:9] + '.'
-                    name_surface, name_rect = self.font_name.render(preset_name, self.text_color)
-                    # Center text below preview
-                    name_x = x + (self.card_width - name_rect.width) // 2
-                    menu_surface.blit(name_surface, (name_x, y + 40))
 
             # Space between categories
             rows = math.ceil(len(theme_presets) / self.cols)
