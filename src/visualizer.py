@@ -32,14 +32,20 @@ class Visualizer:
         self.time = 0.0
 
     def load_shaders(self):
-        """Load all shader presets"""
+        """Load all shader presets including themed shaders"""
         shader_dir = os.path.join(os.path.dirname(__file__), 'shaders')
         for preset in self.presets:
             shader_file = os.path.join(shader_dir, preset['shader'] + '.glsl')
+
             if os.path.exists(shader_file):
-                with open(shader_file, 'r') as f:
-                    fragment_shader = f.read()
-                self.shader_manager.add_shader(preset['name'], fragment_shader)
+                try:
+                    with open(shader_file, 'r') as f:
+                        fragment_shader = f.read()
+                    self.shader_manager.add_shader(preset['name'], fragment_shader)
+                except Exception as e:
+                    print(f"Warning: Could not load shader for {preset['name']}: {e}")
+            else:
+                print(f"Warning: Shader file not found: {shader_file}")
 
     def setup_quad(self):
         """Setup fullscreen quad for rendering"""
