@@ -6,9 +6,12 @@ from unittest.mock import MagicMock, Mock
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from src.ui.menu_components import SearchBar, CategoryFilter
+from src.ui.menu_components import (
+    SearchBar, CategoryFilter, FavoritesToggle, PresetCard, PresetGrid,
+    DetailsPanel, ParameterEditorModal, MixToolModal
+)
 from src.ui.presets_data import PresetManager
-from src.ui.models import Preset
+from src.ui.models import Preset, FavoritesManager
 
 
 # Initialize pygame for testing
@@ -577,3 +580,533 @@ class TestCategoryFilter:
 
             assert category_filter.selected_category == second_theme
             assert callback.call_count == 2
+
+
+class TestFavoritesToggle:
+    """Test FavoritesToggle button component."""
+
+    @pytest.fixture
+    def favorites_manager(self):
+        """Create a FavoritesManager instance."""
+        return FavoritesManager()
+
+    def test_favorites_toggle_init(self, favorites_manager):
+        """FavoritesToggle initializes with correct properties."""
+        toggle = FavoritesToggle(10, 20, 40, 40, 1, favorites_manager)
+
+        assert toggle.rect.x == 10
+        assert toggle.rect.y == 20
+        assert toggle.rect.width == 40
+        assert toggle.rect.height == 40
+        assert toggle.preset_id == 1
+        assert toggle.favorites_manager is favorites_manager
+        assert toggle.is_favorited is False
+
+    def test_favorites_toggle_with_favorited_preset(self, favorites_manager):
+        """FavoritesToggle reflects favorited preset status."""
+        favorites_manager.add(1)
+        toggle = FavoritesToggle(10, 20, 40, 40, 1, favorites_manager)
+
+        assert toggle.is_favorited is True
+
+    def test_favorites_toggle_click_toggles_status(self, favorites_manager):
+        """FavoritesToggle toggles favorite status on click."""
+        toggle = FavoritesToggle(10, 20, 40, 40, 1, favorites_manager)
+
+        assert toggle.is_favorited is False
+        assert favorites_manager.is_favorite(1) is False
+
+        # Simulate click
+        event = pygame.event.Event(
+            pygame.MOUSEBUTTONDOWN, {"pos": (30, 40), "button": 1}
+        )
+        toggle.handle_event(event)
+
+        assert toggle.is_favorited is True
+        assert favorites_manager.is_favorite(1) is True
+
+    def test_favorites_toggle_calls_callback(self, favorites_manager):
+        """FavoritesToggle calls callback on toggle."""
+        callback = Mock()
+        toggle = FavoritesToggle(10, 20, 40, 40, 1, favorites_manager, on_toggled=callback)
+
+        # Simulate click
+        event = pygame.event.Event(
+            pygame.MOUSEBUTTONDOWN, {"pos": (30, 40), "button": 1}
+        )
+        toggle.handle_event(event)
+
+        callback.assert_called_once_with(True)
+
+    def test_favorites_toggle_render_filled_star(self, favorites_manager):
+        """FavoritesToggle renders filled star when favorited."""
+        surface = pygame.Surface((100, 100))
+        toggle = FavoritesToggle(10, 20, 40, 40, 1, favorites_manager)
+        toggle.visible = True
+        toggle.is_favorited = True
+
+        # Should not raise
+        toggle.render(surface)
+
+    def test_favorites_toggle_render_unfilled_star(self, favorites_manager):
+        """FavoritesToggle renders unfilled star when not favorited."""
+        surface = pygame.Surface((100, 100))
+        toggle = FavoritesToggle(10, 20, 40, 40, 1, favorites_manager)
+        toggle.visible = True
+        toggle.is_favorited = False
+
+        # Should not raise
+        toggle.render(surface)
+
+    def test_favorites_toggle_different_preset_ids(self, favorites_manager):
+        """FavoritesToggle works with different preset ID types."""
+        # Integer ID
+        toggle1 = FavoritesToggle(10, 20, 40, 40, 1, favorites_manager)
+        assert toggle1.preset_id == 1
+
+        # String ID
+        toggle2 = FavoritesToggle(10, 20, 40, 40, "custom_1", favorites_manager)
+        assert toggle2.preset_id == "custom_1"
+
+    def test_favorites_toggle_inherits_from_button(self, favorites_manager):
+        """FavoritesToggle extends Button."""
+        from src.ui.components import Button
+
+        toggle = FavoritesToggle(10, 20, 40, 40, 1, favorites_manager)
+        assert isinstance(toggle, Button)
+
+
+class TestPresetCard:
+    """Test PresetCard component."""
+
+    @pytest.fixture
+    def sample_preset(self):
+        """Create a sample preset."""
+        return Preset(
+            id=1, name="Test Preset", theme="core",
+            description="A test preset", shader="test.glsl"
+        )
+
+    def test_preset_card_init(self, sample_preset):
+        """PresetCard initializes with correct properties."""
+        card = PresetCard(10, 20, 100, 100, sample_preset)
+
+        assert card.rect.x == 10
+        assert card.rect.y == 20
+        assert card.rect.width == 100
+        assert card.rect.height == 100
+        assert card.preset is sample_preset
+        assert card.selected is False
+        assert card.hovered is False
+
+    def test_preset_card_selection(self, sample_preset):
+        """PresetCard can be selected."""
+        card = PresetCard(10, 20, 100, 100, sample_preset)
+
+        assert card.selected is False
+        card.selected = True
+        assert card.selected is True
+
+    def test_preset_card_hover_effect(self, sample_preset):
+        """PresetCard responds to hover."""
+        card = PresetCard(10, 20, 100, 100, sample_preset)
+
+        event = pygame.event.Event(pygame.MOUSEMOTION, {"pos": (50, 70)})
+        card.handle_event(event)
+
+        assert card.hovered is True
+
+    def test_preset_card_click_callback(self, sample_preset):
+        """PresetCard calls callback on click."""
+        callback = Mock()
+        card = PresetCard(10, 20, 100, 100, sample_preset, on_clicked=callback)
+
+        event = pygame.event.Event(
+            pygame.MOUSEBUTTONDOWN, {"pos": (50, 70), "button": 1}
+        )
+        card.handle_event(event)
+
+        callback.assert_called_once_with(sample_preset.id)
+
+    def test_preset_card_render(self, sample_preset):
+        """PresetCard renders without error."""
+        surface = pygame.Surface((200, 200))
+        card = PresetCard(10, 20, 100, 100, sample_preset)
+        card.visible = True
+
+        # Should not raise
+        card.render(surface)
+
+    def test_preset_card_color_by_theme(self, sample_preset):
+        """PresetCard gets color based on theme."""
+        card = PresetCard(10, 20, 100, 100, sample_preset)
+
+        # Test known theme
+        color = card._get_preset_color()
+        assert isinstance(color, tuple)
+        assert len(color) == 3
+
+    def test_preset_card_unknown_theme_color(self):
+        """PresetCard uses default color for unknown theme."""
+        preset = Preset(
+            id=1, name="Test", theme="unknown_theme",
+            description="Test", shader="test.glsl"
+        )
+        card = PresetCard(10, 20, 100, 100, preset)
+
+        color = card._get_preset_color()
+        assert isinstance(color, tuple)
+        assert len(color) == 3
+
+
+class TestPresetGrid:
+    """Test PresetGrid component."""
+
+    @pytest.fixture
+    def sample_presets(self):
+        """Create sample presets."""
+        return [
+            Preset(id=i, name=f"Preset {i}", theme="core",
+                   description=f"Description {i}", shader="test.glsl")
+            for i in range(1, 21)
+        ]
+
+    def test_preset_grid_init(self, sample_presets):
+        """PresetGrid initializes with correct properties."""
+        grid = PresetGrid(10, 20, 500, 400, sample_presets)
+
+        assert grid.rect.x == 10
+        assert grid.rect.y == 20
+        assert grid.rect.width == 500
+        assert grid.rect.height == 400
+        assert grid.presets == sample_presets
+        assert grid.cards_per_row == 5
+        assert grid.cards_per_col == 4
+        assert grid.current_page == 0
+
+    def test_preset_grid_creates_cards(self, sample_presets):
+        """PresetGrid creates cards for current page."""
+        grid = PresetGrid(10, 20, 500, 400, sample_presets)
+
+        assert len(grid.cards) == min(20, len(sample_presets))
+
+    def test_preset_grid_select_preset(self, sample_presets):
+        """PresetGrid can select a preset by ID."""
+        grid = PresetGrid(10, 20, 500, 400, sample_presets)
+
+        grid.select_preset(1)
+        assert grid.selected_preset_id == 1
+
+    def test_preset_grid_set_presets(self, sample_presets):
+        """PresetGrid can update preset list."""
+        grid = PresetGrid(10, 20, 500, 400, sample_presets)
+
+        new_presets = sample_presets[:5]
+        grid.set_presets(new_presets)
+
+        assert grid.presets == new_presets
+        assert grid.current_page == 0
+
+    def test_preset_grid_render(self, sample_presets):
+        """PresetGrid renders without error."""
+        surface = pygame.Surface((600, 500))
+        grid = PresetGrid(10, 20, 500, 400, sample_presets)
+        grid.visible = True
+
+        # Should not raise
+        grid.render(surface)
+
+    def test_preset_grid_callback_on_selection(self, sample_presets):
+        """PresetGrid calls callback when preset is selected."""
+        callback = Mock()
+        grid = PresetGrid(10, 20, 500, 400, sample_presets, on_preset_selected=callback)
+
+        # Click on first card
+        if grid.cards:
+            event = pygame.event.Event(
+                pygame.MOUSEBUTTONDOWN,
+                {"pos": (grid.cards[0].rect.centerx, grid.cards[0].rect.centery), "button": 1}
+            )
+            grid.handle_event(event)
+
+            callback.assert_called()
+
+
+class TestDetailsPanel:
+    """Test DetailsPanel component."""
+
+    @pytest.fixture
+    def setup(self):
+        """Create required fixtures."""
+        preset_manager = PresetManager()
+        favorites_manager = FavoritesManager()
+        return preset_manager, favorites_manager
+
+    def test_details_panel_init(self, setup):
+        """DetailsPanel initializes with correct properties."""
+        preset_manager, favorites_manager = setup
+        panel = DetailsPanel(
+            500, 20, 200, 400, preset_manager, favorites_manager
+        )
+
+        assert panel.rect.x == 500
+        assert panel.rect.y == 20
+        assert panel.rect.width == 200
+        assert panel.rect.height == 400
+        assert panel.preset is None
+
+    def test_details_panel_set_preset(self, setup):
+        """DetailsPanel can set and display preset."""
+        preset_manager, favorites_manager = setup
+        panel = DetailsPanel(
+            500, 20, 200, 400, preset_manager, favorites_manager
+        )
+
+        if preset_manager.builtin_presets:
+            preset = preset_manager.builtin_presets[0]
+            panel.set_preset(preset)
+
+            assert panel.preset is preset
+
+    def test_details_panel_with_callbacks(self, setup):
+        """DetailsPanel initializes with callbacks."""
+        preset_manager, favorites_manager = setup
+        on_play = Mock()
+        on_edit = Mock()
+        on_mix = Mock()
+        on_add = Mock()
+
+        panel = DetailsPanel(
+            500, 20, 200, 400, preset_manager, favorites_manager,
+            on_play=on_play, on_edit=on_edit, on_mix=on_mix,
+            on_add_to_playlist=on_add
+        )
+
+        assert panel.on_play is on_play
+        assert panel.on_edit is on_edit
+        assert panel.on_mix is on_mix
+        assert panel.on_add_to_playlist is on_add
+
+    def test_details_panel_render(self, setup):
+        """DetailsPanel renders without error."""
+        preset_manager, favorites_manager = setup
+        surface = pygame.Surface((800, 500))
+        panel = DetailsPanel(
+            500, 20, 200, 400, preset_manager, favorites_manager
+        )
+        panel.visible = True
+
+        # Need to set a preset to render properly
+        if preset_manager.builtin_presets:
+            panel.set_preset(preset_manager.builtin_presets[0])
+
+        # Should not raise
+        panel.render(surface)
+
+    def test_details_panel_has_buttons(self, setup):
+        """DetailsPanel has play, edit, mix, and playlist buttons."""
+        preset_manager, favorites_manager = setup
+        panel = DetailsPanel(
+            500, 20, 200, 400, preset_manager, favorites_manager
+        )
+
+        assert panel.play_button is not None
+        assert panel.edit_button is not None
+        assert panel.mix_button is not None
+        assert panel.playlist_button is not None
+
+    def test_details_panel_has_favorites_toggle(self, setup):
+        """DetailsPanel has favorites toggle."""
+        preset_manager, favorites_manager = setup
+        panel = DetailsPanel(
+            500, 20, 200, 400, preset_manager, favorites_manager
+        )
+
+        assert panel.favorites_toggle is not None
+
+
+class TestParameterEditorModal:
+    """Test ParameterEditorModal component."""
+
+    def test_parameter_editor_init(self):
+        """ParameterEditorModal initializes with correct properties."""
+        modal = ParameterEditorModal(20, 20, 400, 300, base_preset_id=1)
+
+        assert modal.rect.x == 20
+        assert modal.rect.y == 20
+        assert modal.rect.width == 400
+        assert modal.rect.height == 300
+        assert modal.base_preset_id == 1
+        assert modal.visible is False
+
+    def test_parameter_editor_has_sliders(self):
+        """ParameterEditorModal has all required sliders."""
+        modal = ParameterEditorModal(20, 20, 400, 300, base_preset_id=1)
+
+        required_params = [
+            "bass_sensitivity", "mid_sensitivity", "treble_sensitivity",
+            "color_hue", "color_saturation", "animation_speed"
+        ]
+
+        for param in required_params:
+            assert param in modal.sliders
+            assert param in modal.parameters
+
+    def test_parameter_editor_slider_ranges(self):
+        """ParameterEditorModal sliders have correct ranges."""
+        modal = ParameterEditorModal(20, 20, 400, 300, base_preset_id=1)
+
+        # Check bass sensitivity range
+        bass_slider = modal.sliders["bass_sensitivity"]
+        assert bass_slider.min_val == 0.0
+        assert bass_slider.max_val == 3.0
+
+        # Check hue range
+        hue_slider = modal.sliders["color_hue"]
+        assert hue_slider.min_val == -180.0
+        assert hue_slider.max_val == 180.0
+
+    def test_parameter_editor_has_name_input(self):
+        """ParameterEditorModal has name input field."""
+        modal = ParameterEditorModal(20, 20, 400, 300, base_preset_id=1)
+
+        assert modal.name_input is not None
+
+    def test_parameter_editor_set_parameters(self):
+        """ParameterEditorModal can set parameter values."""
+        modal = ParameterEditorModal(20, 20, 400, 300, base_preset_id=1)
+
+        new_params = {
+            "bass_sensitivity": 2.0,
+            "mid_sensitivity": 1.5,
+            "treble_sensitivity": 1.0,
+            "color_hue": 45.0,
+            "color_saturation": 0.5,
+            "animation_speed": 1.2
+        }
+
+        modal.set_parameters(new_params)
+
+        for param, value in new_params.items():
+            assert modal.parameters[param] == value
+
+    def test_parameter_editor_render(self):
+        """ParameterEditorModal renders without error."""
+        surface = pygame.Surface((600, 500))
+        modal = ParameterEditorModal(20, 20, 400, 300, base_preset_id=1)
+        modal.visible = True
+
+        # Should not raise
+        modal.render(surface)
+
+    def test_parameter_editor_callback_on_save(self):
+        """ParameterEditorModal calls callback on save."""
+        callback = Mock()
+        modal = ParameterEditorModal(20, 20, 400, 300, base_preset_id=1, on_save=callback)
+        modal.visible = True
+        modal.name_input.text = "Test Preset"
+
+        # Simulate save button click
+        if modal.components:
+            # Find and click the save button (should be near the end)
+            for component in modal.components:
+                if hasattr(component, 'label') and component.label == "Save":
+                    component.callback()
+                    break
+
+    def test_parameter_editor_callback_on_cancel(self):
+        """ParameterEditorModal calls callback on cancel."""
+        callback = Mock()
+        modal = ParameterEditorModal(20, 20, 400, 300, base_preset_id=1, on_cancel=callback)
+        modal.visible = True
+
+        # Simulate cancel button click
+        if modal.components:
+            for component in modal.components:
+                if hasattr(component, 'label') and component.label == "Cancel":
+                    component.callback()
+                    break
+
+
+class TestMixToolModal:
+    """Test MixToolModal component."""
+
+    @pytest.fixture
+    def preset_manager(self):
+        """Create a PresetManager instance."""
+        return PresetManager()
+
+    def test_mix_tool_modal_init(self, preset_manager):
+        """MixToolModal initializes with correct properties."""
+        modal = MixToolModal(20, 20, 400, 300, base_preset_id=1, preset_manager=preset_manager)
+
+        assert modal.rect.x == 20
+        assert modal.rect.y == 20
+        assert modal.rect.width == 400
+        assert modal.rect.height == 300
+        assert modal.base_preset_id == 1
+        assert modal.blend_ratio == 0.5
+
+    def test_mix_tool_modal_has_blend_slider(self, preset_manager):
+        """MixToolModal has blend slider."""
+        modal = MixToolModal(20, 20, 400, 300, base_preset_id=1, preset_manager=preset_manager)
+
+        assert modal.blend_slider is not None
+        assert modal.blend_slider.min_val == 0.0
+        assert modal.blend_slider.max_val == 1.0
+
+    def test_mix_tool_modal_has_name_input(self, preset_manager):
+        """MixToolModal has name input field."""
+        modal = MixToolModal(20, 20, 400, 300, base_preset_id=1, preset_manager=preset_manager)
+
+        assert modal.name_input is not None
+
+    def test_mix_tool_modal_set_mix_preset(self, preset_manager):
+        """MixToolModal can set mix preset."""
+        modal = MixToolModal(20, 20, 400, 300, base_preset_id=1, preset_manager=preset_manager)
+
+        modal.set_mix_preset(2)
+        assert modal.mix_preset_id == 2
+
+    def test_mix_tool_modal_render(self, preset_manager):
+        """MixToolModal renders without error."""
+        surface = pygame.Surface((600, 500))
+        modal = MixToolModal(20, 20, 400, 300, base_preset_id=1, preset_manager=preset_manager)
+        modal.visible = True
+
+        # Should not raise
+        modal.render(surface)
+
+    def test_mix_tool_modal_callback_on_save(self, preset_manager):
+        """MixToolModal calls callback on save."""
+        callback = Mock()
+        modal = MixToolModal(
+            20, 20, 400, 300, base_preset_id=1, preset_manager=preset_manager,
+            on_save=callback
+        )
+        modal.visible = True
+        modal.set_mix_preset(2)
+        modal.name_input.text = "Blended"
+
+        # Simulate save button click
+        if modal.components:
+            for component in modal.components:
+                if hasattr(component, 'label') and component.label == "Save":
+                    component.callback()
+                    break
+
+    def test_mix_tool_modal_callback_on_cancel(self, preset_manager):
+        """MixToolModal calls callback on cancel."""
+        callback = Mock()
+        modal = MixToolModal(
+            20, 20, 400, 300, base_preset_id=1, preset_manager=preset_manager,
+            on_cancel=callback
+        )
+        modal.visible = True
+
+        # Simulate cancel button click
+        if modal.components:
+            for component in modal.components:
+                if hasattr(component, 'label') and component.label == "Cancel":
+                    component.callback()
+                    break

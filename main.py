@@ -11,31 +11,46 @@ import sounddevice as sd
 from scipy import signal
 import threading
 import time
+import logging
 
 from src.audio_engine import AudioEngine
 from src.visualizer import Visualizer
-from src.menu_system import PresetMenu
+from src.ui.menu_system import MenuSystem
+from src.ui.presets_data import PresetManager
+from src.ui.models import FavoritesManager
 from src.playlist_manager import PlaylistManager
+
+logger = logging.getLogger(__name__)
 
 class AudioVisualizerApp:
     def __init__(self, width=1280, height=720):
         self.width = width
         self.height = height
         self.running = True
-        
+
         # Initialize Pygame and OpenGL
         pygame.init()
         pygame.display.set_mode((width, height), pygame.DOUBLEBUF | pygame.OPENGL)
         pygame.display.set_caption("Audio Visualizer")
-        
+
         # Audio engine
         self.audio_engine = AudioEngine()
-        
+
         # Visualizer
         self.visualizer = Visualizer(width, height)
 
+        # Preset and Favorites managers
+        self.preset_manager = PresetManager()
+        self.favorites_manager = FavoritesManager()
+
         # Menu system
-        self.menu = PresetMenu(self.visualizer.presets, width, height)
+        self.menu = MenuSystem(
+            x=10, y=10, width=width-20, height=height-20,
+            preset_manager=self.preset_manager,
+            favorites_manager=self.favorites_manager,
+            on_preset_selected=self._on_preset_selected,
+            on_custom_preset_saved=self._on_custom_preset_saved
+        )
 
         # Playlist manager
         self.playlist_manager = PlaylistManager()
@@ -44,41 +59,47 @@ class AudioVisualizerApp:
         # FPS clock
         self.clock = pygame.time.Clock()
         self.fps = 60
-        
+
         # Start audio capture in background thread
         self.audio_thread = threading.Thread(target=self.audio_engine.start_capture, daemon=True)
         self.audio_thread.start()
 
     def handle_events(self):
+        """Handle all input events."""
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                self.running = False
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    if self.menu.visible:
-                        self.menu.toggle()
-                    else:
-                        self.running = False
-                elif event.key == pygame.K_m:
-                    self.menu.toggle()
-                elif not self.menu.visible:
-                    # Only handle preset navigation if menu is closed
-                    if event.key == pygame.K_SPACE:
-                        # If playlist is active, cycle through playlist presets
-                        if self.playlist_manager.current_playlist:
-                            self._next_playlist_preset()
+            try:
+                if event.type == pygame.QUIT:
+                    self.running = False
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        if self.menu.visible:
+                            self.menu.toggle()
                         else:
+                            self.running = False
+                    elif event.key == pygame.K_m:
+                        self.menu.toggle()
+                    elif not self.menu.visible:
+                        # Only handle preset navigation if menu is closed
+                        if event.key == pygame.K_SPACE:
+                            # If playlist is active, cycle through playlist presets
+                            if self.playlist_manager.current_playlist:
+                                self._next_playlist_preset()
+                            else:
+                                self.visualizer.next_preset()
+                        elif event.key == pygame.K_LEFT:
+                            self.visualizer.prev_preset()
+                        elif event.key == pygame.K_RIGHT:
                             self.visualizer.next_preset()
-                    elif event.key == pygame.K_LEFT:
-                        self.visualizer.prev_preset()
+                        elif event.key == pygame.K_PAGEUP:
+                            self.visualizer.prev_preset()
+                        elif event.key == pygame.K_PAGEDOWN:
+                            self.visualizer.next_preset()
 
-            # Handle menu events when menu is visible
-            if self.menu.visible:
-                selected = self.menu.handle_event(event)
-                if selected is not None:
-                    self.visualizer.current_preset_idx = selected
-                    print(f"Preset: {self.visualizer.presets[selected]['name']}")
-                    self.menu.toggle()
+                # Handle menu events
+                self.menu.handle_event(event)
+
+            except Exception as e:
+                logger.error(f"Error handling event: {e}")
 
     def update(self):
         # Get audio analysis data
@@ -100,6 +121,34 @@ class AudioVisualizerApp:
 
         # Swap buffers
         pygame.display.flip()
+
+    def _on_preset_selected(self, preset_id: int) -> None:
+        """Handle preset selection from menu.
+
+        Args:
+            preset_id: ID of the selected preset
+        """
+        try:
+            # Find preset by ID
+            for i, preset in enumerate(self.preset_manager.builtin_presets):
+                if preset.id == preset_id:
+                    self.visualizer.current_preset_idx = i
+                    logger.info(f"Preset selected: {preset.name}")
+                    break
+        except Exception as e:
+            logger.error(f"Error selecting preset: {e}")
+
+    def _on_custom_preset_saved(self, custom_preset) -> None:
+        """Handle custom preset creation.
+
+        Args:
+            custom_preset: The newly created CustomPreset object
+        """
+        try:
+            logger.info(f"Custom preset saved: {custom_preset.name}")
+            # Could update visualizer to use the custom preset
+        except Exception as e:
+            logger.error(f"Error saving custom preset: {e}")
 
     def _render_menu_overlay(self):
         """Render 2D menu overlay on top of OpenGL content"""
