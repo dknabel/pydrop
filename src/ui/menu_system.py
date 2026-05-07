@@ -198,7 +198,6 @@ class MenuSystem(UIComponent):
                 )
                 surface.blit(category_surf, (self.rect.x + self.rect.width - 160, search_label_y - 25))
             except Exception as e:
-                logger.debug(f"MenuSystem labels rendering failed: {e}")
 
             # Render all components
             for component in self.components:
@@ -232,7 +231,6 @@ class MenuSystem(UIComponent):
                     else:
                         # Tab - go forwards
                         self.focused_component_idx = (self.focused_component_idx + 1) % len(self.components)
-                    logger.debug(f"Menu focus moved to component {self.focused_component_idx}")
                     return
 
                 # Arrow keys for preset grid navigation

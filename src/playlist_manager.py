@@ -32,9 +32,7 @@ class PlaylistManager:
 
                     if playlist_name:
                         self.playlists[playlist_name] = presets
-                        print(f"Loaded playlist: {playlist_name} ({len(presets)} presets)")
             except (json.JSONDecodeError, IOError) as e:
-                print(f"Error loading playlist {playlist_file.name}: {e}")
 
     def save_playlist(self, name: str, preset_names: List[str]) -> bool:
         """
@@ -48,7 +46,6 @@ class PlaylistManager:
             True if successful, False otherwise
         """
         if not name or not preset_names:
-            print("Error: Playlist name and presets are required")
             return False
 
         try:
@@ -66,10 +63,8 @@ class PlaylistManager:
 
             # Update in-memory dictionary
             self.playlists[name] = preset_names
-            print(f"Saved playlist: {name} ({len(preset_names)} presets)")
             return True
         except IOError as e:
-            print(f"Error saving playlist: {e}")
             return False
 
     def activate_playlist(self, name: str) -> bool:
@@ -83,17 +78,14 @@ class PlaylistManager:
             True if successful, False if playlist not found
         """
         if name not in self.playlists:
-            print(f"Playlist not found: {name}")
             return False
 
         self.current_playlist = name
-        print(f"Activated playlist: {name}")
         return True
 
     def deactivate_playlist(self) -> None:
         """Deactivate the current active playlist."""
         if self.current_playlist:
-            print(f"Deactivated playlist: {self.current_playlist}")
         self.current_playlist = None
 
     def get_current_presets(self) -> Optional[List[str]]:
@@ -118,7 +110,6 @@ class PlaylistManager:
             True if successful, False otherwise
         """
         if name not in self.playlists:
-            print(f"Playlist not found: {name}")
             return False
 
         try:
@@ -134,10 +125,8 @@ class PlaylistManager:
             if self.current_playlist == name:
                 self.current_playlist = None
 
-            print(f"Deleted playlist: {name}")
             return True
         except Exception as e:
-            print(f"Error deleting playlist: {e}")
             return False
 
     def list_playlists(self) -> List[str]:

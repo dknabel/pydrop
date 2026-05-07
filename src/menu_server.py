@@ -16,7 +16,6 @@ class MenuServer:
         """Start the web server in background"""
         self.server_thread = threading.Thread(target=self._run_server, daemon=True)
         self.server_thread.start()
-        print(f"Menu server started on http://localhost:{self.port}")
 
     def _run_server(self):
         """Run Flask server"""
@@ -86,7 +85,6 @@ def select_preset(preset_id):
     if 0 <= preset_id < len(visualizer.presets):
         visualizer.current_preset_idx = preset_id
         preset_name = visualizer.presets[preset_id].get('name', 'Unknown')
-        print(f"Preset: {preset_name}")
         return jsonify({'success': True, 'preset': preset_name})
 
     return jsonify({'error': 'Invalid preset ID'}), 400

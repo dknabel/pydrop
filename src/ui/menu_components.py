@@ -327,11 +327,9 @@ class CategoryFilter(UIComponent):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1 and hasattr(event, "pos"):
                     x, y = event.pos
-                    logger.debug(f"CategoryFilter click at {x}, {y}; button rect: {self.rect}")
 
                     if self.rect.collidepoint(x, y):
                         # Click on main button toggles dropdown
-                        logger.debug("CategoryFilter button clicked - toggling dropdown")
                         self.opened = not self.opened
                         self.dropdown_scroll = 0
                     elif self.opened:
@@ -549,7 +547,6 @@ class PresetCard(UIComponent):
             text_y = self.rect.y + (self.rect.height - text_rect.height) // 2
             surface.blit(text_surf, (text_x, text_y))
         except Exception as e:
-            logger.debug(f"Preset name rendering failed: {e}")
 
         # Apply hover brightness increase
         if self.hovered:
@@ -812,7 +809,6 @@ class PresetGrid(UIComponent):
                         # Highlight all cards
                         for card in self.cards:
                             card.selected = (card.preset.id == self.selected_preset_id)
-                        logger.debug(f"Grid selection moved to {self.selected_preset_id}")
 
         except Exception as e:
             logger.error(f"PresetGrid event handling failed: {e}")
@@ -964,7 +960,6 @@ class DetailsPanel(UIComponent):
             )
             surface.blit(desc_surf, (self.rect.x + 10, self.rect.y + 55))
         except Exception as e:
-            logger.debug(f"DetailsPanel text rendering failed: {e}")
 
         # Draw preset details components (buttons)
         for component in self.components:

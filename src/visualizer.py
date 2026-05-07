@@ -43,9 +43,7 @@ class Visualizer:
                         fragment_shader = f.read()
                     self.shader_manager.add_shader(preset['name'], fragment_shader)
                 except Exception as e:
-                    print(f"Warning: Could not load shader for {preset['name']}: {e}")
             else:
-                print(f"Warning: Shader file not found: {shader_file}")
 
     def setup_quad(self):
         """Setup fullscreen quad for rendering"""
@@ -88,7 +86,6 @@ class Visualizer:
             preset = self.presets[self.current_preset_idx]
             shader = self.shader_manager.get_shader(preset['name'])
             if shader is not None and shader.program is not None:
-                print(f"Preset: {preset['name']}")
                 break
             attempts += 1
 
@@ -100,7 +97,6 @@ class Visualizer:
             preset = self.presets[self.current_preset_idx]
             shader = self.shader_manager.get_shader(preset['name'])
             if shader is not None and shader.program is not None:
-                print(f"Preset: {preset['name']}")
                 break
             attempts += 1
 

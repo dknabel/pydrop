@@ -118,7 +118,6 @@ class Button(UIComponent):
             text_y = self.rect.centery - text_rect.height // 2
             surface.blit(text_surf, (text_x, text_y))
         except Exception as e:
-            logger.debug(f"Button label rendering failed: {e}")
 
     def handle_event(self, event: pygame.event.Event) -> None:
         """Handle mouse events.
@@ -331,7 +330,6 @@ class TextInput(UIComponent):
             text_y = self.rect.centery - text_rect.height // 2
             surface.blit(text_surf, (text_x, text_y))
         except Exception as e:
-            logger.debug(f"Text rendering failed: {e}")
 
     def handle_event(self, event: pygame.event.Event) -> None:
         """Handle mouse and keyboard events.

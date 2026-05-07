@@ -32,13 +32,6 @@ class AudioEngine:
         self.mid = 0.0
         self.treble = 0.0
 
-        # Debug
-        self.frame_count = 0
-        self.has_audio = False
-
-        print(f"Audio device: {sd.query_devices(device)['name']} (index {device})")
-        print(f"Sample rate: {self.actual_sample_rate} Hz")
-
     @staticmethod
     def _find_loopback_device():
         """Find the best loopback/system audio device available"""
@@ -50,17 +43,14 @@ class AudioEngine:
         for priority_name in priority_names:
             for i, device in enumerate(devices):
                 if device['max_input_channels'] > 0 and priority_name.lower() in device['name'].lower():
-                    print(f"Found loopback device: {device['name']}")
                     return i
 
         # Fallback: use first input device with stereo capability
         for i, device in enumerate(devices):
             if device['max_input_channels'] >= 2:
-                print(f"Using stereo input device: {device['name']}")
                 return i
 
         # Last resort: default device
-        print("Using default input device")
         return None
 
     @staticmethod
@@ -71,9 +61,6 @@ class AudioEngine:
 
     def audio_callback(self, indata, frames, time_info, status):
         """Callback for audio stream"""
-        if status:
-            print(f"Audio status: {status}")
-        
         # Add to buffer
         with self.lock:
             self.audio_buffer.extend(indata[:, 0])
@@ -116,17 +103,6 @@ class AudioEngine:
         self.mid = np.mean(self.frequency_data[50:200])
         self.treble = np.mean(self.frequency_data[200:])
 
-        # Debug logging
-        self.frame_count += 1
-        if self.frame_count % 30 == 0:  # Log every 30 frames (~0.7s at 44.1kHz)
-            max_val = np.max(np.abs(audio_data))
-            if max_val > 0.01:
-                self.has_audio = True
-            if not self.has_audio:
-                print(f"⚠ No audio detected - max level: {max_val:.6f}, amplitude: {self.amplitude:.3f}")
-            else:
-                print(f"✓ Audio: amp={self.amplitude:.2f}, bass={self.bass:.2f}, mid={self.mid:.2f}, treble={self.treble:.2f}")
-
     def start_capture(self):
         """Start audio capture from system audio loopback"""
         self.running = True
@@ -141,11 +117,10 @@ class AudioEngine:
                 latency='low'
             )
             self.stream.start()
-            print("Audio capture started")
             while self.running:
                 time.sleep(0.01)
         except Exception as e:
-            print(f"Audio capture error: {e}")
+            pass
         finally:
             self.running = False
             if self.stream is not None:

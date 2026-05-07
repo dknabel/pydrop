@@ -24,7 +24,6 @@ class Shader:
         glCompileShader(vertex)
         
         if not glGetShaderiv(vertex, GL_COMPILE_STATUS):
-            print(f"Vertex shader compile error: {glGetShaderInfoLog(vertex)}")
             return None
         
         fragment = glCreateShader(GL_FRAGMENT_SHADER)
@@ -32,7 +31,6 @@ class Shader:
         glCompileShader(fragment)
         
         if not glGetShaderiv(fragment, GL_COMPILE_STATUS):
-            print(f"Fragment shader compile error: {glGetShaderInfoLog(fragment)}")
             return None
         
         program = glCreateProgram()
@@ -41,7 +39,6 @@ class Shader:
         glLinkProgram(program)
         
         if not glGetProgramiv(program, GL_LINK_STATUS):
-            print(f"Program link error: {glGetProgramInfoLog(program)}")
             return None
         
         glDeleteShader(vertex)
