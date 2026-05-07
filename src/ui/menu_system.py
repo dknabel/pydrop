@@ -144,6 +144,9 @@ class MenuSystem(UIComponent):
             self.details_panel, self.parameter_editor_modal, self.mix_tool_modal
         ]
 
+        # Focus tracking for keyboard navigation
+        self.focused_component_idx = 0  # Start with search bar
+
     def toggle(self) -> None:
         """Toggle menu visibility.
 
@@ -195,14 +198,34 @@ class MenuSystem(UIComponent):
             return
 
         try:
-            # Log mouse events for debugging
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                logger.debug(f"MenuSystem received MOUSEBUTTONDOWN at {event.pos}")
-
             # Check for close key (Esc)
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     self.toggle()
+                    return
+
+                # Tab to navigate between components
+                elif event.key == pygame.K_TAB:
+                    if event.mod & pygame.KMOD_SHIFT:
+                        # Shift+Tab - go backwards
+                        self.focused_component_idx = (self.focused_component_idx - 1) % len(self.components)
+                    else:
+                        # Tab - go forwards
+                        self.focused_component_idx = (self.focused_component_idx + 1) % len(self.components)
+                    logger.debug(f"Menu focus moved to component {self.focused_component_idx}")
+                    return
+
+                # Arrow keys for preset grid navigation
+                elif event.key in (pygame.K_UP, pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT):
+                    # Route arrow keys to PresetGrid
+                    if self.preset_grid.visible:
+                        self.preset_grid.handle_event(event)
+                    return
+
+                # Enter to select preset from grid
+                elif event.key == pygame.K_RETURN:
+                    if self.preset_grid.visible and self.preset_grid.selected_preset_id is not None:
+                        self._on_preset_selected(self.preset_grid.selected_preset_id)
                     return
 
             # Pass events to all components

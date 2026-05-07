@@ -716,7 +716,7 @@ class PresetGrid(UIComponent):
             card.render(surface)
 
     def handle_event(self, event: pygame.event.Event) -> None:
-        """Handle events for grid interaction (selection, scrolling).
+        """Handle events for grid interaction (selection, scrolling, keyboard navigation).
 
         Args:
             event: pygame.event.Event to handle
@@ -738,6 +738,64 @@ class PresetGrid(UIComponent):
                     self.current_page = min(max_pages - 1, self.current_page + 1)
 
                 self.cards = self._create_cards()
+
+            elif event.type == pygame.KEYDOWN:
+                # Arrow key navigation
+                if self.selected_preset_id is None and self.presets:
+                    # Select first preset if none selected
+                    self.selected_preset_id = self.presets[0].id
+                    self.cards = self._create_cards()
+
+                # Find current position in grid
+                current_idx = None
+                cards_per_page = self.cards_per_row * self.cards_per_col
+                start_idx = self.current_page * cards_per_page
+
+                for i, card in enumerate(self.cards):
+                    if card.preset.id == self.selected_preset_id:
+                        current_idx = i
+                        break
+
+                if current_idx is not None:
+                    col = current_idx % self.cards_per_row
+                    row = current_idx // self.cards_per_row
+
+                    # Handle arrow keys
+                    if event.key == pygame.K_LEFT:
+                        if col > 0:
+                            col -= 1
+                    elif event.key == pygame.K_RIGHT:
+                        if col < self.cards_per_row - 1:
+                            col += 1
+                    elif event.key == pygame.K_UP:
+                        if row > 0:
+                            row -= 1
+                        elif self.current_page > 0:
+                            # Go to previous page
+                            self.current_page -= 1
+                            self.cards = self._create_cards()
+                            row = self.cards_per_col - 1  # Last row of previous page
+                    elif event.key == pygame.K_DOWN:
+                        cards_per_page = self.cards_per_row * self.cards_per_col
+                        max_pages = (len(self.presets) + cards_per_page - 1) // cards_per_page
+                        if row < self.cards_per_col - 1:
+                            row += 1
+                        elif self.current_page < max_pages - 1:
+                            # Go to next page
+                            self.current_page += 1
+                            self.cards = self._create_cards()
+                            row = 0  # First row of next page
+
+                    # Update selection
+                    new_idx = row * self.cards_per_row + col
+                    if new_idx < len(self.cards):
+                        new_card = self.cards[new_idx]
+                        self.selected_preset_id = new_card.preset.id
+                        new_card.selected = True
+                        # Highlight all cards
+                        for card in self.cards:
+                            card.selected = (card.preset.id == self.selected_preset_id)
+                        logger.debug(f"Grid selection moved to {self.selected_preset_id}")
 
         except Exception as e:
             logger.error(f"PresetGrid event handling failed: {e}")
