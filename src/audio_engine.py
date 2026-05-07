@@ -130,26 +130,36 @@ class AudioEngine:
     def start_capture(self):
         """Start audio capture from system audio loopback"""
         self.running = True
+        self.stream = None
         try:
-            with sd.InputStream(
+            self.stream = sd.InputStream(
                 device=self.device,
                 samplerate=self.actual_sample_rate,
                 blocksize=self.block_size,
                 channels=1,
                 callback=self.audio_callback,
                 latency='low'
-            ):
-                print("Audio capture started")
-                while self.running:
-                    time.sleep(0.01)
+            )
+            self.stream.start()
+            print("Audio capture started")
+            while self.running:
+                time.sleep(0.01)
         except Exception as e:
             print(f"Audio capture error: {e}")
         finally:
             self.running = False
+            if self.stream is not None:
+                try:
+                    self.stream.stop()
+                    self.stream.close()
+                except:
+                    pass
 
     def stop_capture(self):
         """Stop audio capture"""
         self.running = False
+        # Give stream time to close gracefully
+        time.sleep(0.1)
 
     def get_analysis(self):
         """Get current audio analysis data"""

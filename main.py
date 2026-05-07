@@ -192,6 +192,8 @@ class AudioVisualizerApp:
 
     def cleanup(self):
         self.audio_engine.stop_capture()
+        # Wait for audio thread to finish gracefully
+        self.audio_thread.join(timeout=1.0)
         pygame.quit()
 
 if __name__ == '__main__':
