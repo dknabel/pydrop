@@ -8,13 +8,20 @@ import threading
 import time
 
 class AudioEngine:
-    def __init__(self, sample_rate=44100, block_size=2048):
+    def __init__(self, sample_rate=44100, block_size=2048, device=None):
         self.sample_rate = sample_rate
         self.block_size = block_size
         self.running = False
 
+        # Find loopback device if not specified
+        if device is None:
+            device = self._find_loopback_device()
+
+        self.device = device
+        self.actual_sample_rate = self._get_device_sample_rate(device)
+
         # Audio buffers
-        self.audio_buffer = deque(maxlen=sample_rate)  # 1 second buffer
+        self.audio_buffer = deque(maxlen=self.actual_sample_rate)  # 1 second buffer
         self.lock = threading.Lock()
 
         # Analysis data
@@ -28,6 +35,39 @@ class AudioEngine:
         # Debug
         self.frame_count = 0
         self.has_audio = False
+
+        print(f"Audio device: {sd.query_devices(device)['name']} (index {device})")
+        print(f"Sample rate: {self.actual_sample_rate} Hz")
+
+    @staticmethod
+    def _find_loopback_device():
+        """Find the best loopback/system audio device available"""
+        devices = sd.query_devices()
+
+        # Priority order for loopback devices
+        priority_names = ['Chromium', 'loopback', 'stereo mix', 'monitor', 'cava', 'pulse']
+
+        for priority_name in priority_names:
+            for i, device in enumerate(devices):
+                if device['max_input_channels'] > 0 and priority_name.lower() in device['name'].lower():
+                    print(f"Found loopback device: {device['name']}")
+                    return i
+
+        # Fallback: use first input device with stereo capability
+        for i, device in enumerate(devices):
+            if device['max_input_channels'] >= 2:
+                print(f"Using stereo input device: {device['name']}")
+                return i
+
+        # Last resort: default device
+        print("Using default input device")
+        return None
+
+    @staticmethod
+    def _get_device_sample_rate(device):
+        """Get the actual sample rate for a device"""
+        dev_info = sd.query_devices(device)
+        return int(dev_info['default_samplerate'])
 
     def audio_callback(self, indata, frames, time_info, status):
         """Callback for audio stream"""
@@ -88,16 +128,18 @@ class AudioEngine:
                 print(f"✓ Audio: amp={self.amplitude:.2f}, bass={self.bass:.2f}, mid={self.mid:.2f}, treble={self.treble:.2f}")
 
     def start_capture(self):
-        """Start audio capture from microphone"""
+        """Start audio capture from system audio loopback"""
         self.running = True
         try:
             with sd.InputStream(
-                samplerate=self.sample_rate,
+                device=self.device,
+                samplerate=self.actual_sample_rate,
                 blocksize=self.block_size,
                 channels=1,
                 callback=self.audio_callback,
                 latency='low'
             ):
+                print("Audio capture started")
                 while self.running:
                     time.sleep(0.01)
         except Exception as e:
