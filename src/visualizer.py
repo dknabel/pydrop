@@ -81,25 +81,39 @@ class Visualizer:
         self.time += 0.016  # Assume 60 FPS
 
     def next_preset(self):
-        """Switch to next preset"""
-        self.current_preset_idx = (self.current_preset_idx + 1) % len(self.presets)
-        print(f"Preset: {self.presets[self.current_preset_idx]['name']}")
+        """Switch to next preset, skipping broken shaders"""
+        attempts = 0
+        while attempts < len(self.presets):
+            self.current_preset_idx = (self.current_preset_idx + 1) % len(self.presets)
+            preset = self.presets[self.current_preset_idx]
+            shader = self.shader_manager.get_shader(preset['name'])
+            if shader is not None and shader.program is not None:
+                print(f"Preset: {preset['name']}")
+                break
+            attempts += 1
 
     def prev_preset(self):
-        """Switch to previous preset"""
-        self.current_preset_idx = (self.current_preset_idx - 1) % len(self.presets)
-        print(f"Preset: {self.presets[self.current_preset_idx]['name']}")
+        """Switch to previous preset, skipping broken shaders"""
+        attempts = 0
+        while attempts < len(self.presets):
+            self.current_preset_idx = (self.current_preset_idx - 1) % len(self.presets)
+            preset = self.presets[self.current_preset_idx]
+            shader = self.shader_manager.get_shader(preset['name'])
+            if shader is not None and shader.program is not None:
+                print(f"Preset: {preset['name']}")
+                break
+            attempts += 1
 
     def render(self):
         """Render visualization"""
         preset = self.presets[self.current_preset_idx]
         shader = self.shader_manager.get_shader(preset['name'])
-        
-        if shader is None:
+
+        if shader is None or shader.program is None:
             return
-        
+
         glUseProgram(shader.program)
-        
+
         # Set uniforms
         shader.set_uniform_1f('iTime', self.time)
         shader.set_uniform_2f('iResolution', self.width, self.height)
