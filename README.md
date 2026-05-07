@@ -4,11 +4,18 @@ A Milkdrop-style audio visualization application for desktop, built with Python,
 
 ## Features
 
-- **252 Visualization Presets** organized into 25 themed categories
+- **252+ Visualization Presets** organized into 25 themed categories
 - Real-time audio visualization using GLSL fragment shaders
 - Audio-reactive parameters (amplitude, frequency bands: bass, mid, treble)
 - System audio loopback capture (Windows/Mac/Linux compatible)
-- Interactive preset menu with theme browsing
+- **Interactive In-App Menu System:**
+  - Search presets by name, description, or tags
+  - Filter by theme/category with preset counts
+  - Favorites system with persistent storage
+  - Create custom presets with parameter editor
+  - Mix and blend two presets together
+  - 5×4 grid display with selection and scrolling
+  - Full keyboard and mouse control
 - Custom playlist creation and management
 - Smooth, organic animations with audio synchronization
 
@@ -59,12 +66,44 @@ python main.py
 
 ### Controls
 
+**Playback:**
 - **SPACE** - Next preset (or next in active playlist)
 - **LEFT ARROW** - Previous preset
-- **M** - Toggle preset menu (click to select, arrow keys to navigate)
-- **UP/DOWN ARROWS** - Navigate menu selections
-- **ENTER** - Confirm menu selection
-- **ESC** - Exit
+
+**Menu (Press M to toggle):**
+- **M** - Toggle menu open/close
+- **Search Bar** - Type to filter presets by name, description, or tags
+- **Category Filter** - Click dropdown to show only presets from one theme
+- **Star Icon** - Click to favorite/unfavorite current preset
+- **Preset Grid** - Click preset to select, mouse wheel to scroll
+- **LEFT/RIGHT ARROWS** - Navigate presets left/right
+- **UP/DOWN ARROWS** - Navigate presets up/down  
+- **PAGE UP/DOWN** - Scroll grid
+- **ENTER** - Select highlighted preset
+- **[Edit]** - Open parameter editor to create custom preset
+- **[Mix]** - Blend two presets together
+- **[Play]** - Preview selected preset
+- **[Add to Playlist]** - Add preset to a playlist
+
+**General:**
+- **ESC** - Close menu (or exit app)
+
+### Menu System
+
+The interactive in-app menu provides complete preset browsing and customization:
+
+- **Search** - Real-time filtering by preset name, description, or tags
+- **Theme Filter** - Browse presets organized by theme with counts (e.g., "Cosmic (10)")
+- **Favorites** - Mark presets as favorites and access them instantly (saved to `~/.audiovisualizer/favorites.json`)
+- **Custom Presets** - Create and save your own presets:
+  - **Parameter Editor**: Adjust 6 audio-reactive parameters:
+    - Bass/Mid/Treble Sensitivity (0.0-3.0)
+    - Color Hue (-180 to 180)
+    - Color Saturation (-1.0 to 2.0)
+    - Animation Speed (0.5-2.0)
+  - **Mix Tool**: Blend two presets together with adjustable blend ratio
+- **Live Preview** - See parameter changes reflected in real-time
+- **Persistent Storage** - Custom presets saved to `~/.audiovisualizer/custom_presets/`
 
 ### Playlists
 
@@ -84,14 +123,37 @@ Playlists are saved to `~/.audiovisualizer/playlists/` and persist across sessio
 
 ## Architecture
 
+**Core:**
 - `main.py` - Application entry point and event loop
 - `src/audio_engine.py` - System audio loopback capture and real-time analysis
 - `src/visualizer.py` - OpenGL rendering and shader integration
 - `src/shader_manager.py` - GLSL shader compilation and management
-- `src/menu_system.py` - Interactive preset menu with mouse/keyboard controls
 - `src/playlist_manager.py` - Playlist creation, saving, and management
-- `src/presets/` - Modular preset system (25 theme modules)
-- `src/shaders/` - 252 GLSL fragment shaders organized by theme
+
+**UI Components (New):**
+- `src/ui/menu_system.py` - MenuSystem container integrating all UI components
+- `src/ui/components.py` - Base UI component classes (UIComponent, Button, Slider, TextInput, Modal)
+- `src/ui/menu_components.py` - Specialized menu components:
+  - SearchBar - Real-time preset filtering
+  - CategoryFilter - Theme selection dropdown
+  - PresetGrid - 5×4 preset display with selection
+  - DetailsPanel - Selected preset info and action buttons
+  - ParameterEditorModal - Custom preset parameter editor
+  - MixToolModal - Preset blending tool
+  - FavoritesToggle - Favorite/unfavorite button
+
+**Data Models & Management:**
+- `src/ui/text_renderer.py` - PIL-based text rendering to pygame surfaces
+- `src/ui/models.py` - Data classes (Preset, CustomPreset, FavoritesManager)
+- `src/ui/presets_data.py` - PresetManager for loading and searching presets
+
+**Storage:**
+- `src/presets/` - Preset metadata and definitions
+- `src/shaders/` - 252+ GLSL fragment shaders organized by theme
+- `~/.audiovisualizer/` - User data:
+  - `favorites.json` - Favorite presets (persisted)
+  - `custom_presets/` - User-created presets
+  - `playlists/` - User-created playlists
 
 ## Shaders
 
