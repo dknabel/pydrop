@@ -1,9 +1,12 @@
 """Text rendering using PIL/Pillow to avoid pygame.font circular imports"""
 
+import logging
 import os
 from typing import Tuple, Optional, Dict
 from PIL import Image, ImageDraw, ImageFont
 import pygame
+
+logger = logging.getLogger(__name__)
 
 
 class TextRenderer:
@@ -53,7 +56,7 @@ class TextRenderer:
                 self.fonts['normal'] = ImageFont.truetype(self.font_path, self.font_size_normal)
                 self.fonts['small'] = ImageFont.truetype(self.font_path, self.font_size_small)
             except Exception as e:
-                print(f"Failed to load font from {self.font_path}: {e}")
+                logger.warning(f"Failed to load font from {self.font_path}: {e}")
                 self.fonts['normal'] = self._get_default_font(self.font_size_normal)
                 self.fonts['small'] = self._get_default_font(self.font_size_small)
         else:
@@ -65,7 +68,7 @@ class TextRenderer:
             try:
                 self.fonts['bold'] = ImageFont.truetype(self.bold_font_path, self.font_size_bold)
             except Exception as e:
-                print(f"Failed to load bold font from {self.bold_font_path}: {e}")
+                logger.warning(f"Failed to load bold font from {self.bold_font_path}: {e}")
                 self.fonts['bold'] = self._get_default_font(self.font_size_bold)
         else:
             self.fonts['bold'] = self._get_default_font(self.font_size_bold)
@@ -104,7 +107,15 @@ class TextRenderer:
 
         Returns:
             Tuple of (pygame.Surface, pygame.Rect) for blit operations
+
+        Raises:
+            ValueError: If RGB values are not in range [0, 255]
         """
+        # Validate RGB color values
+        for i, value in enumerate(color):
+            if not isinstance(value, int) or not (0 <= value <= 255):
+                raise ValueError(f"RGB values must be in range [0, 255], got {color}")
+
         # Validate size argument
         if size not in ('normal', 'bold', 'small'):
             size = 'normal'
@@ -143,8 +154,7 @@ class TextRenderer:
         )
 
         # Convert PIL image to pygame surface
-        # PIL RGBA to pygame surface
-        pil_image = pil_image.convert('RGBA')
+        # Image is already in RGBA format, no convert needed
         raw_str = pil_image.tobytes('raw', 'RGBA')
         pygame_surface = pygame.image.fromstring(
             raw_str,
