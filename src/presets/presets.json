@@ -1,0 +1,92 @@
+[
+  {
+    "id": 0,
+    "name": "Waveform",
+    "theme": "core",
+    "description": "Classic waveform visualization showing audio frequency data",
+    "shader": "core/waveform",
+    "tags": ["classic", "simple", "waveform"],
+    "difficulty": "easy"
+  },
+  {
+    "id": 1,
+    "name": "Particles",
+    "theme": "core",
+    "description": "Flowing particle system responding to bass and treble",
+    "shader": "core/particles",
+    "tags": ["dynamic", "particles", "interactive"],
+    "difficulty": "easy"
+  },
+  {
+    "id": 2,
+    "name": "Kaleidoscope",
+    "theme": "core",
+    "description": "Symmetrical kaleidoscope patterns with rotating geometry",
+    "shader": "core/kaleidoscope",
+    "tags": ["geometric", "symmetric", "complex"],
+    "difficulty": "medium"
+  },
+  {
+    "id": 3,
+    "name": "Tunnel",
+    "theme": "core",
+    "description": "3D tunnel effect with depth and perspective",
+    "shader": "core/tunnel",
+    "tags": ["3d", "immersive", "perspective"],
+    "difficulty": "medium"
+  },
+  {
+    "id": 4,
+    "name": "Plasma",
+    "theme": "core",
+    "description": "Flowing plasma effect with organic movement",
+    "shader": "core/plasma",
+    "tags": ["organic", "fluid", "colorful"],
+    "difficulty": "medium"
+  },
+  {
+    "id": 5,
+    "name": "Starfield Warp",
+    "theme": "cosmic",
+    "description": "Stars streaking through space with warp effect",
+    "shader": "cosmic/starfield_warp",
+    "tags": ["space", "cosmic", "fast-paced"],
+    "difficulty": "easy"
+  },
+  {
+    "id": 6,
+    "name": "Nebula Clouds",
+    "theme": "cosmic",
+    "description": "Colorful interstellar clouds with atmospheric effects",
+    "shader": "cosmic/nebula_clouds",
+    "tags": ["space", "atmospheric", "colorful"],
+    "difficulty": "medium"
+  },
+  {
+    "id": 7,
+    "name": "Galaxy Spiral",
+    "theme": "cosmic",
+    "description": "Rotating spiral galaxy responding to music",
+    "shader": "cosmic/galaxy_spiral",
+    "tags": ["cosmic", "rotation", "complex"],
+    "difficulty": "hard"
+  },
+  {
+    "id": 8,
+    "name": "Aurora",
+    "theme": "organic",
+    "description": "Aurora borealis waves flowing with the beat",
+    "shader": "organic/aurora",
+    "tags": ["natural", "flowing", "colorful"],
+    "difficulty": "easy"
+  },
+  {
+    "id": 9,
+    "name": "Fractals",
+    "theme": "abstract",
+    "description": "Julia set fractals with infinite complexity",
+    "shader": "abstract/fractals",
+    "tags": ["mathematical", "complex", "intricate"],
+    "difficulty": "hard"
+  }
+]
