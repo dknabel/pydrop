@@ -8,13 +8,16 @@ from .shader_manager import ShaderManager
 from .presets import PRESETS
 
 class Visualizer:
-    def __init__(self, width, height):
+    def __init__(self, width, height, audio_engine=None):
         self.width = width
         self.height = height
 
         # Presets
         self.presets = PRESETS
         self.current_preset_idx = 0
+
+        # Audio engine for getting audio dimensions
+        self.audio_engine = audio_engine
 
         # Setup OpenGL
         glClearColor(0.05, 0.05, 0.08, 1.0)
@@ -24,10 +27,10 @@ class Visualizer:
         # Shader manager
         self.shader_manager = ShaderManager()
         self.load_shaders()
-        
+
         # Fullscreen quad for rendering
         self.setup_quad()
-        
+
         # Time
         self.time = 0.0
 
@@ -43,7 +46,7 @@ class Visualizer:
                         fragment_shader = f.read()
                     self.shader_manager.add_shader(preset['name'], fragment_shader)
                 except Exception as e:
-            else:
+                    pass
 
     def setup_quad(self):
         """Setup fullscreen quad for rendering"""
@@ -117,17 +120,36 @@ class Visualizer:
         shader.set_uniform_1f('iBass', self.audio_data['bass'])
         shader.set_uniform_1f('iMid', self.audio_data['mid'])
         shader.set_uniform_1f('iTreble', self.audio_data['treble'])
-        
+
+        # Apply audio mappings to shader uniforms for dynamic reactivity
+        if self.audio_engine is not None:
+            audio_dims = self.audio_engine.get_audio_dimensions()
+            audio_mapping = preset.get('audio_mapping', {})
+
+            # Apply audio mappings to shader uniforms
+            for audio_dim, visual_control in audio_mapping.items():
+                audio_value = audio_dims.get(audio_dim, 0.0)
+
+                # Set appropriate uniform based on visual control name
+                if visual_control == "intensity":
+                    shader.set_uniform_1f('intensity', audio_value)
+                elif visual_control == "scale":
+                    shader.set_uniform_1f('scale', 1.0 + audio_value * 0.5)
+                elif visual_control == "rotation":
+                    shader.set_uniform_1f('rotation_speed', audio_value * 2.0)
+                elif visual_control == "glow":
+                    shader.set_uniform_1f('glow_intensity', audio_value)
+
         # Bind texture for frequency data
         freq_texture = self.create_texture_from_array(self.audio_data['frequency'])
         glActiveTexture(GL_TEXTURE0)
         glBindTexture(GL_TEXTURE_1D, freq_texture)
         shader.set_uniform_1i('iFrequency', 0)
-        
+
         # Render quad
         glBindVertexArray(self.vao)
         glDrawElements(GL_TRIANGLES, self.index_count, GL_UNSIGNED_INT, None)
-        
+
         glDeleteTextures([freq_texture])
 
     def create_texture_from_array(self, data):

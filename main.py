@@ -42,7 +42,7 @@ class AudioVisualizerApp:
         self.audio_engine = AudioEngine()
 
         # Visualizer
-        self.visualizer = Visualizer(width, height)
+        self.visualizer = Visualizer(width, height, audio_engine=self.audio_engine)
 
         # Preset and Favorites managers
         self.preset_manager = PresetManager()
