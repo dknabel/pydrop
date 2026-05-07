@@ -547,6 +547,7 @@ class PresetCard(UIComponent):
             text_y = self.rect.y + (self.rect.height - text_rect.height) // 2
             surface.blit(text_surf, (text_x, text_y))
         except Exception as e:
+            pass
 
         # Apply hover brightness increase
         if self.hovered:
@@ -960,6 +961,7 @@ class DetailsPanel(UIComponent):
             )
             surface.blit(desc_surf, (self.rect.x + 10, self.rect.y + 55))
         except Exception as e:
+            pass
 
         # Draw preset details components (buttons)
         for component in self.components:

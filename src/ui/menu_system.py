@@ -198,6 +198,7 @@ class MenuSystem(UIComponent):
                 )
                 surface.blit(category_surf, (self.rect.x + self.rect.width - 160, search_label_y - 25))
             except Exception as e:
+                pass
 
             # Render all components
             for component in self.components:

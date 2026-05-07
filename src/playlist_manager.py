@@ -33,6 +33,7 @@ class PlaylistManager:
                     if playlist_name:
                         self.playlists[playlist_name] = presets
             except (json.JSONDecodeError, IOError) as e:
+                pass
 
     def save_playlist(self, name: str, preset_names: List[str]) -> bool:
         """
@@ -86,7 +87,7 @@ class PlaylistManager:
     def deactivate_playlist(self) -> None:
         """Deactivate the current active playlist."""
         if self.current_playlist:
-        self.current_playlist = None
+            self.current_playlist = None
 
     def get_current_presets(self) -> Optional[List[str]]:
         """
