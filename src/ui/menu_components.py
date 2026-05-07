@@ -525,7 +525,7 @@ class PresetCard(UIComponent):
         self.on_clicked = on_clicked
 
     def render(self, surface: pygame.Surface) -> None:
-        """Render preset card with color block, name, and difficulty.
+        """Render preset card with color background and centered name.
 
         Args:
             surface: pygame.Surface to render to
@@ -533,29 +533,19 @@ class PresetCard(UIComponent):
         if not self.visible:
             return
 
-        # Draw card background
-        bg_color = (50, 70, 100)
-        pygame.draw.rect(surface, bg_color, self.rect)
-
-        # Draw color block (top half of card)
-        color_height = self.rect.height // 2
-        color_rect = pygame.Rect(
-            self.rect.x + 5, self.rect.y + 5,
-            self.rect.width - 10, color_height - 10
-        )
-        # Use theme-based color or default
+        # Draw color block as full card background
         color = self._get_preset_color()
-        pygame.draw.rect(surface, color, color_rect)
+        pygame.draw.rect(surface, color, self.rect)
 
-        # Draw preset name in bottom half
+        # Draw preset name centered in card
         try:
             renderer = TextRenderer()
             text_surf, text_rect = renderer.render(
-                self.preset.name, (220, 220, 230), size='small'
+                self.preset.name, (220, 220, 230), size='normal'
             )
-            # Position text in bottom half, centered
+            # Position text centered both horizontally and vertically
             text_x = self.rect.x + (self.rect.width - text_rect.width) // 2
-            text_y = self.rect.y + color_height + 5
+            text_y = self.rect.y + (self.rect.height - text_rect.height) // 2
             surface.blit(text_surf, (text_x, text_y))
         except Exception as e:
             logger.debug(f"Preset name rendering failed: {e}")
