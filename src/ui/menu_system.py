@@ -195,6 +195,10 @@ class MenuSystem(UIComponent):
             return
 
         try:
+            # Log mouse events for debugging
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                logger.debug(f"MenuSystem received MOUSEBUTTONDOWN at {event.pos}")
+
             # Check for close key (Esc)
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:

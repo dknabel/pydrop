@@ -20,6 +20,11 @@ from src.ui.presets_data import PresetManager
 from src.ui.models import FavoritesManager
 from src.playlist_manager import PlaylistManager
 
+# Configure logging with DEBUG level for menu debugging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(name)s - %(levelname)s - %(message)s'
+)
 logger = logging.getLogger(__name__)
 
 class AudioVisualizerApp:
@@ -94,6 +99,13 @@ class AudioVisualizerApp:
                             self.visualizer.prev_preset()
                         elif event.key == pygame.K_PAGEDOWN:
                             self.visualizer.next_preset()
+
+                # Flip Y coordinate for mouse events (OpenGL uses inverted Y)
+                if event.type in (pygame.MOUSEBUTTONDOWN, pygame.MOUSEBUTTONUP, pygame.MOUSEMOTION, pygame.MOUSEWHEEL):
+                    if hasattr(event, 'pos'):
+                        x, y = event.pos
+                        # Flip Y coordinate: pygame Y=0 is top, OpenGL Y=0 is bottom
+                        event.pos = (x, self.height - y)
 
                 # Handle menu events
                 self.menu.handle_event(event)

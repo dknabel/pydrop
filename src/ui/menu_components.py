@@ -310,9 +310,11 @@ class CategoryFilter(UIComponent):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1 and hasattr(event, "pos"):
                     x, y = event.pos
+                    logger.debug(f"CategoryFilter click at {x}, {y}; button rect: {self.rect}")
 
                     if self.rect.collidepoint(x, y):
                         # Click on main button toggles dropdown
+                        logger.debug("CategoryFilter button clicked - toggling dropdown")
                         self.opened = not self.opened
                     elif self.opened:
                         # Click on dropdown item
