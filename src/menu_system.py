@@ -236,17 +236,19 @@ class PresetMenu:
         # Get theme-based color
         color = self._get_preview_color(preset_idx)
 
-        # Draw colored preview bar
+        # Draw main colored preview rectangle with border
         pygame.draw.rect(surface, color, (x + 2, y + 2, preview_width, preview_height))
+        pygame.draw.rect(surface, self.text_color, (x + 2, y + 2, preview_width, preview_height), 1)
 
-        # Add some pattern to make it more interesting
-        # Draw a pattern based on the shader type
+        # Draw pattern based on shader type
         shader = self.presets[preset_idx].get('shader', '')
-        pattern_color = tuple(min(255, c + 40) for c in color)
+        pattern_color = tuple(min(255, c + 60) for c in color)
 
-        # Draw horizontal lines as a pattern indicator
-        for i in range(0, preview_height, 5):
-            pygame.draw.line(surface, pattern_color, (x + 5, y + 2 + i), (x + preview_width - 3, y + 2 + i), 1)
+        # Draw horizontal gradient/pattern lines
+        for i in range(0, preview_height, 4):
+            intensity = int((i / preview_height) * 100)
+            line_color = tuple(min(255, c + intensity // 3) for c in color)
+            pygame.draw.line(surface, line_color, (x + 5, y + 2 + i), (x + preview_width - 3, y + 2 + i), 1)
 
     def render(self, surface):
         """Render the menu overlay organized by theme"""
@@ -256,6 +258,14 @@ class PresetMenu:
         # Initialize fonts on first render (deferred to avoid circular imports)
         if not self._fonts_initialized:
             self._fonts_initialized = True
+            try:
+                # Import freetype lazily to avoid circular import at module level
+                from pygame import freetype
+                self.font_name = freetype.Font(None, 10)
+                self.font_category = freetype.Font(None, 12)
+            except Exception as e:
+                self.font_name = None
+                self.font_category = None
 
         # Create a surface for the menu with alpha support
         menu_surface = pygame.Surface((self.width, self.height), pygame.SRCALPHA)
@@ -276,7 +286,13 @@ class PresetMenu:
             if header_y > self.margin and header_y < self.height - self.margin:
                 pygame.draw.rect(menu_surface, self.category_header_color, (self.margin, header_y, self.width - 2 * self.margin, self.category_height))
                 # Theme label (visual indicator with colored bar)
-                pygame.draw.rect(menu_surface, (255, 255, 255), (self.margin + 5, header_y + 5, 10, self.category_height - 10))
+                color = self._get_preview_color(next((idx for idx, (_, p) in enumerate(theme_presets) if p.get('theme') == theme), 0))
+                pygame.draw.rect(menu_surface, color, (self.margin + 5, header_y + 5, 10, self.category_height - 10))
+
+                # Draw category name
+                if self.font_category:
+                    name_surface, _ = self.font_category.render(theme, self.text_color)
+                    menu_surface.blit(name_surface, (self.margin + 20, header_y + 4))
 
             y_offset += self.category_height
 
@@ -307,9 +323,16 @@ class PresetMenu:
                 # Draw preview color bar
                 self._draw_preview(menu_surface, x, y, preset_idx)
 
-                # Draw a bar proportional to the index position (0-252)
-                bar_width = int((preset_idx / len(self.presets)) * (self.card_width - 4))
-                pygame.draw.rect(menu_surface, self.theme_text_color, (x + 2, y + self.card_height - 8, bar_width, 4))
+                # Draw preset name
+                if self.font_name:
+                    preset_name = preset.get('name', 'Preset')
+                    # Truncate name if too long
+                    if len(preset_name) > 10:
+                        preset_name = preset_name[:9] + '.'
+                    name_surface, name_rect = self.font_name.render(preset_name, self.text_color)
+                    # Center text below preview
+                    name_x = x + (self.card_width - name_rect.width) // 2
+                    menu_surface.blit(name_surface, (name_x, y + 40))
 
             # Space between categories
             rows = math.ceil(len(theme_presets) / self.cols)
