@@ -16,6 +16,7 @@ from src.ui.menu_components import (
 )
 from src.ui.presets_data import PresetManager
 from src.ui.models import Preset, CustomPreset, FavoritesManager
+from src.ui.text_renderer import TextRenderer
 
 logger = logging.getLogger(__name__)
 
@@ -72,6 +73,9 @@ class MenuSystem(UIComponent):
         self.on_preset_selected = on_preset_selected
         self.on_custom_preset_saved = on_custom_preset_saved
 
+        # Initialize text renderer for menu components
+        self.text_renderer = TextRenderer()
+
         # Initialize filtered presets
         self.current_filtered_presets = preset_manager.builtin_presets.copy()
 
@@ -86,6 +90,7 @@ class MenuSystem(UIComponent):
         self.category_filter = CategoryFilter(
             x + 10, y + 60, 150, 35,
             preset_manager=preset_manager,
+            text_renderer=self.text_renderer,
             on_category_changed=self._on_category_changed
         )
 

@@ -304,6 +304,21 @@ class TextInput(UIComponent):
         border_color = (100, 150, 200) if self.focused else (80, 100, 120)
         pygame.draw.rect(surface, border_color, self.rect, 2)
 
+        # Draw text or placeholder
+        text_to_display = self._text if self._text else self.placeholder
+        text_color = (220, 220, 230) if self._text else (150, 150, 170)
+
+        # Simple text rendering using pygame font as fallback
+        try:
+            from src.ui.text_renderer import TextRenderer
+            renderer = TextRenderer()
+            text_surf, text_rect = renderer.render(text_to_display, text_color, size='normal')
+            text_x = self.rect.x + 5
+            text_y = self.rect.centery - text_rect.height // 2
+            surface.blit(text_surf, (text_x, text_y))
+        except Exception as e:
+            logger.debug(f"Text rendering failed: {e}")
+
     def handle_event(self, event: pygame.event.Event) -> None:
         """Handle mouse and keyboard events.
 

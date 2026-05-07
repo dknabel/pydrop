@@ -7,6 +7,7 @@ for use in the menu system, particularly for preset management.
 from src.ui.components import UIComponent, TextInput, Button, Slider, Modal
 from src.ui.presets_data import PresetManager
 from src.ui.models import Preset, CustomPreset, FavoritesManager
+from src.ui.text_renderer import TextRenderer
 from typing import List, Callable, Optional, Tuple, Dict, Union
 import pygame
 import logging
@@ -241,6 +242,16 @@ class CategoryFilter(UIComponent):
         pygame.draw.rect(surface, button_color, self.rect)
         pygame.draw.rect(surface, (100, 150, 255), self.rect, 2)
 
+        # Render button text showing selected category
+        if self.text_renderer:
+            text_surf, text_rect = self.text_renderer.render(
+                self.selected_category.replace("_", " ").title(),
+                (220, 220, 230), size='normal'
+            )
+            text_x = self.rect.x + 5
+            text_y = self.rect.centery - text_rect.height // 2
+            surface.blit(text_surf, (text_x, text_y))
+
         # Draw dropdown arrow
         arrow_x = self.rect.right - 15
         arrow_y = self.rect.centery
@@ -279,9 +290,15 @@ class CategoryFilter(UIComponent):
 
             pygame.draw.rect(surface, (80, 100, 150), item_rect, 1)
 
-            # Text rendering with count
-            # Note: Full TextRenderer integration would happen in full implementation
-            # For now, we just render the rectangles
+            # Render text with count using TextRenderer
+            text_to_render = f"{label} ({count})"
+            if self.text_renderer:
+                text_surf, text_rect = self.text_renderer.render(
+                    text_to_render, (220, 220, 230), size='small'
+                )
+                text_x = self.rect.x + 5
+                text_y = item_rect.centery - text_rect.height // 2
+                surface.blit(text_surf, (text_x, text_y))
 
     def handle_event(self, event: pygame.event.Event) -> None:
         """Handle click events to open/close dropdown and select items.
@@ -501,6 +518,19 @@ class PresetCard(UIComponent):
         # Use theme-based color or default
         color = self._get_preset_color()
         pygame.draw.rect(surface, color, color_rect)
+
+        # Draw preset name in bottom half
+        try:
+            renderer = TextRenderer()
+            text_surf, text_rect = renderer.render(
+                self.preset.name, (220, 220, 230), size='small'
+            )
+            # Position text in bottom half, centered
+            text_x = self.rect.x + (self.rect.width - text_rect.width) // 2
+            text_y = self.rect.y + color_height + 5
+            surface.blit(text_surf, (text_x, text_y))
+        except Exception as e:
+            logger.debug(f"Preset name rendering failed: {e}")
 
         # Apply hover brightness increase
         if self.hovered:
