@@ -6,7 +6,35 @@
     "description": "Classic waveform visualization",
     "shader": "waveform",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 1,
@@ -15,7 +43,35 @@
     "description": "Flowing particle system",
     "shader": "particles",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 2,
@@ -24,7 +80,35 @@
     "description": "Symmetrical kaleidoscope patterns",
     "shader": "kaleidoscope",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 3,
@@ -33,7 +117,35 @@
     "description": "3D tunnel effect",
     "shader": "tunnel",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 4,
@@ -42,7 +154,35 @@
     "description": "Flowing plasma effect",
     "shader": "plasma",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 5,
@@ -51,7 +191,35 @@
     "description": "Aurora borealis waves",
     "shader": "aurora",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 6,
@@ -60,7 +228,35 @@
     "description": "80s/90s style grid floor",
     "shader": "retrogrid",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 7,
@@ -69,7 +265,35 @@
     "description": "Julia set fractals",
     "shader": "fractals",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 8,
@@ -78,7 +302,35 @@
     "description": "Wave interference patterns",
     "shader": "interference",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 9,
@@ -87,7 +339,35 @@
     "description": "Voronoi cell patterns",
     "shader": "voronoi",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 10,
@@ -96,7 +376,35 @@
     "description": "3D starfield flight",
     "shader": "starfield",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 11,
@@ -105,7 +413,35 @@
     "description": "Digital glitch effect",
     "shader": "glitch",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 12,
@@ -114,7 +450,35 @@
     "description": "Stars streaking through space",
     "shader": "cosmic/starfield_warp",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        40,
+        80
+      ],
+      [
+        180,
+        90,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        60,
+        70,
+        120
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 13,
@@ -123,7 +487,35 @@
     "description": "Colorful interstellar clouds",
     "shader": "cosmic/nebula_clouds",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        40,
+        80
+      ],
+      [
+        180,
+        90,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        60,
+        70,
+        120
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 14,
@@ -132,7 +524,35 @@
     "description": "Rotating spiral galaxy",
     "shader": "cosmic/galaxy_spiral",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        40,
+        80
+      ],
+      [
+        180,
+        90,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        60,
+        70,
+        120
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 15,
@@ -141,7 +561,35 @@
     "description": "Event horizon distortion",
     "shader": "cosmic/black_hole",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        40,
+        80
+      ],
+      [
+        180,
+        90,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        60,
+        70,
+        120
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 16,
@@ -150,7 +598,35 @@
     "description": "Floating space dust particles",
     "shader": "cosmic/cosmic_dust",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        40,
+        80
+      ],
+      [
+        180,
+        90,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        60,
+        70,
+        120
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 17,
@@ -159,7 +635,35 @@
     "description": "Stellar explosion effect",
     "shader": "cosmic/supernova",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        40,
+        80
+      ],
+      [
+        180,
+        90,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        60,
+        70,
+        120
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 18,
@@ -168,7 +672,35 @@
     "description": "Aurora in outer space",
     "shader": "cosmic/aurora_borealis_space",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        40,
+        80
+      ],
+      [
+        180,
+        90,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        60,
+        70,
+        120
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 19,
@@ -177,7 +709,35 @@
     "description": "Falling meteors across sky",
     "shader": "cosmic/meteor_shower",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        40,
+        80
+      ],
+      [
+        180,
+        90,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        60,
+        70,
+        120
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 20,
@@ -186,7 +746,35 @@
     "description": "Pulsing neutron star",
     "shader": "cosmic/pulsar",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        40,
+        80
+      ],
+      [
+        180,
+        90,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        60,
+        70,
+        120
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 21,
@@ -195,7 +783,35 @@
     "description": "Solar eruption effect",
     "shader": "cosmic/solar_flare",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        40,
+        80
+      ],
+      [
+        180,
+        90,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        60,
+        70,
+        120
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 22,
@@ -204,7 +820,35 @@
     "description": "Water flowing and rippling",
     "shader": "organic/flowing_water",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        120,
+        70
+      ],
+      [
+        140,
+        110,
+        80
+      ],
+      [
+        180,
+        110,
+        80
+      ],
+      [
+        100,
+        140,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "growth_rate",
+      "bass": "scale",
+      "mid": "sway",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 23,
@@ -213,7 +857,35 @@
     "description": "Growing cellular patterns",
     "shader": "organic/cellular_growth",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        120,
+        70
+      ],
+      [
+        140,
+        110,
+        80
+      ],
+      [
+        180,
+        110,
+        80
+      ],
+      [
+        100,
+        140,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "growth_rate",
+      "bass": "scale",
+      "mid": "sway",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 24,
@@ -222,7 +894,35 @@
     "description": "Fungal network connections",
     "shader": "organic/mycelium_network",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        120,
+        70
+      ],
+      [
+        140,
+        110,
+        80
+      ],
+      [
+        180,
+        110,
+        80
+      ],
+      [
+        100,
+        140,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "growth_rate",
+      "bass": "scale",
+      "mid": "sway",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 25,
@@ -231,7 +931,35 @@
     "description": "Rotating DNA double helix",
     "shader": "organic/dna_helix",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        120,
+        70
+      ],
+      [
+        140,
+        110,
+        80
+      ],
+      [
+        180,
+        110,
+        80
+      ],
+      [
+        100,
+        140,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "growth_rate",
+      "bass": "scale",
+      "mid": "sway",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 26,
@@ -240,7 +968,35 @@
     "description": "Colorful underwater coral",
     "shader": "organic/coral_reef",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        120,
+        70
+      ],
+      [
+        140,
+        110,
+        80
+      ],
+      [
+        180,
+        110,
+        80
+      ],
+      [
+        100,
+        140,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "growth_rate",
+      "bass": "scale",
+      "mid": "sway",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 27,
@@ -249,7 +1005,35 @@
     "description": "Plant leaf vein patterns",
     "shader": "organic/leaf_veins",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        120,
+        70
+      ],
+      [
+        140,
+        110,
+        80
+      ],
+      [
+        180,
+        110,
+        80
+      ],
+      [
+        100,
+        140,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "growth_rate",
+      "bass": "scale",
+      "mid": "sway",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 28,
@@ -258,7 +1042,35 @@
     "description": "Natural swirling motion",
     "shader": "organic/swirling_vortex",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        120,
+        70
+      ],
+      [
+        140,
+        110,
+        80
+      ],
+      [
+        180,
+        110,
+        80
+      ],
+      [
+        100,
+        140,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "growth_rate",
+      "bass": "scale",
+      "mid": "sway",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 29,
@@ -267,7 +1079,35 @@
     "description": "Growing bacterial patterns",
     "shader": "organic/bacterial_colony",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        120,
+        70
+      ],
+      [
+        140,
+        110,
+        80
+      ],
+      [
+        180,
+        110,
+        80
+      ],
+      [
+        100,
+        140,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "growth_rate",
+      "bass": "scale",
+      "mid": "sway",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 30,
@@ -276,7 +1116,35 @@
     "description": "Time-lapse plant growth",
     "shader": "organic/plant_growth",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        120,
+        70
+      ],
+      [
+        140,
+        110,
+        80
+      ],
+      [
+        180,
+        110,
+        80
+      ],
+      [
+        100,
+        140,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "growth_rate",
+      "bass": "scale",
+      "mid": "sway",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 31,
@@ -285,7 +1153,35 @@
     "description": "Evolving organism forms",
     "shader": "organic/organism_evolution",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        120,
+        70
+      ],
+      [
+        140,
+        110,
+        80
+      ],
+      [
+        180,
+        110,
+        80
+      ],
+      [
+        100,
+        140,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "growth_rate",
+      "bass": "scale",
+      "mid": "sway",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 32,
@@ -294,7 +1190,35 @@
     "description": "Shiny reflective sphere",
     "shader": "retro_aero/glossy_orb",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        160,
+        180
+      ],
+      [
+        200,
+        170,
+        80
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        240,
+        230,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 33,
@@ -303,7 +1227,35 @@
     "description": "Bursting soap bubbles",
     "shader": "retro_aero/bubble_burst",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        160,
+        180
+      ],
+      [
+        200,
+        170,
+        80
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        240,
+        230,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 34,
@@ -312,7 +1264,35 @@
     "description": "Blue wave gradient effect",
     "shader": "retro_aero/blue_gradient_waves",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        160,
+        180
+      ],
+      [
+        200,
+        170,
+        80
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        240,
+        230,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 35,
@@ -321,7 +1301,35 @@
     "description": "Bouncing metallic balls",
     "shader": "retro_aero/bouncing_balls",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        160,
+        180
+      ],
+      [
+        200,
+        170,
+        80
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        240,
+        230,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 36,
@@ -330,7 +1338,35 @@
     "description": "Transparent glass ball",
     "shader": "retro_aero/glass_sphere",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        160,
+        180
+      ],
+      [
+        200,
+        170,
+        80
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        240,
+        230,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 37,
@@ -339,7 +1375,35 @@
     "description": "Concentric metal rings",
     "shader": "retro_aero/metallic_rings",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        160,
+        180
+      ],
+      [
+        200,
+        170,
+        80
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        240,
+        230,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 38,
@@ -348,7 +1412,35 @@
     "description": "Neon colored blob shapes",
     "shader": "retro_aero/neon_blobs",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        160,
+        180
+      ],
+      [
+        200,
+        170,
+        80
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        240,
+        230,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 39,
@@ -357,7 +1449,35 @@
     "description": "Flowing liquid metal",
     "shader": "retro_aero/liquid_mercury",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        160,
+        180
+      ],
+      [
+        200,
+        170,
+        80
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        240,
+        230,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 40,
@@ -366,7 +1486,35 @@
     "description": "Spiraling gradient pattern",
     "shader": "retro_aero/gradient_spiral",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        160,
+        180
+      ],
+      [
+        200,
+        170,
+        80
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        240,
+        230,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 41,
@@ -375,7 +1523,35 @@
     "description": "Mirrored reflective plane",
     "shader": "retro_aero/reflective_surface",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        80,
+        160,
+        180
+      ],
+      [
+        200,
+        170,
+        80
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        240,
+        230,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 42,
@@ -384,7 +1560,35 @@
     "description": "Matrix-style falling characters",
     "shader": "digital/digital_rain",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        160,
+        140
+      ],
+      [
+        230,
+        230,
+        230
+      ],
+      [
+        180,
+        180,
+        200
+      ],
+      [
+        160,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "pulse"
+    }
   },
   {
     "id": 43,
@@ -393,7 +1597,35 @@
     "description": "Varied glitch distortions",
     "shader": "digital/glitch_variations",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        160,
+        140
+      ],
+      [
+        230,
+        230,
+        230
+      ],
+      [
+        180,
+        180,
+        200
+      ],
+      [
+        160,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "pulse"
+    }
   },
   {
     "id": 44,
@@ -402,7 +1634,35 @@
     "description": "CRT monitor scanlines",
     "shader": "digital/scanlines",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        160,
+        140
+      ],
+      [
+        230,
+        230,
+        230
+      ],
+      [
+        180,
+        180,
+        200
+      ],
+      [
+        160,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "pulse"
+    }
   },
   {
     "id": 45,
@@ -411,7 +1671,35 @@
     "description": "Perfect geometric grid",
     "shader": "digital/geometric_grid",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        160,
+        140
+      ],
+      [
+        230,
+        230,
+        230
+      ],
+      [
+        180,
+        180,
+        200
+      ],
+      [
+        160,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "pulse"
+    }
   },
   {
     "id": 46,
@@ -420,7 +1708,35 @@
     "description": "Pixelated mosaic pattern",
     "shader": "digital/pixel_mosaic",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        160,
+        140
+      ],
+      [
+        230,
+        230,
+        230
+      ],
+      [
+        180,
+        180,
+        200
+      ],
+      [
+        160,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "pulse"
+    }
   },
   {
     "id": 47,
@@ -429,7 +1745,35 @@
     "description": "Electronic circuit traces",
     "shader": "digital/circuit_board",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        160,
+        140
+      ],
+      [
+        230,
+        230,
+        230
+      ],
+      [
+        180,
+        180,
+        200
+      ],
+      [
+        160,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "pulse"
+    }
   },
   {
     "id": 48,
@@ -438,7 +1782,35 @@
     "description": "Flowing data visualization",
     "shader": "digital/data_stream",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        160,
+        140
+      ],
+      [
+        230,
+        230,
+        230
+      ],
+      [
+        180,
+        180,
+        200
+      ],
+      [
+        160,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "pulse"
+    }
   },
   {
     "id": 49,
@@ -447,7 +1819,35 @@
     "description": "3D wireframe geometry",
     "shader": "digital/wire_frame",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        160,
+        140
+      ],
+      [
+        230,
+        230,
+        230
+      ],
+      [
+        180,
+        180,
+        200
+      ],
+      [
+        160,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "pulse"
+    }
   },
   {
     "id": 50,
@@ -456,7 +1856,35 @@
     "description": "Neural network node connections",
     "shader": "digital/neural_network",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        160,
+        140
+      ],
+      [
+        230,
+        230,
+        230
+      ],
+      [
+        180,
+        180,
+        200
+      ],
+      [
+        160,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "pulse"
+    }
   },
   {
     "id": 51,
@@ -465,7 +1893,35 @@
     "description": "Retro pixel art animation",
     "shader": "digital/pixel_art",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        160,
+        140
+      ],
+      [
+        230,
+        230,
+        230
+      ],
+      [
+        180,
+        180,
+        200
+      ],
+      [
+        160,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "pulse"
+    }
   },
   {
     "id": 52,
@@ -474,7 +1930,35 @@
     "description": "Flowing Perlin noise patterns",
     "shader": "abstract/noise_flow",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        200,
+        200
+      ],
+      [
+        100,
+        100,
+        100
+      ],
+      [
+        150,
+        140,
+        170
+      ],
+      [
+        220,
+        220,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 53,
@@ -483,7 +1967,35 @@
     "description": "Harmonic sine wave patterns",
     "shader": "abstract/sine_harmonics",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        200,
+        200
+      ],
+      [
+        100,
+        100,
+        100
+      ],
+      [
+        150,
+        140,
+        170
+      ],
+      [
+        220,
+        220,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 54,
@@ -492,7 +2004,35 @@
     "description": "Mandelbrot fractal zoom",
     "shader": "abstract/mandelbrot_set",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        200,
+        200
+      ],
+      [
+        100,
+        100,
+        100
+      ],
+      [
+        150,
+        140,
+        170
+      ],
+      [
+        220,
+        220,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 55,
@@ -501,7 +2041,35 @@
     "description": "Julia set fractal variations",
     "shader": "abstract/julia_set",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        200,
+        200
+      ],
+      [
+        100,
+        100,
+        100
+      ],
+      [
+        150,
+        140,
+        170
+      ],
+      [
+        220,
+        220,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 56,
@@ -510,7 +2078,35 @@
     "description": "Truchet tiling pattern",
     "shader": "abstract/truchet_tiles",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        200,
+        200
+      ],
+      [
+        100,
+        100,
+        100
+      ],
+      [
+        150,
+        140,
+        170
+      ],
+      [
+        220,
+        220,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 57,
@@ -519,7 +2115,35 @@
     "description": "Voronoi region tessellation",
     "shader": "abstract/voronoi_diagram",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        200,
+        200
+      ],
+      [
+        100,
+        100,
+        100
+      ],
+      [
+        150,
+        140,
+        170
+      ],
+      [
+        220,
+        220,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 58,
@@ -528,7 +2152,35 @@
     "description": "Procedural mountain landscape",
     "shader": "abstract/perlin_mountains",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        200,
+        200
+      ],
+      [
+        100,
+        100,
+        100
+      ],
+      [
+        150,
+        140,
+        170
+      ],
+      [
+        220,
+        220,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 59,
@@ -537,7 +2189,35 @@
     "description": "Recursively subdividing shapes",
     "shader": "abstract/recursive_shapes",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        200,
+        200
+      ],
+      [
+        100,
+        100,
+        100
+      ],
+      [
+        150,
+        140,
+        170
+      ],
+      [
+        220,
+        220,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 60,
@@ -546,7 +2226,35 @@
     "description": "Vector field flow lines",
     "shader": "abstract/flow_field",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        200,
+        200
+      ],
+      [
+        100,
+        100,
+        100
+      ],
+      [
+        150,
+        140,
+        170
+      ],
+      [
+        220,
+        220,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 61,
@@ -555,7 +2263,35 @@
     "description": "Harmonic resonance patterns",
     "shader": "abstract/harmonic_resonance",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        200,
+        200
+      ],
+      [
+        100,
+        100,
+        100
+      ],
+      [
+        150,
+        140,
+        170
+      ],
+      [
+        220,
+        220,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 62,
@@ -564,7 +2300,35 @@
     "description": "Rippling water surface",
     "shader": "liquids/water_surface",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        100,
+        180
+      ],
+      [
+        50,
+        150,
+        180
+      ],
+      [
+        100,
+        180,
+        160
+      ],
+      [
+        80,
+        160,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "flow_intensity",
+      "bass": "wave_height",
+      "mid": "ripple_frequency",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 63,
@@ -573,7 +2337,35 @@
     "description": "Liquid splashing effects",
     "shader": "liquids/splashing",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        100,
+        180
+      ],
+      [
+        50,
+        150,
+        180
+      ],
+      [
+        100,
+        180,
+        160
+      ],
+      [
+        80,
+        160,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "flow_intensity",
+      "bass": "wave_height",
+      "mid": "ripple_frequency",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 64,
@@ -582,7 +2374,35 @@
     "description": "Oil slick iridescent patterns",
     "shader": "liquids/oil_slick",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        100,
+        180
+      ],
+      [
+        50,
+        150,
+        180
+      ],
+      [
+        100,
+        180,
+        160
+      ],
+      [
+        80,
+        160,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "flow_intensity",
+      "bass": "wave_height",
+      "mid": "ripple_frequency",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 65,
@@ -591,7 +2411,35 @@
     "description": "Slow flowing honey",
     "shader": "liquids/honey_flow",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        100,
+        180
+      ],
+      [
+        50,
+        150,
+        180
+      ],
+      [
+        100,
+        180,
+        160
+      ],
+      [
+        80,
+        160,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "flow_intensity",
+      "bass": "wave_height",
+      "mid": "ripple_frequency",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 66,
@@ -600,7 +2448,35 @@
     "description": "Ink spreading through liquid",
     "shader": "liquids/ink_diffusion",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        100,
+        180
+      ],
+      [
+        50,
+        150,
+        180
+      ],
+      [
+        100,
+        180,
+        160
+      ],
+      [
+        80,
+        160,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "flow_intensity",
+      "bass": "wave_height",
+      "mid": "ripple_frequency",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 67,
@@ -609,7 +2485,35 @@
     "description": "Turbulent fluid motion",
     "shader": "liquids/turbulence",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        100,
+        180
+      ],
+      [
+        50,
+        150,
+        180
+      ],
+      [
+        100,
+        180,
+        160
+      ],
+      [
+        80,
+        160,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "flow_intensity",
+      "bass": "wave_height",
+      "mid": "ripple_frequency",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 68,
@@ -618,7 +2522,35 @@
     "description": "Waves in a pool",
     "shader": "liquids/wave_pool",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        100,
+        180
+      ],
+      [
+        50,
+        150,
+        180
+      ],
+      [
+        100,
+        180,
+        160
+      ],
+      [
+        80,
+        160,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "flow_intensity",
+      "bass": "wave_height",
+      "mid": "ripple_frequency",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 69,
@@ -627,7 +2559,35 @@
     "description": "Flowing molten lava",
     "shader": "liquids/lava_flow",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        100,
+        180
+      ],
+      [
+        50,
+        150,
+        180
+      ],
+      [
+        100,
+        180,
+        160
+      ],
+      [
+        80,
+        160,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "flow_intensity",
+      "bass": "wave_height",
+      "mid": "ripple_frequency",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 70,
@@ -636,7 +2596,35 @@
     "description": "Foamy bubble patterns",
     "shader": "liquids/foam_bubbles",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        100,
+        180
+      ],
+      [
+        50,
+        150,
+        180
+      ],
+      [
+        100,
+        180,
+        160
+      ],
+      [
+        80,
+        160,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "flow_intensity",
+      "bass": "wave_height",
+      "mid": "ripple_frequency",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 71,
@@ -645,7 +2633,35 @@
     "description": "Reflective liquid surface",
     "shader": "liquids/liquid_mirror",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        30,
+        100,
+        180
+      ],
+      [
+        50,
+        150,
+        180
+      ],
+      [
+        100,
+        180,
+        160
+      ],
+      [
+        80,
+        160,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "flow_intensity",
+      "bass": "wave_height",
+      "mid": "ripple_frequency",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 72,
@@ -654,7 +2670,35 @@
     "description": "Growing crystal structures",
     "shader": "crystalline/crystal_growth",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        200,
+        200,
+        210
+      ],
+      [
+        230,
+        230,
+        240
+      ],
+      [
+        180,
+        190,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 73,
@@ -663,7 +2707,35 @@
     "description": "Regular crystal lattice",
     "shader": "crystalline/lattice_structure",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        200,
+        200,
+        210
+      ],
+      [
+        230,
+        230,
+        240
+      ],
+      [
+        180,
+        190,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 74,
@@ -672,7 +2744,35 @@
     "description": "Symmetrical snowflake forms",
     "shader": "crystalline/snowflake",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        200,
+        200,
+        210
+      ],
+      [
+        230,
+        230,
+        240
+      ],
+      [
+        180,
+        190,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 75,
@@ -681,7 +2781,35 @@
     "description": "Diamond shaped crystals",
     "shader": "crystalline/diamond_pattern",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        200,
+        200,
+        210
+      ],
+      [
+        230,
+        230,
+        240
+      ],
+      [
+        180,
+        190,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 76,
@@ -690,7 +2818,35 @@
     "description": "Light through quartz prism",
     "shader": "crystalline/quartz_prism",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        200,
+        200,
+        210
+      ],
+      [
+        230,
+        230,
+        240
+      ],
+      [
+        180,
+        190,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 77,
@@ -699,7 +2855,35 @@
     "description": "Honeycomb hexagonal structure",
     "shader": "crystalline/hexagonal_grid",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        200,
+        200,
+        210
+      ],
+      [
+        230,
+        230,
+        240
+      ],
+      [
+        180,
+        190,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 78,
@@ -708,7 +2892,35 @@
     "description": "Mineral veins in rock",
     "shader": "crystalline/mineral_veins",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        200,
+        200,
+        210
+      ],
+      [
+        230,
+        230,
+        240
+      ],
+      [
+        180,
+        190,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 79,
@@ -717,7 +2929,35 @@
     "description": "Crystal cluster growth",
     "shader": "crystalline/cluster_formation",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        200,
+        200,
+        210
+      ],
+      [
+        230,
+        230,
+        240
+      ],
+      [
+        180,
+        190,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 80,
@@ -726,7 +2966,35 @@
     "description": "Light through crystals",
     "shader": "crystalline/prismatic_light",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        200,
+        200,
+        210
+      ],
+      [
+        230,
+        230,
+        240
+      ],
+      [
+        180,
+        190,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 81,
@@ -735,7 +3003,35 @@
     "description": "Colorful geode cavern",
     "shader": "crystalline/geode_interior",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        200,
+        200,
+        210
+      ],
+      [
+        230,
+        230,
+        240
+      ],
+      [
+        180,
+        190,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 82,
@@ -744,7 +3040,35 @@
     "description": "Infinite spiraling tunnel",
     "shader": "psychedelic/spiral_tunnel",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        180
+      ],
+      [
+        160,
+        110,
+        160
+      ],
+      [
+        150,
+        140,
+        140
+      ],
+      [
+        180,
+        150,
+        200
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "kaleidoscope_rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 83,
@@ -753,7 +3077,35 @@
     "description": "Trippy kaleidoscope patterns",
     "shader": "psychedelic/kaleidoscope_trip",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        180
+      ],
+      [
+        160,
+        110,
+        160
+      ],
+      [
+        150,
+        140,
+        140
+      ],
+      [
+        180,
+        150,
+        200
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "kaleidoscope_rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 84,
@@ -762,7 +3114,35 @@
     "description": "Morphing color transitions",
     "shader": "psychedelic/color_morph",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        180
+      ],
+      [
+        160,
+        110,
+        160
+      ],
+      [
+        150,
+        140,
+        140
+      ],
+      [
+        180,
+        150,
+        200
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "kaleidoscope_rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 85,
@@ -771,7 +3151,35 @@
     "description": "Undulating trippy waves",
     "shader": "psychedelic/trippy_waves",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        180
+      ],
+      [
+        160,
+        110,
+        160
+      ],
+      [
+        150,
+        140,
+        140
+      ],
+      [
+        180,
+        150,
+        200
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "kaleidoscope_rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 86,
@@ -780,7 +3188,35 @@
     "description": "Spinning mandala patterns",
     "shader": "psychedelic/mandala_spin",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        180
+      ],
+      [
+        160,
+        110,
+        160
+      ],
+      [
+        150,
+        140,
+        140
+      ],
+      [
+        180,
+        150,
+        200
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "kaleidoscope_rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 87,
@@ -789,7 +3225,35 @@
     "description": "Chromatic aberration effects",
     "shader": "psychedelic/chromatic_shift",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        180
+      ],
+      [
+        160,
+        110,
+        160
+      ],
+      [
+        150,
+        140,
+        140
+      ],
+      [
+        180,
+        150,
+        200
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "kaleidoscope_rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 88,
@@ -798,7 +3262,35 @@
     "description": "Hyperbolic geometry visualization",
     "shader": "psychedelic/hyperbolic_plane",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        180
+      ],
+      [
+        160,
+        110,
+        160
+      ],
+      [
+        150,
+        140,
+        140
+      ],
+      [
+        180,
+        150,
+        200
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "kaleidoscope_rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 89,
@@ -807,7 +3299,35 @@
     "description": "Zooming tunnel effect",
     "shader": "psychedelic/tunnel_vision",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        180
+      ],
+      [
+        160,
+        110,
+        160
+      ],
+      [
+        150,
+        140,
+        140
+      ],
+      [
+        180,
+        150,
+        200
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "kaleidoscope_rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 90,
@@ -816,7 +3336,35 @@
     "description": "Swirling particle vortex",
     "shader": "psychedelic/particle_swirl",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        180
+      ],
+      [
+        160,
+        110,
+        160
+      ],
+      [
+        150,
+        140,
+        140
+      ],
+      [
+        180,
+        150,
+        200
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "kaleidoscope_rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 91,
@@ -825,7 +3373,35 @@
     "description": "Fractal zoom psychedelia",
     "shader": "psychedelic/fractal_trip",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        180
+      ],
+      [
+        160,
+        110,
+        160
+      ],
+      [
+        150,
+        140,
+        140
+      ],
+      [
+        180,
+        150,
+        200
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "kaleidoscope_rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 92,
@@ -834,7 +3410,35 @@
     "description": "Drifting cloud formations",
     "shader": "atmospheric/cloud_drift",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        180,
+        180,
+        190
+      ],
+      [
+        220,
+        220,
+        230
+      ],
+      [
+        150,
+        150,
+        170
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "color_shift",
+      "treble": "glow"
+    }
   },
   {
     "id": 93,
@@ -843,7 +3447,35 @@
     "description": "Dark storm cloud patterns",
     "shader": "atmospheric/storm_clouds",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        180,
+        180,
+        190
+      ],
+      [
+        220,
+        220,
+        230
+      ],
+      [
+        150,
+        150,
+        170
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "color_shift",
+      "treble": "glow"
+    }
   },
   {
     "id": 94,
@@ -852,7 +3484,35 @@
     "description": "Swirling fog and mist",
     "shader": "atmospheric/fog_mist",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        180,
+        180,
+        190
+      ],
+      [
+        220,
+        220,
+        230
+      ],
+      [
+        150,
+        150,
+        170
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "color_shift",
+      "treble": "glow"
+    }
   },
   {
     "id": 95,
@@ -861,7 +3521,35 @@
     "description": "Falling rain visualization",
     "shader": "atmospheric/rain_drops",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        180,
+        180,
+        190
+      ],
+      [
+        220,
+        220,
+        230
+      ],
+      [
+        150,
+        150,
+        170
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "color_shift",
+      "treble": "glow"
+    }
   },
   {
     "id": 96,
@@ -870,7 +3558,35 @@
     "description": "Colorful sunset gradients",
     "shader": "atmospheric/sunset_sky",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        180,
+        180,
+        190
+      ],
+      [
+        220,
+        220,
+        230
+      ],
+      [
+        150,
+        150,
+        170
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "color_shift",
+      "treble": "glow"
+    }
   },
   {
     "id": 97,
@@ -879,7 +3595,35 @@
     "description": "Dancing aurora borealis",
     "shader": "atmospheric/aurora_lights",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        180,
+        180,
+        190
+      ],
+      [
+        220,
+        220,
+        230
+      ],
+      [
+        150,
+        150,
+        170
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "color_shift",
+      "treble": "glow"
+    }
   },
   {
     "id": 98,
@@ -888,7 +3632,35 @@
     "description": "Crackling lightning bolts",
     "shader": "atmospheric/lightning_storm",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        180,
+        180,
+        190
+      ],
+      [
+        220,
+        220,
+        230
+      ],
+      [
+        150,
+        150,
+        170
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "color_shift",
+      "treble": "glow"
+    }
   },
   {
     "id": 99,
@@ -897,7 +3669,35 @@
     "description": "Spinning tornado vortex",
     "shader": "atmospheric/tornado",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        180,
+        180,
+        190
+      ],
+      [
+        220,
+        220,
+        230
+      ],
+      [
+        150,
+        150,
+        170
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "color_shift",
+      "treble": "glow"
+    }
   },
   {
     "id": 100,
@@ -906,7 +3706,35 @@
     "description": "Swirling dust devil",
     "shader": "atmospheric/dust_devil",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        180,
+        180,
+        190
+      ],
+      [
+        220,
+        220,
+        230
+      ],
+      [
+        150,
+        150,
+        170
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "color_shift",
+      "treble": "glow"
+    }
   },
   {
     "id": 101,
@@ -915,7 +3743,35 @@
     "description": "Rising smoke column",
     "shader": "atmospheric/smoke_plume",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        180,
+        180,
+        190
+      ],
+      [
+        220,
+        220,
+        230
+      ],
+      [
+        150,
+        150,
+        170
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "color_shift",
+      "treble": "glow"
+    }
   },
   {
     "id": 102,
@@ -924,7 +3780,35 @@
     "description": "Interlocking rotating gears",
     "shader": "mechanical/rotating_gears",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        100,
+        110,
+        120
+      ],
+      [
+        180,
+        190,
+        200
+      ],
+      [
+        60,
+        70,
+        80
+      ],
+      [
+        140,
+        150,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "grinding"
+    }
   },
   {
     "id": 103,
@@ -933,7 +3817,35 @@
     "description": "Pumping piston motion",
     "shader": "mechanical/pistons",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        100,
+        110,
+        120
+      ],
+      [
+        180,
+        190,
+        200
+      ],
+      [
+        60,
+        70,
+        80
+      ],
+      [
+        140,
+        150,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "grinding"
+    }
   },
   {
     "id": 104,
@@ -942,7 +3854,35 @@
     "description": "Ticking clock gears",
     "shader": "mechanical/clock_mechanism",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        100,
+        110,
+        120
+      ],
+      [
+        180,
+        190,
+        200
+      ],
+      [
+        60,
+        70,
+        80
+      ],
+      [
+        140,
+        150,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "grinding"
+    }
   },
   {
     "id": 105,
@@ -951,7 +3891,35 @@
     "description": "Moving chain drive",
     "shader": "mechanical/chain_drive",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        100,
+        110,
+        120
+      ],
+      [
+        180,
+        190,
+        200
+      ],
+      [
+        60,
+        70,
+        80
+      ],
+      [
+        140,
+        150,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "grinding"
+    }
   },
   {
     "id": 106,
@@ -960,7 +3928,35 @@
     "description": "Connected pulley system",
     "shader": "mechanical/pulleys",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        100,
+        110,
+        120
+      ],
+      [
+        180,
+        190,
+        200
+      ],
+      [
+        60,
+        70,
+        80
+      ],
+      [
+        140,
+        150,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "grinding"
+    }
   },
   {
     "id": 107,
@@ -969,7 +3965,35 @@
     "description": "Assembly line conveyor",
     "shader": "mechanical/factory_line",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        100,
+        110,
+        120
+      ],
+      [
+        180,
+        190,
+        200
+      ],
+      [
+        60,
+        70,
+        80
+      ],
+      [
+        140,
+        150,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "grinding"
+    }
   },
   {
     "id": 108,
@@ -978,7 +4002,35 @@
     "description": "Steampunk valve mechanism",
     "shader": "mechanical/steam_valve",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        100,
+        110,
+        120
+      ],
+      [
+        180,
+        190,
+        200
+      ],
+      [
+        60,
+        70,
+        80
+      ],
+      [
+        140,
+        150,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "grinding"
+    }
   },
   {
     "id": 109,
@@ -987,7 +4039,35 @@
     "description": "Spinning turbine blades",
     "shader": "mechanical/turbine",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        100,
+        110,
+        120
+      ],
+      [
+        180,
+        190,
+        200
+      ],
+      [
+        60,
+        70,
+        80
+      ],
+      [
+        140,
+        150,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "grinding"
+    }
   },
   {
     "id": 110,
@@ -996,7 +4076,35 @@
     "description": "Mechanical robot assembly",
     "shader": "mechanical/robot_parts",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        100,
+        110,
+        120
+      ],
+      [
+        180,
+        190,
+        200
+      ],
+      [
+        60,
+        70,
+        80
+      ],
+      [
+        140,
+        150,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "grinding"
+    }
   },
   {
     "id": 111,
@@ -1005,7 +4113,35 @@
     "description": "Engine piston cycles",
     "shader": "mechanical/engine_cycles",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        100,
+        110,
+        120
+      ],
+      [
+        180,
+        190,
+        200
+      ],
+      [
+        60,
+        70,
+        80
+      ],
+      [
+        140,
+        150,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "grinding"
+    }
   },
   {
     "id": 112,
@@ -1014,7 +4150,35 @@
     "description": "Glowing firefly swarm",
     "shader": "bioluminescent/fireflies",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        200
+      ],
+      [
+        150,
+        180,
+        100
+      ],
+      [
+        120,
+        180,
+        180
+      ],
+      [
+        200,
+        180,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "pulse",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 113,
@@ -1023,7 +4187,35 @@
     "description": "Glowing deep sea life",
     "shader": "bioluminescent/deep_sea_creatures",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        200
+      ],
+      [
+        150,
+        180,
+        100
+      ],
+      [
+        120,
+        180,
+        180
+      ],
+      [
+        200,
+        180,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "pulse",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 114,
@@ -1032,7 +4224,35 @@
     "description": "Bioluminescent plankton wave",
     "shader": "bioluminescent/plankton_bloom",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        200
+      ],
+      [
+        150,
+        180,
+        100
+      ],
+      [
+        120,
+        180,
+        180
+      ],
+      [
+        200,
+        180,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "pulse",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 115,
@@ -1041,7 +4261,35 @@
     "description": "Glowing plant garden",
     "shader": "bioluminescent/neon_garden",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        200
+      ],
+      [
+        150,
+        180,
+        100
+      ],
+      [
+        120,
+        180,
+        180
+      ],
+      [
+        200,
+        180,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "pulse",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 116,
@@ -1050,7 +4298,35 @@
     "description": "Glowing light trails",
     "shader": "bioluminescent/light_trails",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        200
+      ],
+      [
+        150,
+        180,
+        100
+      ],
+      [
+        120,
+        180,
+        180
+      ],
+      [
+        200,
+        180,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "pulse",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 117,
@@ -1059,7 +4335,35 @@
     "description": "Glowing particle swarm",
     "shader": "bioluminescent/biolume_particles",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        200
+      ],
+      [
+        150,
+        180,
+        100
+      ],
+      [
+        120,
+        180,
+        180
+      ],
+      [
+        200,
+        180,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "pulse",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 118,
@@ -1068,7 +4372,35 @@
     "description": "Pulsing jellyfish glow",
     "shader": "bioluminescent/jellyfish_dance",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        200
+      ],
+      [
+        150,
+        180,
+        100
+      ],
+      [
+        120,
+        180,
+        180
+      ],
+      [
+        200,
+        180,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "pulse",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 119,
@@ -1077,7 +4409,35 @@
     "description": "Glowing coral formations",
     "shader": "bioluminescent/coral_glow",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        200
+      ],
+      [
+        150,
+        180,
+        100
+      ],
+      [
+        120,
+        180,
+        180
+      ],
+      [
+        200,
+        180,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "pulse",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 120,
@@ -1086,7 +4446,35 @@
     "description": "Glowing spore clouds",
     "shader": "bioluminescent/mushroom_spores",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        200
+      ],
+      [
+        150,
+        180,
+        100
+      ],
+      [
+        120,
+        180,
+        180
+      ],
+      [
+        200,
+        180,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "pulse",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 121,
@@ -1095,7 +4483,35 @@
     "description": "Blooming energy aura",
     "shader": "bioluminescent/aura_bloom",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        200
+      ],
+      [
+        150,
+        180,
+        100
+      ],
+      [
+        120,
+        180,
+        180
+      ],
+      [
+        200,
+        180,
+        220
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "glow",
+      "bass": "scale",
+      "mid": "pulse",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 122,
@@ -1104,7 +4520,35 @@
     "description": "Electron orbital shells",
     "shader": "quantum/electron_orbits",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        60,
+        80,
+        160
+      ],
+      [
+        180,
+        160,
+        200
+      ],
+      [
+        200,
+        190,
+        230
+      ],
+      [
+        80,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "probability_intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "quantum_flicker"
+    }
   },
   {
     "id": 123,
@@ -1113,7 +4557,35 @@
     "description": "Quantum wave function",
     "shader": "quantum/wave_function",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        60,
+        80,
+        160
+      ],
+      [
+        180,
+        160,
+        200
+      ],
+      [
+        200,
+        190,
+        230
+      ],
+      [
+        80,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "probability_intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "quantum_flicker"
+    }
   },
   {
     "id": 124,
@@ -1122,7 +4594,35 @@
     "description": "Particle decay cascade",
     "shader": "quantum/particle_decay",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        60,
+        80,
+        160
+      ],
+      [
+        180,
+        160,
+        200
+      ],
+      [
+        200,
+        190,
+        230
+      ],
+      [
+        80,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "probability_intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "quantum_flicker"
+    }
   },
   {
     "id": 125,
@@ -1131,7 +4631,35 @@
     "description": "Quantum vacuum fluctuations",
     "shader": "quantum/quantum_foam",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        60,
+        80,
+        160
+      ],
+      [
+        180,
+        160,
+        200
+      ],
+      [
+        200,
+        190,
+        230
+      ],
+      [
+        80,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "probability_intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "quantum_flicker"
+    }
   },
   {
     "id": 126,
@@ -1140,7 +4668,35 @@
     "description": "Quantum superposition states",
     "shader": "quantum/superposition",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        60,
+        80,
+        160
+      ],
+      [
+        180,
+        160,
+        200
+      ],
+      [
+        200,
+        190,
+        230
+      ],
+      [
+        80,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "probability_intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "quantum_flicker"
+    }
   },
   {
     "id": 127,
@@ -1149,7 +4705,35 @@
     "description": "Quantum entanglement connections",
     "shader": "quantum/entanglement",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        60,
+        80,
+        160
+      ],
+      [
+        180,
+        160,
+        200
+      ],
+      [
+        200,
+        190,
+        230
+      ],
+      [
+        80,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "probability_intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "quantum_flicker"
+    }
   },
   {
     "id": 128,
@@ -1158,7 +4742,35 @@
     "description": "Uncertainty principle visualization",
     "shader": "quantum/uncertainty_principle",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        60,
+        80,
+        160
+      ],
+      [
+        180,
+        160,
+        200
+      ],
+      [
+        200,
+        190,
+        230
+      ],
+      [
+        80,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "probability_intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "quantum_flicker"
+    }
   },
   {
     "id": 129,
@@ -1167,7 +4779,35 @@
     "description": "Quantum tunneling visualization",
     "shader": "quantum/tunnel_effect",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        60,
+        80,
+        160
+      ],
+      [
+        180,
+        160,
+        200
+      ],
+      [
+        200,
+        190,
+        230
+      ],
+      [
+        80,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "probability_intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "quantum_flicker"
+    }
   },
   {
     "id": 130,
@@ -1176,7 +4816,35 @@
     "description": "Crystal atomic lattice",
     "shader": "quantum/atomic_lattice",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        60,
+        80,
+        160
+      ],
+      [
+        180,
+        160,
+        200
+      ],
+      [
+        200,
+        190,
+        230
+      ],
+      [
+        80,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "probability_intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "quantum_flicker"
+    }
   },
   {
     "id": 131,
@@ -1185,7 +4853,35 @@
     "description": "Bursting photon particles",
     "shader": "quantum/photon_burst",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        60,
+        80,
+        160
+      ],
+      [
+        180,
+        160,
+        200
+      ],
+      [
+        200,
+        190,
+        230
+      ],
+      [
+        80,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "probability_intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "quantum_flicker"
+    }
   },
   {
     "id": 132,
@@ -1194,7 +4890,35 @@
     "description": "Time aging effect",
     "shader": "temporal/aging_process",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        140,
+        180
+      ],
+      [
+        180,
+        160,
+        140
+      ],
+      [
+        200,
+        140,
+        80
+      ],
+      [
+        140,
+        120,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "time_flow",
+      "bass": "past_intensity",
+      "mid": "present_intensity",
+      "treble": "future_intensity"
+    }
   },
   {
     "id": 133,
@@ -1203,7 +4927,35 @@
     "description": "Decaying animation frames",
     "shader": "temporal/decay_animation",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        140,
+        180
+      ],
+      [
+        180,
+        160,
+        140
+      ],
+      [
+        200,
+        140,
+        80
+      ],
+      [
+        140,
+        120,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "time_flow",
+      "bass": "past_intensity",
+      "mid": "present_intensity",
+      "treble": "future_intensity"
+    }
   },
   {
     "id": 134,
@@ -1212,7 +4964,35 @@
     "description": "Historical timeline visualization",
     "shader": "temporal/timeline",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        140,
+        180
+      ],
+      [
+        180,
+        160,
+        140
+      ],
+      [
+        200,
+        140,
+        80
+      ],
+      [
+        140,
+        120,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "time_flow",
+      "bass": "past_intensity",
+      "mid": "present_intensity",
+      "treble": "future_intensity"
+    }
   },
   {
     "id": 135,
@@ -1221,7 +5001,35 @@
     "description": "Relativistic time dilation",
     "shader": "temporal/time_dilation",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        140,
+        180
+      ],
+      [
+        180,
+        160,
+        140
+      ],
+      [
+        200,
+        140,
+        80
+      ],
+      [
+        140,
+        120,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "time_flow",
+      "bass": "past_intensity",
+      "mid": "present_intensity",
+      "treble": "future_intensity"
+    }
   },
   {
     "id": 136,
@@ -1230,7 +5038,35 @@
     "description": "Entropy increase visualization",
     "shader": "temporal/entropy",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        140,
+        180
+      ],
+      [
+        180,
+        160,
+        140
+      ],
+      [
+        200,
+        140,
+        80
+      ],
+      [
+        140,
+        120,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "time_flow",
+      "bass": "past_intensity",
+      "mid": "present_intensity",
+      "treble": "future_intensity"
+    }
   },
   {
     "id": 137,
@@ -1239,7 +5075,35 @@
     "description": "Time vortex swirl",
     "shader": "temporal/temporal_vortex",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        140,
+        180
+      ],
+      [
+        180,
+        160,
+        140
+      ],
+      [
+        200,
+        140,
+        80
+      ],
+      [
+        140,
+        120,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "time_flow",
+      "bass": "past_intensity",
+      "mid": "present_intensity",
+      "treble": "future_intensity"
+    }
   },
   {
     "id": 138,
@@ -1248,7 +5112,35 @@
     "description": "Backward time rewind",
     "shader": "temporal/rewind_effect",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        140,
+        180
+      ],
+      [
+        180,
+        160,
+        140
+      ],
+      [
+        200,
+        140,
+        80
+      ],
+      [
+        140,
+        120,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "time_flow",
+      "bass": "past_intensity",
+      "mid": "present_intensity",
+      "treble": "future_intensity"
+    }
   },
   {
     "id": 139,
@@ -1257,7 +5149,35 @@
     "description": "Slow motion time effect",
     "shader": "temporal/slow_motion",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        140,
+        180
+      ],
+      [
+        180,
+        160,
+        140
+      ],
+      [
+        200,
+        140,
+        80
+      ],
+      [
+        140,
+        120,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "time_flow",
+      "bass": "past_intensity",
+      "mid": "present_intensity",
+      "treble": "future_intensity"
+    }
   },
   {
     "id": 140,
@@ -1266,7 +5186,35 @@
     "description": "Time crystal patterns",
     "shader": "temporal/time_crystals",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        140,
+        180
+      ],
+      [
+        180,
+        160,
+        140
+      ],
+      [
+        200,
+        140,
+        80
+      ],
+      [
+        140,
+        120,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "time_flow",
+      "bass": "past_intensity",
+      "mid": "present_intensity",
+      "treble": "future_intensity"
+    }
   },
   {
     "id": 141,
@@ -1275,7 +5223,35 @@
     "description": "Life cycle progression",
     "shader": "temporal/life_cycle",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        140,
+        180
+      ],
+      [
+        180,
+        160,
+        140
+      ],
+      [
+        200,
+        140,
+        80
+      ],
+      [
+        140,
+        120,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "time_flow",
+      "bass": "past_intensity",
+      "mid": "present_intensity",
+      "treble": "future_intensity"
+    }
   },
   {
     "id": 142,
@@ -1284,7 +5260,35 @@
     "description": "Dimensional portal gateway",
     "shader": "dimensional/portal",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        80
+      ],
+      [
+        180,
+        100,
+        100
+      ],
+      [
+        150,
+        100,
+        150
+      ],
+      [
+        100,
+        80,
+        150
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "depth",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 143,
@@ -1293,7 +5297,35 @@
     "description": "4D hypercube projection",
     "shader": "dimensional/tesseract",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        80
+      ],
+      [
+        180,
+        100,
+        100
+      ],
+      [
+        150,
+        100,
+        150
+      ],
+      [
+        100,
+        80,
+        150
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "depth",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 144,
@@ -1302,7 +5334,35 @@
     "description": "Dimensional rift tear",
     "shader": "dimensional/rift",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        80
+      ],
+      [
+        180,
+        100,
+        100
+      ],
+      [
+        150,
+        100,
+        150
+      ],
+      [
+        100,
+        80,
+        150
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "depth",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 145,
@@ -1311,7 +5371,35 @@
     "description": "Perspective transformation",
     "shader": "dimensional/perspective_shift",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        80
+      ],
+      [
+        180,
+        100,
+        100
+      ],
+      [
+        150,
+        100,
+        150
+      ],
+      [
+        100,
+        80,
+        150
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "depth",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 146,
@@ -1320,7 +5408,35 @@
     "description": "Multiple parallel dimensions",
     "shader": "dimensional/parallel_worlds",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        80
+      ],
+      [
+        180,
+        100,
+        100
+      ],
+      [
+        150,
+        100,
+        150
+      ],
+      [
+        100,
+        80,
+        150
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "depth",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 147,
@@ -1329,7 +5445,35 @@
     "description": "Space-time wormhole",
     "shader": "dimensional/wormhole",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        80
+      ],
+      [
+        180,
+        100,
+        100
+      ],
+      [
+        150,
+        100,
+        150
+      ],
+      [
+        100,
+        80,
+        150
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "depth",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 148,
@@ -1338,7 +5482,35 @@
     "description": "M\u00f6bius strip topology",
     "shader": "dimensional/mobius_strip",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        80
+      ],
+      [
+        180,
+        100,
+        100
+      ],
+      [
+        150,
+        100,
+        150
+      ],
+      [
+        100,
+        80,
+        150
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "depth",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 149,
@@ -1347,7 +5519,35 @@
     "description": "Klein bottle surface",
     "shader": "dimensional/klein_bottle",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        80
+      ],
+      [
+        180,
+        100,
+        100
+      ],
+      [
+        150,
+        100,
+        150
+      ],
+      [
+        100,
+        80,
+        150
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "depth",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 150,
@@ -1356,7 +5556,35 @@
     "description": "4D sphere projection",
     "shader": "dimensional/hypersphere",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        80
+      ],
+      [
+        180,
+        100,
+        100
+      ],
+      [
+        150,
+        100,
+        150
+      ],
+      [
+        100,
+        80,
+        150
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "depth",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 151,
@@ -1365,7 +5593,35 @@
     "description": "Collapsing dimensional space",
     "shader": "dimensional/dimensional_collapse",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        200,
+        120,
+        80
+      ],
+      [
+        180,
+        100,
+        100
+      ],
+      [
+        150,
+        100,
+        150
+      ],
+      [
+        100,
+        80,
+        150
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "depth",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 152,
@@ -1374,7 +5630,35 @@
     "description": "Translucent ghost form",
     "shader": "ethereal/ghost",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        200,
+        230
+      ],
+      [
+        230,
+        190,
+        170
+      ],
+      [
+        240,
+        240,
+        240
+      ],
+      [
+        200,
+        190,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "glow",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 153,
@@ -1383,7 +5667,35 @@
     "description": "Floating spirit wisps",
     "shader": "ethereal/spirit_wisps",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        200,
+        230
+      ],
+      [
+        230,
+        190,
+        170
+      ],
+      [
+        240,
+        240,
+        240
+      ],
+      [
+        200,
+        190,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "glow",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 154,
@@ -1392,7 +5704,35 @@
     "description": "Phantom touch traces",
     "shader": "ethereal/phantom_touch",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        200,
+        230
+      ],
+      [
+        230,
+        190,
+        170
+      ],
+      [
+        240,
+        240,
+        240
+      ],
+      [
+        200,
+        190,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "glow",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 155,
@@ -1401,7 +5741,35 @@
     "description": "Ghostly ectoplasm",
     "shader": "ethereal/ectoplasm",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        200,
+        230
+      ],
+      [
+        230,
+        190,
+        170
+      ],
+      [
+        240,
+        240,
+        240
+      ],
+      [
+        200,
+        190,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "glow",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 156,
@@ -1410,7 +5778,35 @@
     "description": "Supernatural veil overlay",
     "shader": "ethereal/veil",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        200,
+        230
+      ],
+      [
+        230,
+        190,
+        170
+      ],
+      [
+        240,
+        240,
+        240
+      ],
+      [
+        200,
+        190,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "glow",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 157,
@@ -1419,7 +5815,35 @@
     "description": "Desert mirage effect",
     "shader": "ethereal/mirage",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        200,
+        230
+      ],
+      [
+        230,
+        190,
+        170
+      ],
+      [
+        240,
+        240,
+        240
+      ],
+      [
+        200,
+        190,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "glow",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 158,
@@ -1428,7 +5852,35 @@
     "description": "Transparent fading effect",
     "shader": "ethereal/transparency",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        200,
+        230
+      ],
+      [
+        230,
+        190,
+        170
+      ],
+      [
+        240,
+        240,
+        240
+      ],
+      [
+        200,
+        190,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "glow",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 159,
@@ -1437,7 +5889,35 @@
     "description": "Haunting specter figure",
     "shader": "ethereal/specter",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        200,
+        230
+      ],
+      [
+        230,
+        190,
+        170
+      ],
+      [
+        240,
+        240,
+        240
+      ],
+      [
+        200,
+        190,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "glow",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 160,
@@ -1446,7 +5926,35 @@
     "description": "Soft ethereal glow",
     "shader": "ethereal/ethereal_glow",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        200,
+        230
+      ],
+      [
+        230,
+        190,
+        170
+      ],
+      [
+        240,
+        240,
+        240
+      ],
+      [
+        200,
+        190,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "glow",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 161,
@@ -1455,7 +5963,35 @@
     "description": "Rising spiritual energy",
     "shader": "ethereal/spiritual_ascent",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        200,
+        230
+      ],
+      [
+        230,
+        190,
+        170
+      ],
+      [
+        240,
+        240,
+        240
+      ],
+      [
+        200,
+        190,
+        210
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "opacity",
+      "bass": "sway",
+      "mid": "glow",
+      "treble": "color_shift"
+    }
   },
   {
     "id": 162,
@@ -1464,7 +6000,35 @@
     "description": "Boiling lava lake",
     "shader": "infernal/lava_lake",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        20,
+        80
+      ],
+      [
+        200,
+        90,
+        30
+      ],
+      [
+        50,
+        40,
+        40
+      ],
+      [
+        220,
+        60,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "heat",
+      "bass": "intensity",
+      "mid": "rotation",
+      "treble": "spark_emission"
+    }
   },
   {
     "id": 163,
@@ -1473,7 +6037,35 @@
     "description": "Swirling fire tornado",
     "shader": "infernal/fire_tornado",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        20,
+        80
+      ],
+      [
+        200,
+        90,
+        30
+      ],
+      [
+        50,
+        40,
+        40
+      ],
+      [
+        220,
+        60,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "heat",
+      "bass": "intensity",
+      "mid": "rotation",
+      "treble": "spark_emission"
+    }
   },
   {
     "id": 164,
@@ -1482,7 +6074,35 @@
     "description": "Flying ember particles",
     "shader": "infernal/ember_storm",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        20,
+        80
+      ],
+      [
+        200,
+        90,
+        30
+      ],
+      [
+        50,
+        40,
+        40
+      ],
+      [
+        220,
+        60,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "heat",
+      "bass": "intensity",
+      "mid": "rotation",
+      "treble": "spark_emission"
+    }
   },
   {
     "id": 165,
@@ -1491,7 +6111,35 @@
     "description": "Heat wave distortion",
     "shader": "infernal/heat_distortion",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        20,
+        80
+      ],
+      [
+        200,
+        90,
+        30
+      ],
+      [
+        50,
+        40,
+        40
+      ],
+      [
+        220,
+        60,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "heat",
+      "bass": "intensity",
+      "mid": "rotation",
+      "treble": "spark_emission"
+    }
   },
   {
     "id": 166,
@@ -1500,7 +6148,35 @@
     "description": "Erupting volcano",
     "shader": "infernal/volcanic_eruption",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        20,
+        80
+      ],
+      [
+        200,
+        90,
+        30
+      ],
+      [
+        50,
+        40,
+        40
+      ],
+      [
+        220,
+        60,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "heat",
+      "bass": "intensity",
+      "mid": "rotation",
+      "treble": "spark_emission"
+    }
   },
   {
     "id": 167,
@@ -1509,7 +6185,35 @@
     "description": "Raging inferno flames",
     "shader": "infernal/inferno",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        20,
+        80
+      ],
+      [
+        200,
+        90,
+        30
+      ],
+      [
+        50,
+        40,
+        40
+      ],
+      [
+        220,
+        60,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "heat",
+      "bass": "intensity",
+      "mid": "rotation",
+      "treble": "spark_emission"
+    }
   },
   {
     "id": 168,
@@ -1518,7 +6222,35 @@
     "description": "Sulfur vent emissions",
     "shader": "infernal/sulfur_vents",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        20,
+        80
+      ],
+      [
+        200,
+        90,
+        30
+      ],
+      [
+        50,
+        40,
+        40
+      ],
+      [
+        220,
+        60,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "heat",
+      "bass": "intensity",
+      "mid": "rotation",
+      "treble": "spark_emission"
+    }
   },
   {
     "id": 169,
@@ -1527,7 +6259,35 @@
     "description": "Hellish gateway portal",
     "shader": "infernal/hell_gate",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        20,
+        80
+      ],
+      [
+        200,
+        90,
+        30
+      ],
+      [
+        50,
+        40,
+        40
+      ],
+      [
+        220,
+        60,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "heat",
+      "bass": "intensity",
+      "mid": "rotation",
+      "treble": "spark_emission"
+    }
   },
   {
     "id": 170,
@@ -1536,7 +6296,35 @@
     "description": "Pulsing flame waves",
     "shader": "infernal/flame_pulse",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        20,
+        80
+      ],
+      [
+        200,
+        90,
+        30
+      ],
+      [
+        50,
+        40,
+        40
+      ],
+      [
+        220,
+        60,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "heat",
+      "bass": "intensity",
+      "mid": "rotation",
+      "treble": "spark_emission"
+    }
   },
   {
     "id": 171,
@@ -1545,7 +6333,35 @@
     "description": "Flowing molten magma",
     "shader": "infernal/magma_flow",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        20,
+        80
+      ],
+      [
+        200,
+        90,
+        30
+      ],
+      [
+        50,
+        40,
+        40
+      ],
+      [
+        220,
+        60,
+        90
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "heat",
+      "bass": "intensity",
+      "mid": "rotation",
+      "treble": "spark_emission"
+    }
   },
   {
     "id": 172,
@@ -1554,7 +6370,35 @@
     "description": "Rotating Earth planet",
     "shader": "celestial/earth",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        40,
+        50,
+        120
+      ],
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        240,
+        230,
+        200
+      ],
+      [
+        100,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "sway",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 173,
@@ -1563,7 +6407,35 @@
     "description": "Gas giant Jupiter",
     "shader": "celestial/jupiter",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        40,
+        50,
+        120
+      ],
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        240,
+        230,
+        200
+      ],
+      [
+        100,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "sway",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 174,
@@ -1572,7 +6444,35 @@
     "description": "Saturn with ring system",
     "shader": "celestial/saturn_rings",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        40,
+        50,
+        120
+      ],
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        240,
+        230,
+        200
+      ],
+      [
+        100,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "sway",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 175,
@@ -1581,7 +6481,35 @@
     "description": "Moon phase cycles",
     "shader": "celestial/moon_phases",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        40,
+        50,
+        120
+      ],
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        240,
+        230,
+        200
+      ],
+      [
+        100,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "sway",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 176,
@@ -1590,7 +6518,35 @@
     "description": "Solar corona eruptions",
     "shader": "celestial/sun_corona",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        40,
+        50,
+        120
+      ],
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        240,
+        230,
+        200
+      ],
+      [
+        100,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "sway",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 177,
@@ -1599,7 +6555,35 @@
     "description": "Orbiting binary star system",
     "shader": "celestial/binary_stars",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        40,
+        50,
+        120
+      ],
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        240,
+        230,
+        200
+      ],
+      [
+        100,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "sway",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 178,
@@ -1608,7 +6592,35 @@
     "description": "Pulsating neutron star",
     "shader": "celestial/pulsar_system",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        40,
+        50,
+        120
+      ],
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        240,
+        230,
+        200
+      ],
+      [
+        100,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "sway",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 179,
@@ -1617,7 +6629,35 @@
     "description": "Asteroid belt visualization",
     "shader": "celestial/asteroid_field",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        40,
+        50,
+        120
+      ],
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        240,
+        230,
+        200
+      ],
+      [
+        100,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "sway",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 180,
@@ -1626,7 +6666,35 @@
     "description": "Comet with tail",
     "shader": "celestial/comet",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        40,
+        50,
+        120
+      ],
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        240,
+        230,
+        200
+      ],
+      [
+        100,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "sway",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 181,
@@ -1635,7 +6703,35 @@
     "description": "Colliding cosmic bodies",
     "shader": "celestial/cosmic_collision",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        40,
+        50,
+        120
+      ],
+      [
+        180,
+        170,
+        200
+      ],
+      [
+        240,
+        230,
+        200
+      ],
+      [
+        100,
+        100,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "brightness",
+      "bass": "sway",
+      "mid": "rotation",
+      "treble": "twinkle"
+    }
   },
   {
     "id": 182,
@@ -1644,7 +6740,35 @@
     "description": "Morphing blob shapes",
     "shader": "metamorphic/blob_morphing",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        100,
+        70
+      ],
+      [
+        160,
+        110,
+        130
+      ],
+      [
+        180,
+        120,
+        160
+      ],
+      [
+        120,
+        80,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "transform_rate",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "morph_intensity"
+    }
   },
   {
     "id": 183,
@@ -1653,7 +6777,35 @@
     "description": "Liquid metal transformation",
     "shader": "metamorphic/liquid_metal",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        100,
+        70
+      ],
+      [
+        160,
+        110,
+        130
+      ],
+      [
+        180,
+        120,
+        160
+      ],
+      [
+        120,
+        80,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "transform_rate",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "morph_intensity"
+    }
   },
   {
     "id": 184,
@@ -1662,7 +6814,35 @@
     "description": "DNA helix morphing",
     "shader": "metamorphic/dna_strand_morph",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        100,
+        70
+      ],
+      [
+        160,
+        110,
+        130
+      ],
+      [
+        180,
+        120,
+        160
+      ],
+      [
+        120,
+        80,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "transform_rate",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "morph_intensity"
+    }
   },
   {
     "id": 185,
@@ -1671,7 +6851,35 @@
     "description": "Mutating organism forms",
     "shader": "metamorphic/organism_mutation",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        100,
+        70
+      ],
+      [
+        160,
+        110,
+        130
+      ],
+      [
+        180,
+        120,
+        160
+      ],
+      [
+        120,
+        80,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "transform_rate",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "morph_intensity"
+    }
   },
   {
     "id": 186,
@@ -1680,7 +6888,35 @@
     "description": "Deforming mesh surface",
     "shader": "metamorphic/mesh_deformation",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        100,
+        70
+      ],
+      [
+        160,
+        110,
+        130
+      ],
+      [
+        180,
+        120,
+        160
+      ],
+      [
+        120,
+        80,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "transform_rate",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "morph_intensity"
+    }
   },
   {
     "id": 187,
@@ -1689,7 +6925,35 @@
     "description": "Morphing face features",
     "shader": "metamorphic/face_morphing",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        100,
+        70
+      ],
+      [
+        160,
+        110,
+        130
+      ],
+      [
+        180,
+        120,
+        160
+      ],
+      [
+        120,
+        80,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "transform_rate",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "morph_intensity"
+    }
   },
   {
     "id": 188,
@@ -1698,7 +6962,35 @@
     "description": "Flowing texture transformation",
     "shader": "metamorphic/texture_flow",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        100,
+        70
+      ],
+      [
+        160,
+        110,
+        130
+      ],
+      [
+        180,
+        120,
+        160
+      ],
+      [
+        120,
+        80,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "transform_rate",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "morph_intensity"
+    }
   },
   {
     "id": 189,
@@ -1707,7 +6999,35 @@
     "description": "Matter state transitions",
     "shader": "metamorphic/matter_state_change",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        100,
+        70
+      ],
+      [
+        160,
+        110,
+        130
+      ],
+      [
+        180,
+        120,
+        160
+      ],
+      [
+        120,
+        80,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "transform_rate",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "morph_intensity"
+    }
   },
   {
     "id": 190,
@@ -1716,7 +7036,35 @@
     "description": "Evolutionary form tree",
     "shader": "metamorphic/evolution_tree",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        100,
+        70
+      ],
+      [
+        160,
+        110,
+        130
+      ],
+      [
+        180,
+        120,
+        160
+      ],
+      [
+        120,
+        80,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "transform_rate",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "morph_intensity"
+    }
   },
   {
     "id": 191,
@@ -1725,7 +7073,35 @@
     "description": "Color morphing transformation",
     "shader": "metamorphic/chromatic_morph",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        140,
+        100,
+        70
+      ],
+      [
+        160,
+        110,
+        130
+      ],
+      [
+        180,
+        120,
+        160
+      ],
+      [
+        120,
+        80,
+        140
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "transform_rate",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "morph_intensity"
+    }
   },
   {
     "id": 192,
@@ -1734,7 +7110,35 @@
     "description": "Audio frequency to color mapping",
     "shader": "synesthetic/music_to_color",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        140,
+        130
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        80,
+        80,
+        180
+      ],
+      [
+        200,
+        160,
+        80
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_a",
+      "mid": "color_b",
+      "treble": "color_c"
+    }
   },
   {
     "id": 193,
@@ -1743,7 +7147,35 @@
     "description": "Tactile sensation visualization",
     "shader": "synesthetic/touch_vision",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        140,
+        130
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        80,
+        80,
+        180
+      ],
+      [
+        200,
+        160,
+        80
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_a",
+      "mid": "color_b",
+      "treble": "color_c"
+    }
   },
   {
     "id": 194,
@@ -1752,7 +7184,35 @@
     "description": "Taste perception as visuals",
     "shader": "synesthetic/taste_visualization",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        140,
+        130
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        80,
+        80,
+        180
+      ],
+      [
+        200,
+        160,
+        80
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_a",
+      "mid": "color_b",
+      "treble": "color_c"
+    }
   },
   {
     "id": 195,
@@ -1761,7 +7221,35 @@
     "description": "Olfactory waves pattern",
     "shader": "synesthetic/scent_waves",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        140,
+        130
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        80,
+        80,
+        180
+      ],
+      [
+        200,
+        160,
+        80
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_a",
+      "mid": "color_b",
+      "treble": "color_c"
+    }
   },
   {
     "id": 196,
@@ -1770,7 +7258,35 @@
     "description": "Audio to geometric shape",
     "shader": "synesthetic/sound_shape",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        140,
+        130
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        80,
+        80,
+        180
+      ],
+      [
+        200,
+        160,
+        80
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_a",
+      "mid": "color_b",
+      "treble": "color_c"
+    }
   },
   {
     "id": 197,
@@ -1779,7 +7295,35 @@
     "description": "Texture frequency harmony",
     "shader": "synesthetic/texture_harmony",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        140,
+        130
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        80,
+        80,
+        180
+      ],
+      [
+        200,
+        160,
+        80
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_a",
+      "mid": "color_b",
+      "treble": "color_c"
+    }
   },
   {
     "id": 198,
@@ -1788,7 +7332,35 @@
     "description": "Emotional state as color",
     "shader": "synesthetic/emotion_color",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        140,
+        130
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        80,
+        80,
+        180
+      ],
+      [
+        200,
+        160,
+        80
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_a",
+      "mid": "color_b",
+      "treble": "color_c"
+    }
   },
   {
     "id": 199,
@@ -1797,7 +7369,35 @@
     "description": "Frequency spectrum vision",
     "shader": "synesthetic/frequency_vision",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        140,
+        130
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        80,
+        80,
+        180
+      ],
+      [
+        200,
+        160,
+        80
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_a",
+      "mid": "color_b",
+      "treble": "color_c"
+    }
   },
   {
     "id": 200,
@@ -1806,7 +7406,35 @@
     "description": "Harmonic proportions form",
     "shader": "synesthetic/harmonic_form",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        140,
+        130
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        80,
+        80,
+        180
+      ],
+      [
+        200,
+        160,
+        80
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_a",
+      "mid": "color_b",
+      "treble": "color_c"
+    }
   },
   {
     "id": 201,
@@ -1815,7 +7443,35 @@
     "description": "Cross-modal sensory fusion",
     "shader": "synesthetic/cross_modal",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        140,
+        130
+      ],
+      [
+        200,
+        180,
+        220
+      ],
+      [
+        80,
+        80,
+        180
+      ],
+      [
+        200,
+        160,
+        80
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_a",
+      "mid": "color_b",
+      "treble": "color_c"
+    }
   },
   {
     "id": 202,
@@ -1824,7 +7480,35 @@
     "description": "Frozen icy landscape",
     "shader": "crystallized/frozen_landscape",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 203,
@@ -1833,7 +7517,35 @@
     "description": "Intricate frost patterns",
     "shader": "crystallized/frost_patterns",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 204,
@@ -1842,7 +7554,35 @@
     "description": "Glacial ice age visualization",
     "shader": "crystallized/ice_age",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 205,
@@ -1851,7 +7591,35 @@
     "description": "Frozen mineral deposits",
     "shader": "crystallized/mineral_deposit",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 206,
@@ -1860,7 +7628,35 @@
     "description": "Permafrost ice ground",
     "shader": "crystallized/permafrost",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 207,
@@ -1869,7 +7665,35 @@
     "description": "Crystallized salt formations",
     "shader": "crystallized/salt_flats",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 208,
@@ -1878,7 +7702,35 @@
     "description": "Hanging icicle formations",
     "shader": "crystallized/icicles",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 209,
@@ -1887,7 +7739,35 @@
     "description": "Frozen waterfall cascade",
     "shader": "crystallized/frozen_waterfall",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 210,
@@ -1896,7 +7776,35 @@
     "description": "Ice crystal cavern",
     "shader": "crystallized/crystal_cavern",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 211,
@@ -1905,7 +7813,35 @@
     "description": "Diamond dust snowfall",
     "shader": "crystallized/diamond_snow",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        150,
+        140
+      ],
+      [
+        200,
+        180,
+        120
+      ],
+      [
+        140,
+        160,
+        130
+      ],
+      [
+        180,
+        170,
+        160
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 212,
@@ -1914,7 +7850,35 @@
     "description": "Spectral waveform display",
     "shader": "resonant/waveform_spectral",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        190
+      ],
+      [
+        150,
+        170,
+        140
+      ],
+      [
+        180,
+        140,
+        160
+      ],
+      [
+        170,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "resonance",
+      "bass": "fundamental",
+      "mid": "harmonic",
+      "treble": "overtone"
+    }
   },
   {
     "id": 213,
@@ -1923,7 +7887,35 @@
     "description": "Resonant harmonic rings",
     "shader": "resonant/harmonic_rings",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        190
+      ],
+      [
+        150,
+        170,
+        140
+      ],
+      [
+        180,
+        140,
+        160
+      ],
+      [
+        170,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "resonance",
+      "bass": "fundamental",
+      "mid": "harmonic",
+      "treble": "overtone"
+    }
   },
   {
     "id": 214,
@@ -1932,7 +7924,35 @@
     "description": "Frequency response graph",
     "shader": "resonant/frequency_graph",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        190
+      ],
+      [
+        150,
+        170,
+        140
+      ],
+      [
+        180,
+        140,
+        160
+      ],
+      [
+        170,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "resonance",
+      "bass": "fundamental",
+      "mid": "harmonic",
+      "treble": "overtone"
+    }
   },
   {
     "id": 215,
@@ -1941,7 +7961,35 @@
     "description": "Bass frequency visualization",
     "shader": "resonant/bass_drums",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        190
+      ],
+      [
+        150,
+        170,
+        140
+      ],
+      [
+        180,
+        140,
+        160
+      ],
+      [
+        170,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "resonance",
+      "bass": "fundamental",
+      "mid": "harmonic",
+      "treble": "overtone"
+    }
   },
   {
     "id": 216,
@@ -1950,7 +7998,35 @@
     "description": "High frequency peaks",
     "shader": "resonant/treble_peaks",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        190
+      ],
+      [
+        150,
+        170,
+        140
+      ],
+      [
+        180,
+        140,
+        160
+      ],
+      [
+        170,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "resonance",
+      "bass": "fundamental",
+      "mid": "harmonic",
+      "treble": "overtone"
+    }
   },
   {
     "id": 217,
@@ -1959,7 +8035,35 @@
     "description": "Stereo field visualization",
     "shader": "resonant/stereo_field",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        190
+      ],
+      [
+        150,
+        170,
+        140
+      ],
+      [
+        180,
+        140,
+        160
+      ],
+      [
+        170,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "resonance",
+      "bass": "fundamental",
+      "mid": "harmonic",
+      "treble": "overtone"
+    }
   },
   {
     "id": 218,
@@ -1968,7 +8072,35 @@
     "description": "Oscilloscope waveform",
     "shader": "resonant/oscilloscope",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        190
+      ],
+      [
+        150,
+        170,
+        140
+      ],
+      [
+        180,
+        140,
+        160
+      ],
+      [
+        170,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "resonance",
+      "bass": "fundamental",
+      "mid": "harmonic",
+      "treble": "overtone"
+    }
   },
   {
     "id": 219,
@@ -1977,7 +8109,35 @@
     "description": "Theremin pitch wave",
     "shader": "resonant/theremin_wave",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        190
+      ],
+      [
+        150,
+        170,
+        140
+      ],
+      [
+        180,
+        140,
+        160
+      ],
+      [
+        170,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "resonance",
+      "bass": "fundamental",
+      "mid": "harmonic",
+      "treble": "overtone"
+    }
   },
   {
     "id": 220,
@@ -1986,7 +8146,35 @@
     "description": "Musical harmonic series",
     "shader": "resonant/harmonic_series",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        190
+      ],
+      [
+        150,
+        170,
+        140
+      ],
+      [
+        180,
+        140,
+        160
+      ],
+      [
+        170,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "resonance",
+      "bass": "fundamental",
+      "mid": "harmonic",
+      "treble": "overtone"
+    }
   },
   {
     "id": 221,
@@ -1995,7 +8183,35 @@
     "description": "Resonance frequency pattern",
     "shader": "resonant/resonance",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        180,
+        150,
+        190
+      ],
+      [
+        150,
+        170,
+        140
+      ],
+      [
+        180,
+        140,
+        160
+      ],
+      [
+        170,
+        160,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "resonance",
+      "bass": "fundamental",
+      "mid": "harmonic",
+      "treble": "overtone"
+    }
   },
   {
     "id": 222,
@@ -2004,7 +8220,35 @@
     "description": "Full rainbow color spectrum",
     "shader": "chromatic/rainbow_spectrum",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        170,
+        170
+      ],
+      [
+        170,
+        190,
+        160
+      ],
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        240,
+        230,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_shift",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 223,
@@ -2013,7 +8257,35 @@
     "description": "Flowing color gradients",
     "shader": "chromatic/gradient_flow",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        170,
+        170
+      ],
+      [
+        170,
+        190,
+        160
+      ],
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        240,
+        230,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_shift",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 224,
@@ -2022,7 +8294,35 @@
     "description": "Rotating hue shifts",
     "shader": "chromatic/hue_rotation",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        170,
+        170
+      ],
+      [
+        170,
+        190,
+        160
+      ],
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        240,
+        230,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_shift",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 225,
@@ -2031,7 +8331,35 @@
     "description": "Harmonic color relationships",
     "shader": "chromatic/color_harmonies",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        170,
+        170
+      ],
+      [
+        170,
+        190,
+        160
+      ],
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        240,
+        230,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_shift",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 226,
@@ -2040,7 +8368,35 @@
     "description": "RGB channel separation",
     "shader": "chromatic/rgb_split",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        170,
+        170
+      ],
+      [
+        170,
+        190,
+        160
+      ],
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        240,
+        230,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_shift",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 227,
@@ -2049,7 +8405,35 @@
     "description": "Color light refraction",
     "shader": "chromatic/light_refraction",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        170,
+        170
+      ],
+      [
+        170,
+        190,
+        160
+      ],
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        240,
+        230,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_shift",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 228,
@@ -2058,7 +8442,35 @@
     "description": "Color space mapping",
     "shader": "chromatic/color_space",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        170,
+        170
+      ],
+      [
+        170,
+        190,
+        160
+      ],
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        240,
+        230,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_shift",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 229,
@@ -2067,7 +8479,35 @@
     "description": "Neon bright colors",
     "shader": "chromatic/neon_colors",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        170,
+        170
+      ],
+      [
+        170,
+        190,
+        160
+      ],
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        240,
+        230,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_shift",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 230,
@@ -2076,7 +8516,35 @@
     "description": "Pastel color palette",
     "shader": "chromatic/pastel_dreams",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        170,
+        170
+      ],
+      [
+        170,
+        190,
+        160
+      ],
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        240,
+        230,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_shift",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 231,
@@ -2085,7 +8553,35 @@
     "description": "Blooming color effect",
     "shader": "chromatic/color_bloom",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        220,
+        170,
+        170
+      ],
+      [
+        170,
+        190,
+        160
+      ],
+      [
+        200,
+        190,
+        220
+      ],
+      [
+        240,
+        230,
+        180
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "color_shift",
+      "mid": "rotation",
+      "treble": "glow"
+    }
   },
   {
     "id": 232,
@@ -2094,7 +8590,35 @@
     "description": "Streaming particle flow",
     "shader": "kinetic/particle_stream",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        80,
+        60
+      ],
+      [
+        180,
+        70,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        140,
+        70,
+        50
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "particle_density"
+    }
   },
   {
     "id": 233,
@@ -2103,7 +8627,35 @@
     "description": "Motion blur effect",
     "shader": "kinetic/motion_blur",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        80,
+        60
+      ],
+      [
+        180,
+        70,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        140,
+        70,
+        50
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "particle_density"
+    }
   },
   {
     "id": 234,
@@ -2112,7 +8664,35 @@
     "description": "Vector velocity field",
     "shader": "kinetic/velocity_field",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        80,
+        60
+      ],
+      [
+        180,
+        70,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        140,
+        70,
+        50
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "particle_density"
+    }
   },
   {
     "id": 235,
@@ -2121,7 +8701,35 @@
     "description": "Momentum trajectory lines",
     "shader": "kinetic/momentum_lines",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        80,
+        60
+      ],
+      [
+        180,
+        70,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        140,
+        70,
+        50
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "particle_density"
+    }
   },
   {
     "id": 236,
@@ -2130,7 +8738,35 @@
     "description": "Swirling dynamic motion",
     "shader": "kinetic/swirling_motion",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        80,
+        60
+      ],
+      [
+        180,
+        70,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        140,
+        70,
+        50
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "particle_density"
+    }
   },
   {
     "id": 237,
@@ -2139,7 +8775,35 @@
     "description": "Object trajectory paths",
     "shader": "kinetic/trajectory_path",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        80,
+        60
+      ],
+      [
+        180,
+        70,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        140,
+        70,
+        50
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "particle_density"
+    }
   },
   {
     "id": 238,
@@ -2148,7 +8812,35 @@
     "description": "Acceleration force lines",
     "shader": "kinetic/acceleration",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        80,
+        60
+      ],
+      [
+        180,
+        70,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        140,
+        70,
+        50
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "particle_density"
+    }
   },
   {
     "id": 239,
@@ -2157,7 +8849,35 @@
     "description": "Inertia and drag effect",
     "shader": "kinetic/inertia",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        80,
+        60
+      ],
+      [
+        180,
+        70,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        140,
+        70,
+        50
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "particle_density"
+    }
   },
   {
     "id": 240,
@@ -2166,7 +8886,35 @@
     "description": "Orbital motion paths",
     "shader": "kinetic/orbital_motion",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        80,
+        60
+      ],
+      [
+        180,
+        70,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        140,
+        70,
+        50
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "particle_density"
+    }
   },
   {
     "id": 241,
@@ -2175,7 +8923,35 @@
     "description": "Kinetic energy visualization",
     "shader": "kinetic/kinetic_energy",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        160,
+        80,
+        60
+      ],
+      [
+        180,
+        70,
+        50
+      ],
+      [
+        200,
+        140,
+        30
+      ],
+      [
+        140,
+        70,
+        50
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "speed",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "particle_density"
+    }
   },
   {
     "id": 242,
@@ -2184,7 +8960,35 @@
     "description": "Element transmutation process",
     "shader": "alchemical/transmutation",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        75,
+        30,
+        120
+      ],
+      [
+        218,
+        165,
+        32
+      ],
+      [
+        184,
+        115,
+        51
+      ],
+      [
+        180,
+        50,
+        100
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 243,
@@ -2193,7 +8997,35 @@
     "description": "Philosopher stone glow",
     "shader": "alchemical/philosopher_stone",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        75,
+        30,
+        120
+      ],
+      [
+        218,
+        165,
+        32
+      ],
+      [
+        184,
+        115,
+        51
+      ],
+      [
+        180,
+        50,
+        100
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 244,
@@ -2202,7 +9034,35 @@
     "description": "Fusing elemental forces",
     "shader": "alchemical/elemental_fusion",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        75,
+        30,
+        120
+      ],
+      [
+        218,
+        165,
+        32
+      ],
+      [
+        184,
+        115,
+        51
+      ],
+      [
+        180,
+        50,
+        100
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 245,
@@ -2211,7 +9071,35 @@
     "description": "Alchemical crucible vessel",
     "shader": "alchemical/crucible",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        75,
+        30,
+        120
+      ],
+      [
+        218,
+        165,
+        32
+      ],
+      [
+        184,
+        115,
+        51
+      ],
+      [
+        180,
+        50,
+        100
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 246,
@@ -2220,7 +9108,35 @@
     "description": "Alchemical fermentation",
     "shader": "alchemical/fermentation",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        75,
+        30,
+        120
+      ],
+      [
+        218,
+        165,
+        32
+      ],
+      [
+        184,
+        115,
+        51
+      ],
+      [
+        180,
+        50,
+        100
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 247,
@@ -2229,7 +9145,35 @@
     "description": "Crystallizing essence",
     "shader": "alchemical/crystallization",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        75,
+        30,
+        120
+      ],
+      [
+        218,
+        165,
+        32
+      ],
+      [
+        184,
+        115,
+        51
+      ],
+      [
+        180,
+        50,
+        100
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 248,
@@ -2238,7 +9182,35 @@
     "description": "Distilling vital essence",
     "shader": "alchemical/distillation",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        75,
+        30,
+        120
+      ],
+      [
+        218,
+        165,
+        32
+      ],
+      [
+        184,
+        115,
+        51
+      ],
+      [
+        180,
+        50,
+        100
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 249,
@@ -2247,7 +9219,35 @@
     "description": "Alchemical circle runes",
     "shader": "alchemical/alchemy_circle",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        75,
+        30,
+        120
+      ],
+      [
+        218,
+        165,
+        32
+      ],
+      [
+        184,
+        115,
+        51
+      ],
+      [
+        180,
+        50,
+        100
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 250,
@@ -2256,7 +9256,35 @@
     "description": "Golden ratio spirals",
     "shader": "alchemical/golden_ratio",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        75,
+        30,
+        120
+      ],
+      [
+        218,
+        165,
+        32
+      ],
+      [
+        184,
+        115,
+        51
+      ],
+      [
+        180,
+        50,
+        100
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   },
   {
     "id": 251,
@@ -2265,6 +9293,34 @@
     "description": "Transformation into void",
     "shader": "alchemical/void_transformation",
     "tags": [],
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "colors": [
+      [
+        75,
+        30,
+        120
+      ],
+      [
+        218,
+        165,
+        32
+      ],
+      [
+        184,
+        115,
+        51
+      ],
+      [
+        180,
+        50,
+        100
+      ]
+    ],
+    "audio_mapping": {
+      "amplitude": "intensity",
+      "bass": "scale",
+      "mid": "rotation",
+      "treble": "sparkle"
+    }
   }
 ]
