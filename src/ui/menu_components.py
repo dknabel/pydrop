@@ -919,12 +919,37 @@ class DetailsPanel(UIComponent):
         if not self.visible or self.preset is None:
             return
 
-        # Draw panel background
-        pygame.draw.rect(surface, (30, 40, 60), self.rect)
+        # Draw panel background (semi-transparent)
+        panel_bg = pygame.Surface((self.rect.width, self.rect.height), pygame.SRCALPHA)
+        panel_bg.fill((30, 40, 60, 200))  # 78% opacity
+        surface.blit(panel_bg, (self.rect.x, self.rect.y))
         pygame.draw.rect(surface, (80, 100, 150), self.rect, 2)
 
-        # Draw preset details (would include text rendering)
-        # For now, just render components
+        # Render preset title
+        try:
+            renderer = TextRenderer()
+            title_surf, title_rect = renderer.render(
+                self.preset.name, (220, 220, 230), size='bold'
+            )
+            surface.blit(title_surf, (self.rect.x + 10, self.rect.y + 10))
+
+            # Render theme
+            theme_surf, theme_rect = renderer.render(
+                f"Theme: {self.preset.theme.replace('_', ' ').title()}",
+                (180, 180, 200), size='small'
+            )
+            surface.blit(theme_surf, (self.rect.x + 10, self.rect.y + 35))
+
+            # Render description (truncated)
+            desc_text = self.preset.description[:60] + "..." if len(self.preset.description) > 60 else self.preset.description
+            desc_surf, desc_rect = renderer.render(
+                desc_text, (160, 160, 180), size='small'
+            )
+            surface.blit(desc_surf, (self.rect.x + 10, self.rect.y + 55))
+        except Exception as e:
+            logger.debug(f"DetailsPanel text rendering failed: {e}")
+
+        # Draw preset details components (buttons)
         for component in self.components:
             component.render(surface)
 

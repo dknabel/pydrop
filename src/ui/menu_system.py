@@ -171,14 +171,33 @@ class MenuSystem(UIComponent):
             return
 
         try:
-            # Draw semi-transparent background
+            # Draw semi-transparent background (40% opacity)
             overlay = pygame.Surface((surface.get_width(), surface.get_height()), pygame.SRCALPHA)
-            overlay.fill((0, 0, 0, 100))
+            overlay.fill((0, 0, 0, 50))  # Lower alpha for more transparency
             surface.blit(overlay, (0, 0))
 
-            # Render menu container background
-            pygame.draw.rect(surface, (20, 30, 50), self.rect)
+            # Render menu container background (semi-transparent)
+            menu_bg = pygame.Surface((self.rect.width, self.rect.height), pygame.SRCALPHA)
+            menu_bg.fill((20, 30, 50, 180))  # 70% opacity menu background
+            surface.blit(menu_bg, (self.rect.x, self.rect.y))
             pygame.draw.rect(surface, (80, 100, 150), self.rect, 3)
+
+            # Render component labels
+            try:
+                label_y = self.rect.y - 20
+                # Search label
+                search_surf, search_rect = self.text_renderer.render(
+                    "Search:", (180, 180, 200), size='small'
+                )
+                surface.blit(search_surf, (self.rect.x + 10, label_y))
+
+                # Category label
+                category_surf, category_rect = self.text_renderer.render(
+                    "Category:", (180, 180, 200), size='small'
+                )
+                surface.blit(category_surf, (self.rect.x + 10, self.rect.y + 35))
+            except Exception as e:
+                logger.debug(f"MenuSystem labels rendering failed: {e}")
 
             # Render all components
             for component in self.components:

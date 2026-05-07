@@ -106,6 +106,20 @@ class Button(UIComponent):
         # Draw button border
         pygame.draw.rect(surface, (200, 220, 255), self.rect, 2)
 
+        # Draw button label
+        try:
+            from src.ui.text_renderer import TextRenderer
+            renderer = TextRenderer()
+            text_surf, text_rect = renderer.render(
+                self.label, (220, 220, 230), size='normal'
+            )
+            # Center text on button
+            text_x = self.rect.centerx - text_rect.width // 2
+            text_y = self.rect.centery - text_rect.height // 2
+            surface.blit(text_surf, (text_x, text_y))
+        except Exception as e:
+            logger.debug(f"Button label rendering failed: {e}")
+
     def handle_event(self, event: pygame.event.Event) -> None:
         """Handle mouse events.
 
