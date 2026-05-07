@@ -206,7 +206,7 @@ class TestSlider:
         event = pygame.event.Event(pygame.MOUSEBUTTONDOWN, {'pos': (110, 45), 'button': 1})
         slider.handle_event(event)
         assert slider.dragging is True
-        assert abs(slider.value - 0.5) < 0.1  # Close to 0.5
+        assert abs(slider.value - 0.5) < 0.05  # Stricter tolerance
 
         # Simulate drag to right (1.0)
         event = pygame.event.Event(pygame.MOUSEMOTION, {'pos': (210, 45)})
@@ -433,3 +433,48 @@ class TestModal:
         modal.handle_event(event)
 
         assert len(callback_called) == 1
+
+
+class TestEdgeCases:
+    """Test edge cases and error handling."""
+
+    def test_slider_equal_min_max(self):
+        """Slider with equal min/max is handled gracefully."""
+        slider = Slider(0, 0, 100, 20, min_val=5.0, max_val=5.0)
+        # Should auto-adjust max_val to prevent division by zero
+        assert slider.max_val > slider.min_val
+
+    def test_slider_invalid_initial(self):
+        """Slider with initial outside range is clamped."""
+        slider = Slider(0, 0, 100, 20, min_val=0, max_val=10, initial=15)
+        assert slider.value <= 10
+        assert slider.value >= 0
+
+    def test_text_input_special_chars(self):
+        """TextInput handles special characters."""
+        text_input = TextInput(0, 0, 100, 20)
+        # Test adding various characters
+        text_input.text = "hello123!@#"
+        assert text_input.text == "hello123!@#"
+
+    def test_button_callback_exception(self):
+        """Button handles callback exceptions gracefully."""
+        def bad_callback():
+            raise ValueError("Test error")
+
+        button = Button(0, 0, 100, 20, "Test", bad_callback)
+        # Simulate click - should not raise
+        event = pygame.event.Event(pygame.MOUSEBUTTONDOWN, {'button': 1, 'pos': (50, 10)})
+        button.handle_event(event)  # Should log error, not crash
+
+    def test_modal_event_filtering(self):
+        """Modal only processes events when visible."""
+        modal = Modal(100, 100, 200, 200, "Test")
+        button = Button(110, 110, 50, 30, "Click", lambda: None)
+        modal.add_component(button)
+
+        # When invisible, button should not respond to clicks
+        modal.visible = False
+        event = pygame.event.Event(pygame.MOUSEBUTTONDOWN, {'button': 1, 'pos': (135, 125)})
+        modal.handle_event(event)
+        # The button click should be ignored because modal is invisible

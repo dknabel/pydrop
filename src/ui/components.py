@@ -2,7 +2,10 @@
 
 from abc import ABC, abstractmethod
 import pygame
-from typing import Optional, Callable
+import logging
+from typing import Optional, Callable, List
+
+logger = logging.getLogger(__name__)
 
 
 class UIComponent(ABC):
@@ -104,19 +107,27 @@ class Button(UIComponent):
         pygame.draw.rect(surface, (200, 220, 255), self.rect, 2)
 
     def handle_event(self, event: pygame.event.Event) -> None:
-        """Handle mouse events for button interaction.
+        """Handle mouse events.
 
         Args:
             event: pygame.event.Event to handle
         """
-        if event.type == pygame.MOUSEMOTION:
-            self.hovered = self.contains_point(event.pos[0], event.pos[1])
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            if event.button == 1 and self.contains_point(event.pos[0], event.pos[1]):
-                self.pressed = True
-                self.callback()
-        elif event.type == pygame.MOUSEBUTTONUP:
-            self.pressed = False
+        try:
+            if event.type == pygame.MOUSEMOTION:
+                if hasattr(event, 'pos'):
+                    self.hovered = self.contains_point(event.pos[0], event.pos[1])
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if hasattr(event, 'button') and hasattr(event, 'pos'):
+                    if event.button == 1 and self.contains_point(event.pos[0], event.pos[1]):
+                        self.pressed = True
+                        try:
+                            self.callback()
+                        except Exception as e:
+                            logger.error(f"Button callback failed: {e}")
+            elif event.type == pygame.MOUSEBUTTONUP:
+                self.pressed = False
+        except Exception as e:
+            logger.error(f"Button event handling failed: {e}")
 
 
 class Slider(UIComponent):
@@ -150,7 +161,10 @@ class Slider(UIComponent):
         super().__init__(x, y, width, height)
         self.min_val = min_val
         self.max_val = max_val
-        self._value = initial
+        if self.min_val >= self.max_val:
+            logger.warning("Slider min_val >= max_val, setting max_val to min_val + 1")
+            self.max_val = self.min_val + 1
+        self._value = max(self.min_val, min(self.max_val, initial))
         self.dragging = False
 
     @property
@@ -164,10 +178,10 @@ class Slider(UIComponent):
 
     @value.setter
     def value(self, val: float) -> None:
-        """Set slider value with range enforcement.
+        """Set slider value.
 
         Args:
-            val: Value to set (will be clamped to min_val-max_val range)
+            val: Value to set (will be clamped to [min_val, max_val])
         """
         self._value = max(self.min_val, min(self.max_val, val))
 
@@ -192,20 +206,25 @@ class Slider(UIComponent):
         pygame.draw.circle(surface, (100, 150, 255), (int(handle_x), track_y), 5)
 
     def handle_event(self, event: pygame.event.Event) -> None:
-        """Handle mouse events for slider dragging.
+        """Handle mouse events for dragging.
 
         Args:
             event: pygame.event.Event to handle
         """
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if event.button == 1 and self.contains_point(event.pos[0], event.pos[1]):
-                self.dragging = True
-                self._update_value_from_position(event.pos[0])
-        elif event.type == pygame.MOUSEBUTTONUP:
-            self.dragging = False
-        elif event.type == pygame.MOUSEMOTION:
-            if self.dragging:
-                self._update_value_from_position(event.pos[0])
+        try:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if hasattr(event, 'button') and hasattr(event, 'pos'):
+                    if event.button == 1 and self.contains_point(event.pos[0], event.pos[1]):
+                        self.dragging = True
+                        self._update_value_from_position(event.pos[0])
+            elif event.type == pygame.MOUSEBUTTONUP:
+                self.dragging = False
+            elif event.type == pygame.MOUSEMOTION:
+                if hasattr(event, 'pos'):
+                    if self.dragging:
+                        self._update_value_from_position(event.pos[0])
+        except Exception as e:
+            logger.error(f"Slider event handling failed: {e}")
 
     def _update_value_from_position(self, x: int) -> None:
         """Update value based on mouse X position.
@@ -261,12 +280,12 @@ class TextInput(UIComponent):
 
     @text.setter
     def text(self, val: str) -> None:
-        """Set text with maximum length enforcement.
+        """Set text input value.
 
         Args:
-            val: Text to set (will be truncated if exceeds max_length)
+            val: Text to set (will be truncated to max_length)
         """
-        self._text = val[: self.max_length]
+        self._text = val[:self.max_length]
 
     def render(self, surface: pygame.Surface) -> None:
         """Render text input to surface.
@@ -291,17 +310,21 @@ class TextInput(UIComponent):
         Args:
             event: pygame.event.Event to handle
         """
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if event.button == 1:
-                self.focused = self.contains_point(event.pos[0], event.pos[1])
-        elif event.type == pygame.KEYDOWN and self.focused:
-            if event.key == pygame.K_BACKSPACE:
-                self._text = self._text[:-1]
-            elif event.key == pygame.K_RETURN:
-                self.focused = False
-            elif len(self._text) < self.max_length:
-                if event.unicode.isprintable():
-                    self._text += event.unicode
+        try:
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if hasattr(event, 'button') and hasattr(event, 'pos'):
+                    if event.button == 1:
+                        self.focused = self.contains_point(event.pos[0], event.pos[1])
+            elif event.type == pygame.KEYDOWN and self.focused:
+                if event.key == pygame.K_BACKSPACE:
+                    self._text = self._text[:-1]
+                elif event.key == pygame.K_RETURN:
+                    self.focused = False
+                elif hasattr(event, 'unicode') and len(self._text) < self.max_length:
+                    if event.unicode.isprintable() and ord(event.unicode) < 128:
+                        self._text += event.unicode
+        except Exception as e:
+            logger.error(f"TextInput event handling failed: {e}")
 
 
 class Modal(UIComponent):
@@ -323,7 +346,7 @@ class Modal(UIComponent):
         """
         super().__init__(x, y, width, height)
         self.title = title
-        self.components: list = []
+        self.components: List['UIComponent'] = []
         self.visible = False
 
     def add_component(self, component: "UIComponent") -> None:
