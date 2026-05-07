@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, Mock
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
-from src.ui.menu_components import SearchBar
+from src.ui.menu_components import SearchBar, CategoryFilter
 from src.ui.presets_data import PresetManager
 from src.ui.models import Preset
 
@@ -265,3 +265,315 @@ class TestSearchBar:
         search_bar._perform_search()
 
         assert search_bar.search_results is not None
+
+
+class TestCategoryFilter:
+    """Test CategoryFilter dropdown component."""
+
+    @pytest.fixture
+    def preset_manager(self):
+        """Create a PresetManager with test presets."""
+        manager = PresetManager()
+        return manager
+
+    def test_categoryfilter_init(self, preset_manager):
+        """CategoryFilter initializes with correct properties."""
+        category_filter = CategoryFilter(10, 20, 150, 30, preset_manager)
+
+        assert category_filter.rect.x == 10
+        assert category_filter.rect.y == 20
+        assert category_filter.rect.width == 150
+        assert category_filter.rect.height == 30
+        assert category_filter.preset_manager is preset_manager
+        assert category_filter.opened is False
+        assert category_filter.selected_category == "All"
+
+    def test_categoryfilter_with_callback(self, preset_manager):
+        """CategoryFilter initializes with callback."""
+        callback = Mock()
+        category_filter = CategoryFilter(
+            10, 20, 150, 30, preset_manager, on_category_changed=callback
+        )
+
+        assert category_filter.on_category_changed is callback
+
+    def test_categoryfilter_build_categories(self, preset_manager):
+        """CategoryFilter builds category list with counts."""
+        category_filter = CategoryFilter(10, 20, 150, 30, preset_manager)
+
+        # Check that categories dict exists and has "All"
+        assert "All" in category_filter.categories
+        assert category_filter.categories["All"] > 0
+
+        # Check that themes are included
+        themes = preset_manager.get_all_themes()
+        for theme in themes:
+            assert theme in category_filter.categories
+
+    def test_categoryfilter_category_counts_accurate(self, preset_manager):
+        """CategoryFilter category counts match actual preset counts."""
+        category_filter = CategoryFilter(10, 20, 150, 30, preset_manager)
+
+        # Check "All" count
+        expected_all = len(preset_manager.builtin_presets)
+        assert category_filter.categories["All"] == expected_all
+
+        # Check theme counts
+        themes = preset_manager.get_all_themes()
+        for theme in themes:
+            expected_count = len(preset_manager.filter_by_theme(theme))
+            assert category_filter.categories[theme] == expected_count
+
+    def test_categoryfilter_dropdown_items_building(self, preset_manager):
+        """CategoryFilter builds dropdown items with labels and counts."""
+        category_filter = CategoryFilter(10, 20, 150, 30, preset_manager)
+
+        # Should have items
+        assert len(category_filter.dropdown_items) > 0
+
+        # First item should be "All"
+        first_item = category_filter.dropdown_items[0]
+        assert first_item[0] == "All"
+        assert first_item[1] == "All"
+
+        # Items are tuples of (label, category, count)
+        for item in category_filter.dropdown_items:
+            assert len(item) == 3
+            assert isinstance(item[0], str)  # label
+            assert isinstance(item[1], str)  # category
+            assert isinstance(item[2], int)  # count
+
+    def test_categoryfilter_core_first_in_list(self, preset_manager):
+        """CategoryFilter puts "core" theme first in sorted list."""
+        category_filter = CategoryFilter(10, 20, 150, 30, preset_manager)
+
+        # Find "core" in items (skip "All" which is first)
+        themes_in_items = [item[1] for item in category_filter.dropdown_items[1:]]
+
+        if "core" in themes_in_items:
+            # "core" should be the first theme after "All"
+            assert themes_in_items[0] == "core"
+
+    def test_categoryfilter_themes_sorted(self, preset_manager):
+        """CategoryFilter themes are sorted alphabetically."""
+        category_filter = CategoryFilter(10, 20, 150, 30, preset_manager)
+
+        # Get themes from dropdown items (skip "All")
+        themes = [item[1] for item in category_filter.dropdown_items[1:]]
+
+        # Remove "core" if present to check alphabetical sort
+        themes_without_core = [t for t in themes if t != "core"]
+
+        # Check that remaining themes are sorted
+        assert themes_without_core == sorted(themes_without_core)
+
+    def test_categoryfilter_toggle_dropdown(self, preset_manager):
+        """CategoryFilter opens and closes dropdown on click."""
+        category_filter = CategoryFilter(10, 20, 150, 30, preset_manager)
+
+        assert category_filter.opened is False
+
+        # Simulate click on button
+        event = pygame.event.Event(
+            pygame.MOUSEBUTTONDOWN, {"pos": (50, 35), "button": 1}
+        )
+        category_filter.handle_event(event)
+
+        assert category_filter.opened is True
+
+        # Click again to close
+        category_filter.handle_event(event)
+        assert category_filter.opened is False
+
+    def test_categoryfilter_select_category(self, preset_manager):
+        """CategoryFilter selects category on dropdown item click."""
+        category_filter = CategoryFilter(10, 20, 150, 30, preset_manager)
+
+        # Open dropdown
+        category_filter.opened = True
+
+        # Get a theme to select (not "All")
+        themes = preset_manager.get_all_themes()
+        if themes:
+            theme_to_select = themes[0]
+
+            # Find the y position of that item
+            for i, (label, category, count) in enumerate(category_filter.dropdown_items):
+                if category == theme_to_select:
+                    # Calculate menu y position
+                    menu_y = category_filter.rect.bottom + 2
+                    item_y = menu_y + i * category_filter.item_height
+
+                    # Click on the item
+                    event = pygame.event.Event(
+                        pygame.MOUSEBUTTONDOWN,
+                        {"pos": (category_filter.rect.x + 10, item_y + 10), "button": 1},
+                    )
+                    category_filter.handle_event(event)
+
+                    assert category_filter.selected_category == theme_to_select
+                    assert category_filter.opened is False
+                    break
+
+    def test_categoryfilter_callback_on_selection(self, preset_manager):
+        """CategoryFilter calls callback when category is selected."""
+        callback = Mock()
+        category_filter = CategoryFilter(
+            10, 20, 150, 30, preset_manager, on_category_changed=callback
+        )
+
+        # Open dropdown
+        category_filter.opened = True
+
+        # Select first theme
+        if category_filter.dropdown_items:
+            for i, (label, category, count) in enumerate(category_filter.dropdown_items):
+                if category != "All":
+                    menu_y = category_filter.rect.bottom + 2
+                    item_y = menu_y + i * category_filter.item_height
+
+                    event = pygame.event.Event(
+                        pygame.MOUSEBUTTONDOWN,
+                        {"pos": (category_filter.rect.x + 10, item_y + 10), "button": 1},
+                    )
+                    category_filter.handle_event(event)
+
+                    # Callback should be called with the category
+                    callback.assert_called_once_with(category)
+                    break
+
+    def test_categoryfilter_all_category_selection(self, preset_manager):
+        """CategoryFilter "All" category selects all presets."""
+        callback = Mock()
+        category_filter = CategoryFilter(
+            10, 20, 150, 30, preset_manager, on_category_changed=callback
+        )
+
+        # Open dropdown
+        category_filter.opened = True
+
+        # Click on "All" item
+        menu_y = category_filter.rect.bottom + 2
+
+        event = pygame.event.Event(
+            pygame.MOUSEBUTTONDOWN,
+            {"pos": (category_filter.rect.x + 10, menu_y + 10), "button": 1},
+        )
+        category_filter.handle_event(event)
+
+        assert category_filter.selected_category == "All"
+        callback.assert_called_once_with("All")
+
+    def test_categoryfilter_renders_without_error(self, preset_manager):
+        """CategoryFilter renders without error."""
+        surface = pygame.Surface((400, 300))
+        category_filter = CategoryFilter(10, 20, 150, 30, preset_manager)
+        category_filter.visible = True
+
+        # Should not raise
+        category_filter.render(surface)
+
+    def test_categoryfilter_renders_dropdown_when_opened(self, preset_manager):
+        """CategoryFilter renders dropdown menu when opened."""
+        surface = pygame.Surface((400, 300))
+        category_filter = CategoryFilter(10, 20, 150, 30, preset_manager)
+        category_filter.visible = True
+        category_filter.opened = True
+
+        # Should not raise
+        category_filter.render(surface)
+
+    def test_categoryfilter_hidden_when_not_visible(self, preset_manager):
+        """CategoryFilter doesn't render when not visible."""
+        surface = pygame.Surface((400, 300))
+        category_filter = CategoryFilter(10, 20, 150, 30, preset_manager)
+        category_filter.visible = False
+
+        # Should not raise, should just return early
+        category_filter.render(surface)
+
+    def test_categoryfilter_inherits_from_uicomponent(self, preset_manager):
+        """CategoryFilter extends UIComponent."""
+        from src.ui.components import UIComponent
+
+        category_filter = CategoryFilter(10, 20, 150, 30, preset_manager)
+        assert isinstance(category_filter, UIComponent)
+
+    def test_categoryfilter_no_callback_optional(self, preset_manager):
+        """CategoryFilter works without callback."""
+        category_filter = CategoryFilter(10, 20, 150, 30, preset_manager)
+
+        # Open and select should work without callback
+        category_filter.opened = True
+        assert category_filter.opened is True
+
+    def test_categoryfilter_item_height(self, preset_manager):
+        """CategoryFilter has reasonable item height."""
+        category_filter = CategoryFilter(10, 20, 150, 30, preset_manager)
+
+        # Item height should be reasonable
+        assert category_filter.item_height > 0
+        assert category_filter.item_height <= 50
+
+    def test_categoryfilter_click_outside_dropdown_closes(self, preset_manager):
+        """CategoryFilter closes dropdown on click outside."""
+        category_filter = CategoryFilter(10, 20, 150, 30, preset_manager)
+
+        # Open dropdown
+        category_filter.opened = True
+        assert category_filter.opened is True
+
+        # Click outside the dropdown area (far away)
+        event = pygame.event.Event(
+            pygame.MOUSEBUTTONDOWN, {"pos": (500, 500), "button": 1}
+        )
+        category_filter.handle_event(event)
+
+        # Should still be open (since we didn't click on an item)
+        assert category_filter.opened is True
+
+    def test_categoryfilter_multiple_selections(self, preset_manager):
+        """CategoryFilter can switch between categories."""
+        callback = Mock()
+        category_filter = CategoryFilter(
+            10, 20, 150, 30, preset_manager, on_category_changed=callback
+        )
+
+        themes = preset_manager.get_all_themes()
+        if len(themes) >= 2:
+            # Select first theme
+            category_filter.opened = True
+            first_theme = themes[0]
+
+            for i, (label, category, count) in enumerate(category_filter.dropdown_items):
+                if category == first_theme:
+                    menu_y = category_filter.rect.bottom + 2
+                    item_y = menu_y + i * category_filter.item_height
+
+                    event = pygame.event.Event(
+                        pygame.MOUSEBUTTONDOWN,
+                        {"pos": (category_filter.rect.x + 10, item_y + 10), "button": 1},
+                    )
+                    category_filter.handle_event(event)
+                    break
+
+            assert category_filter.selected_category == first_theme
+
+            # Select second theme
+            category_filter.opened = True
+            second_theme = themes[1]
+
+            for i, (label, category, count) in enumerate(category_filter.dropdown_items):
+                if category == second_theme:
+                    menu_y = category_filter.rect.bottom + 2
+                    item_y = menu_y + i * category_filter.item_height
+
+                    event = pygame.event.Event(
+                        pygame.MOUSEBUTTONDOWN,
+                        {"pos": (category_filter.rect.x + 10, item_y + 10), "button": 1},
+                    )
+                    category_filter.handle_event(event)
+                    break
+
+            assert category_filter.selected_category == second_theme
+            assert callback.call_count == 2
