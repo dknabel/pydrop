@@ -79,24 +79,9 @@ class MenuSystem(UIComponent):
         # Initialize filtered presets
         self.current_filtered_presets = preset_manager.builtin_presets.copy()
 
-        # Create SearchBar
-        self.search_bar = SearchBar(
-            x + 10, y + 10, width - 20, 40,
-            preset_manager=preset_manager,
-            on_search_changed=self._on_search_results_changed
-        )
-
-        # Create CategoryFilter
-        self.category_filter = CategoryFilter(
-            x + 10, y + 60, 150, 35,
-            preset_manager=preset_manager,
-            text_renderer=self.text_renderer,
-            on_category_changed=self._on_category_changed
-        )
-
-        # Create PresetGrid
-        grid_y = y + 110
-        grid_height = height - grid_y - 20 - 200  # Reserve space for details panel
+        # Create PresetGrid at top
+        grid_y = y + 10
+        grid_height = height - 150  # Leave space for search/filter bar at bottom
         self.preset_grid = PresetGrid(
             x + 10, grid_y, width - 230, grid_height,
             presets=self.current_filtered_presets,
@@ -105,7 +90,7 @@ class MenuSystem(UIComponent):
             on_preset_selected=self._on_preset_selected
         )
 
-        # Create DetailsPanel
+        # Create DetailsPanel on the right side of grid
         details_x = x + 10 + width - 230 + 10
         self.details_panel = DetailsPanel(
             details_x, grid_y, 200, grid_height,
@@ -115,6 +100,22 @@ class MenuSystem(UIComponent):
             on_edit=self._on_edit_preset,
             on_mix=self._on_mix_presets,
             on_add_to_playlist=self._on_add_to_playlist
+        )
+
+        # Create SearchBar at bottom
+        search_y = y + height - 130
+        self.search_bar = SearchBar(
+            x + 10, search_y, width - 180, 40,
+            preset_manager=preset_manager,
+            on_search_changed=self._on_search_results_changed
+        )
+
+        # Create CategoryFilter next to SearchBar
+        self.category_filter = CategoryFilter(
+            x + width - 160, search_y, 150, 40,
+            preset_manager=preset_manager,
+            text_renderer=self.text_renderer,
+            on_category_changed=self._on_category_changed
         )
 
         # Create ParameterEditorModal
@@ -182,20 +183,20 @@ class MenuSystem(UIComponent):
             surface.blit(menu_bg, (self.rect.x, self.rect.y))
             pygame.draw.rect(surface, (80, 100, 150), self.rect, 3)
 
-            # Render component labels
+ # Render component labels
             try:
-                label_y = self.rect.y - 20
-                # Search label
+                # Search label (at bottom)
+                search_label_y = self.rect.y + self.rect.height - 130
                 search_surf, search_rect = self.text_renderer.render(
                     "Search:", (180, 180, 200), size='small'
                 )
-                surface.blit(search_surf, (self.rect.x + 10, label_y))
+                surface.blit(search_surf, (self.rect.x + 10, search_label_y - 25))
 
-                # Category label
+                # Category label (at bottom right)
                 category_surf, category_rect = self.text_renderer.render(
                     "Category:", (180, 180, 200), size='small'
                 )
-                surface.blit(category_surf, (self.rect.x + 10, self.rect.y + 35))
+                surface.blit(category_surf, (self.rect.x + self.rect.width - 160, search_label_y - 25))
             except Exception as e:
                 logger.debug(f"MenuSystem labels rendering failed: {e}")
 
