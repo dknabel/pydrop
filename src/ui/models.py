@@ -1,7 +1,7 @@
 """Data models for preset system with JSON serialization support."""
 
 from dataclasses import dataclass, field, asdict
-from typing import List, Dict, Optional, Union
+from typing import List, Dict, Optional, Union, Set, Any
 from datetime import datetime
 import json
 
@@ -31,7 +31,7 @@ class Preset:
     tags: List[str] = field(default_factory=list)
     difficulty: str = "medium"
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> Dict[str, Any]:
         """Convert preset to dictionary for JSON serialization.
 
         Returns:
@@ -48,16 +48,22 @@ class Preset:
 
         Returns:
             Preset instance
+
+        Raises:
+            ValueError: If required fields are missing
         """
-        return cls(
-            id=data['id'],
-            name=data['name'],
-            theme=data['theme'],
-            description=data['description'],
-            shader=data['shader'],
-            tags=data.get('tags', []),
-            difficulty=data.get('difficulty', 'medium')
-        )
+        try:
+            return cls(
+                id=data['id'],
+                name=data['name'],
+                theme=data['theme'],
+                description=data['description'],
+                shader=data['shader'],
+                tags=data.get('tags', []),
+                difficulty=data.get('difficulty', 'medium')
+            )
+        except KeyError as e:
+            raise ValueError(f"Missing required field: {e}")
 
 
 @dataclass
@@ -86,7 +92,7 @@ class CustomPreset:
     created: str = field(default_factory=lambda: datetime.now().isoformat())
     modified: str = field(default_factory=lambda: datetime.now().isoformat())
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> Dict[str, Any]:
         """Convert custom preset to dictionary for JSON serialization.
 
         Returns:
@@ -103,16 +109,22 @@ class CustomPreset:
 
         Returns:
             CustomPreset instance
+
+        Raises:
+            ValueError: If required fields are missing
         """
-        return cls(
-            id=data['id'],
-            name=data['name'],
-            base_preset=data['base_preset'],
-            parameters=data.get('parameters', {}),
-            mix_preset=data.get('mix_preset'),
-            created=data.get('created', datetime.now().isoformat()),
-            modified=data.get('modified', datetime.now().isoformat())
-        )
+        try:
+            return cls(
+                id=data['id'],
+                name=data['name'],
+                base_preset=data['base_preset'],
+                parameters=data.get('parameters', {}),
+                mix_preset=data.get('mix_preset'),
+                created=data.get('created', datetime.now().isoformat()),
+                modified=data.get('modified', datetime.now().isoformat())
+            )
+        except KeyError as e:
+            raise ValueError(f"Missing required field: {e}")
 
 
 class FavoritesManager:
@@ -128,7 +140,7 @@ class FavoritesManager:
 
     def __init__(self) -> None:
         """Initialize an empty favorites manager."""
-        self.favorites: set = set()
+        self.favorites: Set[Union[int, str]] = set()
 
     def add(self, preset_id: Union[int, str]) -> None:
         """Add a preset to favorites.
@@ -173,7 +185,7 @@ class FavoritesManager:
         """
         return preset_id in self.favorites
 
-    def to_list(self) -> list:
+    def to_list(self) -> List[Union[int, str]]:
         """Convert favorites to list for JSON serialization.
 
         Returns:
@@ -181,7 +193,7 @@ class FavoritesManager:
         """
         return list(self.favorites)
 
-    def from_list(self, favorites_list: list) -> None:
+    def from_list(self, favorites_list: List[Union[int, str]]) -> None:
         """Load favorites from list.
 
         Args:

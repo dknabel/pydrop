@@ -163,3 +163,139 @@ def test_favorites_manager_list_conversion():
     assert mgr2.is_favorite(1)
     assert mgr2.is_favorite(5)
     assert mgr2.is_favorite("custom_001")
+
+
+def test_preset_from_dict_missing_required_field():
+    """Preset.from_dict raises ValueError when required fields are missing"""
+    # Missing 'id' field
+    data_missing_id = {
+        'name': 'Neon',
+        'theme': 'cyberpunk',
+        'description': 'Neon theme',
+        'shader': 'neon/main'
+    }
+    with pytest.raises(ValueError, match="Missing required field"):
+        Preset.from_dict(data_missing_id)
+
+    # Missing 'shader' field
+    data_missing_shader = {
+        'id': 1,
+        'name': 'Neon',
+        'theme': 'cyberpunk',
+        'description': 'Neon theme'
+    }
+    with pytest.raises(ValueError, match="Missing required field"):
+        Preset.from_dict(data_missing_shader)
+
+
+def test_custom_preset_from_dict_missing_required_field():
+    """CustomPreset.from_dict raises ValueError when required fields are missing"""
+    # Missing 'base_preset' field
+    data_missing_base = {
+        'id': 'custom_001',
+        'name': 'My Preset',
+        'parameters': {}
+    }
+    with pytest.raises(ValueError, match="Missing required field"):
+        CustomPreset.from_dict(data_missing_base)
+
+    # Missing 'name' field
+    data_missing_name = {
+        'id': 'custom_001',
+        'base_preset': 5
+    }
+    with pytest.raises(ValueError, match="Missing required field"):
+        CustomPreset.from_dict(data_missing_name)
+
+
+def test_custom_preset_timestamp_auto_generation():
+    """CustomPreset auto-generates timestamps"""
+    custom = CustomPreset(
+        id="custom_auto",
+        name="Auto Timestamp",
+        base_preset=1,
+        parameters={}
+    )
+    assert custom.created is not None
+    assert custom.modified is not None
+    # Timestamps should be ISO format strings
+    assert isinstance(custom.created, str)
+    assert isinstance(custom.modified, str)
+    assert 'T' in custom.created
+    assert 'T' in custom.modified
+
+
+def test_custom_preset_empty_parameters():
+    """CustomPreset can have empty parameters dict"""
+    custom = CustomPreset(
+        id="custom_empty",
+        name="Empty Params",
+        base_preset=5
+    )
+    assert custom.parameters == {}
+    data = custom.to_dict()
+    assert data['parameters'] == {}
+
+
+def test_custom_preset_from_dict_empty_parameters():
+    """CustomPreset.from_dict handles missing parameters field"""
+    data = {
+        'id': 'custom_005',
+        'name': 'No Params',
+        'base_preset': 10
+    }
+    custom = CustomPreset.from_dict(data)
+    assert custom.parameters == {}
+
+
+def test_favorites_manager_toggle_multiple_times():
+    """FavoritesManager toggle works correctly with multiple toggles"""
+    mgr = FavoritesManager()
+    preset_id = 42
+
+    # Toggle on
+    assert mgr.toggle(preset_id) is True
+    assert mgr.is_favorite(preset_id)
+
+    # Toggle off
+    assert mgr.toggle(preset_id) is False
+    assert not mgr.is_favorite(preset_id)
+
+    # Toggle on again
+    assert mgr.toggle(preset_id) is True
+    assert mgr.is_favorite(preset_id)
+
+    # Toggle off again
+    assert mgr.toggle(preset_id) is False
+    assert not mgr.is_favorite(preset_id)
+
+
+def test_favorites_manager_empty_list_conversion():
+    """FavoritesManager handles empty list conversion"""
+    mgr = FavoritesManager()
+    empty_list = mgr.to_list()
+    assert empty_list == []
+
+    mgr2 = FavoritesManager()
+    mgr2.from_list([])
+    assert mgr2.to_list() == []
+
+
+def test_preset_to_dict_type():
+    """Preset.to_dict returns Dict[str, Any]"""
+    preset = Preset(0, "Test", "core", "desc", "shader")
+    data = preset.to_dict()
+    assert isinstance(data, dict)
+    assert all(isinstance(k, str) for k in data.keys())
+
+
+def test_custom_preset_to_dict_type():
+    """CustomPreset.to_dict returns Dict[str, Any]"""
+    custom = CustomPreset(
+        id="custom_006",
+        name="Type Test",
+        base_preset=1
+    )
+    data = custom.to_dict()
+    assert isinstance(data, dict)
+    assert all(isinstance(k, str) for k in data.keys())
