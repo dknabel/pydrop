@@ -71,19 +71,25 @@ python main.py
 - **LEFT ARROW** - Previous preset
 
 **Menu (Press M to toggle):**
-- **M** - Toggle menu open/close
-- **Search Bar** - Type to filter presets by name, description, or tags
-- **Category Filter** - Click dropdown to show only presets from one theme
-- **Star Icon** - Click to favorite/unfavorite current preset
-- **Preset Grid** - Click preset to select, mouse wheel to scroll
-- **LEFT/RIGHT ARROWS** - Navigate presets left/right
-- **UP/DOWN ARROWS** - Navigate presets up/down  
-- **PAGE UP/DOWN** - Scroll grid
-- **ENTER** - Select highlighted preset
+
+*Mouse Control:*
+- **Click preset cards** - Select preset
+- **Mouse wheel** - Scroll through preset pages
+- **Click buttons** - Activate menu actions
+- **Click category dropdown** - Open/close theme filter
+
+*Keyboard Navigation:*
+- **TAB / SHIFT+TAB** - Move focus between search bar, category filter, and grid
+- **UP/DOWN/LEFT/RIGHT ARROWS** - Navigate preset grid
+- **ENTER** - Select currently highlighted preset
+- **Typing** - Search for presets (when search bar is focused)
+
+*Preset Actions:*
 - **[Edit]** - Open parameter editor to create custom preset
 - **[Mix]** - Blend two presets together
 - **[Play]** - Preview selected preset
 - **[Add to Playlist]** - Add preset to a playlist
+- **★ (Star Icon)** - Toggle favorite status
 
 **General:**
 - **ESC** - Close menu (or exit app)
