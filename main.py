@@ -14,6 +14,7 @@ import time
 
 from src.audio_engine import AudioEngine
 from src.visualizer import Visualizer
+from src.menu_system import PresetMenu
 
 class AudioVisualizerApp:
     def __init__(self, width=1280, height=720):
@@ -31,7 +32,10 @@ class AudioVisualizerApp:
         
         # Visualizer
         self.visualizer = Visualizer(width, height)
-        
+
+        # Menu system
+        self.menu = PresetMenu(self.visualizer.presets, width, height)
+
         # FPS clock
         self.clock = pygame.time.Clock()
         self.fps = 60
@@ -46,11 +50,26 @@ class AudioVisualizerApp:
                 self.running = False
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    self.running = False
-                elif event.key == pygame.K_SPACE:
-                    self.visualizer.next_preset()
-                elif event.key == pygame.K_LEFT:
-                    self.visualizer.prev_preset()
+                    if self.menu.visible:
+                        self.menu.toggle()
+                    else:
+                        self.running = False
+                elif event.key == pygame.K_m:
+                    self.menu.toggle()
+                elif not self.menu.visible:
+                    # Only handle preset navigation if menu is closed
+                    if event.key == pygame.K_SPACE:
+                        self.visualizer.next_preset()
+                    elif event.key == pygame.K_LEFT:
+                        self.visualizer.prev_preset()
+
+            # Handle menu events when menu is visible
+            if self.menu.visible:
+                selected = self.menu.handle_event(event)
+                if selected is not None:
+                    self.visualizer.current_preset_idx = selected
+                    print(f"Preset: {self.visualizer.presets[selected]['name']}")
+                    self.menu.toggle()
 
     def update(self):
         # Get audio analysis data
@@ -62,12 +81,82 @@ class AudioVisualizerApp:
     def render(self):
         # Clear screen
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-        
+
         # Render visualization
         self.visualizer.render()
-        
+
+        # Render menu overlay if visible
+        if self.menu.visible:
+            self._render_menu_overlay()
+
         # Swap buffers
         pygame.display.flip()
+
+    def _render_menu_overlay(self):
+        """Render 2D menu overlay on top of OpenGL content"""
+        import ctypes
+
+        # Create a pygame surface for the menu
+        menu_surface = pygame.Surface((self.width, self.height), pygame.SRCALPHA)
+        self.menu.render(menu_surface)
+
+        # Convert pygame surface to OpenGL texture
+        texture_data = pygame.image.tostring(menu_surface, "RGBA", True)
+
+        # Create a texture from the menu surface
+        texture = glGenTextures(1)
+        glBindTexture(GL_TEXTURE_2D, texture)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR)
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, self.width, self.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture_data)
+
+        # Save current GL state
+        glMatrixMode(GL_PROJECTION)
+        glPushMatrix()
+        glMatrixMode(GL_MODELVIEW)
+        glPushMatrix()
+
+        # Switch to orthographic projection for 2D
+        glMatrixMode(GL_PROJECTION)
+        glLoadIdentity()
+        glOrtho(0, self.width, 0, self.height, -1, 1)
+        glMatrixMode(GL_MODELVIEW)
+        glLoadIdentity()
+
+        # Setup for 2D rendering
+        glDisable(GL_DEPTH_TEST)
+        glEnable(GL_BLEND)
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+
+        # Use fixed pipeline
+        glUseProgram(0)
+
+        # Enable texturing
+        glEnable(GL_TEXTURE_2D)
+        glBindTexture(GL_TEXTURE_2D, texture)
+
+        # Render fullscreen quad with the texture
+        glBegin(GL_QUADS)
+        glTexCoord2f(0, 1)
+        glVertex2f(0, 0)
+        glTexCoord2f(1, 1)
+        glVertex2f(self.width, 0)
+        glTexCoord2f(1, 0)
+        glVertex2f(self.width, self.height)
+        glTexCoord2f(0, 0)
+        glVertex2f(0, self.height)
+        glEnd()
+
+        # Clean up
+        glDisable(GL_TEXTURE_2D)
+        glDeleteTextures([texture])
+
+        # Restore GL state
+        glEnable(GL_DEPTH_TEST)
+        glMatrixMode(GL_PROJECTION)
+        glPopMatrix()
+        glMatrixMode(GL_MODELVIEW)
+        glPopMatrix()
 
     def run(self):
         while self.running:
