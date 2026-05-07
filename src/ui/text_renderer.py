@@ -154,6 +154,9 @@ class TextRenderer:
         )
 
         # Convert PIL image to pygame surface
+        # Flip vertically because PIL coordinates are inverted vs pygame
+        pil_image = pil_image.transpose(Image.FLIP_TOP_BOTTOM)
+
         # Image is already in RGBA format, no convert needed
         raw_str = pil_image.tobytes('raw', 'RGBA')
         pygame_surface = pygame.image.fromstring(
