@@ -7,7 +7,7 @@ directory. Provides methods for searching, filtering, and managing presets.
 import json
 import logging
 from pathlib import Path
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Union
 
 from src.ui.models import Preset, CustomPreset
 
@@ -325,19 +325,19 @@ class FavoritesManager:
     def load(self) -> None:
         """Load favorites from file.
 
-        Attempts to load favorites from the JSON file. If file doesn't exist
-        or loading fails, initializes with empty set and logs warning.
+        If file doesn't exist or is corrupt, initializes with empty favorites.
+        Logs warnings for any errors encountered.
 
         Raises:
             No exceptions - handles all errors gracefully with logging
         """
         if self.favorites_file.exists():
             try:
-                with open(self.favorites_file, 'r') as f:
+                with open(self.favorites_file, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                 self.favorites = set(data.get('favorites', []))
                 logger.info(f"Loaded {len(self.favorites)} favorites")
-            except Exception as e:
+            except (json.JSONDecodeError, IOError, OSError) as e:
                 logger.warning(f"Failed to load favorites: {e}")
                 self.favorites = set()
         else:
@@ -354,14 +354,14 @@ class FavoritesManager:
         """
         try:
             self.favorites_file.parent.mkdir(parents=True, exist_ok=True)
-            with open(self.favorites_file, 'w') as f:
+            with open(self.favorites_file, 'w', encoding='utf-8') as f:
                 json.dump({'favorites': list(self.favorites)}, f, indent=2)
             logger.info(f"Saved {len(self.favorites)} favorites")
         except Exception as e:
             logger.error(f"Error saving favorites: {e}")
             raise
 
-    def add(self, preset_id) -> None:
+    def add(self, preset_id: Union[int, str]) -> None:
         """Add a preset to favorites.
 
         Args:
@@ -369,7 +369,7 @@ class FavoritesManager:
         """
         self.favorites.add(preset_id)
 
-    def remove(self, preset_id) -> None:
+    def remove(self, preset_id: Union[int, str]) -> None:
         """Remove a preset from favorites.
 
         Args:
@@ -377,7 +377,7 @@ class FavoritesManager:
         """
         self.favorites.discard(preset_id)
 
-    def toggle(self, preset_id) -> bool:
+    def toggle(self, preset_id: Union[int, str]) -> bool:
         """Toggle favorite status of a preset.
 
         Args:
@@ -393,7 +393,7 @@ class FavoritesManager:
             self.add(preset_id)
             return True
 
-    def is_favorite(self, preset_id) -> bool:
+    def is_favorite(self, preset_id: Union[int, str]) -> bool:
         """Check if a preset is favorited.
 
         Args:
