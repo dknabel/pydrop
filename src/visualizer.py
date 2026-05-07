@@ -11,19 +11,19 @@ class Visualizer:
     def __init__(self, width, height):
         self.width = width
         self.height = height
-        
+
+        # Presets
+        self.presets = PRESETS
+        self.current_preset_idx = 0
+
         # Setup OpenGL
         glClearColor(0.05, 0.05, 0.08, 1.0)
         glEnable(GL_BLEND)
         glBlendFunc(GL_SRC_ALPHA, GL_ONE)
-        
+
         # Shader manager
         self.shader_manager = ShaderManager()
         self.load_shaders()
-        
-        # Presets
-        self.presets = PRESETS
-        self.current_preset_idx = 0
         
         # Fullscreen quad for rendering
         self.setup_quad()

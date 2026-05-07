@@ -2,7 +2,7 @@
 
 import sounddevice as sd
 import numpy as np
-from scipy import signal
+from scipy.signal import windows
 from collections import deque
 import threading
 import time
@@ -48,7 +48,7 @@ class AudioEngine:
         self.amplitude = float(np.sqrt(np.mean(audio_data ** 2)))
         
         # FFT for frequency analysis
-        fft = np.fft.fft(audio_data * signal.hann(len(audio_data)))
+        fft = np.fft.fft(audio_data * windows.hann(len(audio_data)))
         magnitude = np.abs(fft[:len(fft)//2])
         
         # Downsample to 512 bins
