@@ -103,6 +103,20 @@ class AudioEngine:
         self.mid = np.mean(self.frequency_data[50:200])
         self.treble = np.mean(self.frequency_data[200:])
 
+    def get_audio_dimensions(self) -> dict:
+        """Get all audio dimensions as a dictionary.
+
+        Returns:
+            Dict with keys: 'amplitude', 'bass', 'mid', 'treble'
+            Values are floats in range [0.0, 1.0]
+        """
+        return {
+            'amplitude': self.amplitude,
+            'bass': self.bass,
+            'mid': self.mid,
+            'treble': self.treble
+        }
+
     def start_capture(self):
         """Start audio capture from system audio loopback"""
         self.running = True
