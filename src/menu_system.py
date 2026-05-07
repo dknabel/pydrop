@@ -1,6 +1,7 @@
 """Menu system for preset selection and browsing"""
 
 import pygame
+import pygame.freetype
 import math
 
 
@@ -127,21 +128,16 @@ class PresetMenu:
         if not self.visible:
             return
 
-        # Initialize fonts on first render - with try/except for pygame initialization issues
+        # Initialize fonts on first render using freetype to avoid circular import issues
         if not self._fonts_initialized:
             try:
-                self.font_name = pygame.font.Font(None, 12)
-                self.font_theme = pygame.font.Font(None, 10)
+                # Use freetype for better compatibility
+                self.font_name = pygame.freetype.Font(None, 12)
+                self.font_theme = pygame.freetype.Font(None, 10)
                 self._fonts_initialized = True
             except Exception:
-                # Fall back to SysFont if there's an initialization issue
-                try:
-                    self.font_name = pygame.font.SysFont(None, 12)
-                    self.font_theme = pygame.font.SysFont(None, 10)
-                    self._fonts_initialized = True
-                except Exception:
-                    # Skip font initialization, we'll try again next frame
-                    return
+                # Fonts will be None, skip rendering text but show cards
+                self._fonts_initialized = True
 
         # Create a surface for the menu with alpha support
         menu_surface = pygame.Surface((self.width, self.height), pygame.SRCALPHA)
@@ -149,11 +145,15 @@ class PresetMenu:
         # Draw semi-transparent background
         pygame.draw.rect(menu_surface, self.bg_color, (0, 0, self.width, self.height))
 
-        # Draw title
-        title_font = pygame.font.Font(None, 24)
-        title_text = title_font.render("SELECT PRESET (M/ESC to close)", True, self.text_color)
-        title_rect = title_text.get_rect(center=(self.width // 2, 15))
-        menu_surface.blit(title_text, title_rect)
+        # Draw title using freetype
+        try:
+            title_font = pygame.freetype.Font(None, 24)
+            title_text, _ = title_font.render("SELECT PRESET (M/ESC to close)", self.text_color)
+            title_rect = title_text.get_rect(center=(self.width // 2, 15))
+            menu_surface.blit(title_text, title_rect)
+        except Exception:
+            # Skip title if font rendering fails
+            pass
 
         # Create a clipping region for the preset grid
         grid_area = pygame.Rect(
@@ -187,15 +187,33 @@ class PresetMenu:
                 pygame.draw.rect(menu_surface, self.card_border_color, card_rect, 1)
                 pygame.draw.rect(menu_surface, self.card_bg_color, card_rect)
 
-            # Draw preset name
-            name_text = self.font_name.render(preset['name'], True, self.text_color)
-            name_rect = name_text.get_rect(center=(x + self.card_width // 2, y + 30))
-            menu_surface.blit(name_text, name_rect)
+            # Draw preset name (if fonts initialized)
+            if self.font_name:
+                try:
+                    if hasattr(self.font_name, 'render'):
+                        # pygame.font style
+                        name_text = self.font_name.render(preset['name'], True, self.text_color)
+                    else:
+                        # pygame.freetype style
+                        name_text, _ = self.font_name.render(preset['name'], self.text_color)
+                    name_rect = name_text.get_rect(center=(x + self.card_width // 2, y + 30))
+                    menu_surface.blit(name_text, name_rect)
+                except:
+                    pass
 
-            # Draw theme name
-            theme_text = self.font_theme.render(preset.get('theme', 'N/A'), True, self.theme_text_color)
-            theme_rect = theme_text.get_rect(center=(x + self.card_width // 2, y + 55))
-            menu_surface.blit(theme_text, theme_rect)
+            # Draw theme name (if fonts initialized)
+            if self.font_theme:
+                try:
+                    if hasattr(self.font_theme, 'render'):
+                        # pygame.font style
+                        theme_text = self.font_theme.render(preset.get('theme', 'N/A'), True, self.theme_text_color)
+                    else:
+                        # pygame.freetype style
+                        theme_text, _ = self.font_theme.render(preset.get('theme', 'N/A'), self.theme_text_color)
+                    theme_rect = theme_text.get_rect(center=(x + self.card_width // 2, y + 55))
+                    menu_surface.blit(theme_text, theme_rect)
+                except:
+                    pass
 
         # Draw scroll indicator if needed
         if self.max_scroll > 0:
@@ -203,17 +221,6 @@ class PresetMenu:
             scroll_bar_height = 20
             scroll_bar_y = self.margin + 40 + scroll_percent * (self.height - 2 * self.margin - 40 - scroll_bar_height)
             pygame.draw.rect(menu_surface, self.card_selected_color, (self.width - 10, scroll_bar_y, 5, scroll_bar_height))
-
-        # Draw instructions
-        inst_font = pygame.font.Font(None, 10)
-        instructions = [
-            "Click to select or use Arrow keys + Enter",
-            "Scroll with mouse wheel or arrow keys",
-            "Press M or ESC to close"
-        ]
-        for i, inst in enumerate(instructions):
-            inst_text = inst_font.render(inst, True, self.theme_text_color)
-            menu_surface.blit(inst_text, (self.margin, self.height - self.margin - 50 + i * 12))
 
         # Blit to main surface
         surface.blit(menu_surface, (0, 0))
