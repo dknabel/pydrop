@@ -1,10 +1,11 @@
 #version 330 core
 
-uniform float time;
-uniform float amplitude;
-uniform float bass;
-uniform float mid;
-uniform float treble;
+uniform float iTime;
+uniform float iAmplitude;
+uniform float iBass;
+uniform float iMid;
+uniform float iTreble;
+uniform vec2 iResolution;
 
 // Color uniforms
 uniform vec3 color0;
@@ -25,20 +26,20 @@ void main() {
     vec2 pos = uv;
 
     // Turbulence intensity controlled by bass
-    float turbIntensity = bass * 2.0;
+    float turbIntensity = iBass * 2.0;
 
     // Swirl controlled by mid
-    float swirl = mid * time;
+    float swirl = iMid * iTime;
     vec2 offset = vec2(sin(swirl), cos(swirl)) * turbIntensity;
 
     // Add flowing motion
-    pos += offset + vec2(time * 0.1, sin(time * 0.15) * 0.2);
+    pos += offset + vec2(iTime * 0.1, sin(iTime * 0.15) * 0.2);
 
     // Multi-octave noise for detail
     float n = 0.0;
     float amp = 1.0;
     for (int i = 0; i < 4; i++) {
-        n += amp * sin(noise(pos * (1.0 + float(i) * treble)));
+        n += amp * sin(noise(pos * (1.0 + float(i) * iTreble)));
         pos *= 2.0;
         amp *= 0.5;
     }
@@ -55,5 +56,5 @@ void main() {
     );
 
     // Final output with amplitude control
-    fragColor = vec4(color * n * amplitude, n * amplitude);
+    fragColor = vec4(color * n * iAmplitude, n * iAmplitude);
 }

@@ -1,10 +1,11 @@
 #version 330 core
 
-uniform float time;
-uniform float amplitude;
-uniform float bass;
-uniform float mid;
-uniform float treble;
+uniform float iTime;
+uniform float iAmplitude;
+uniform float iBass;
+uniform float iMid;
+uniform float iTreble;
+uniform vec2 iResolution;
 
 // Color uniforms
 uniform vec3 color0;
@@ -25,16 +26,16 @@ void main() {
     vec2 pos = uv;
 
     // Particle density controlled by bass
-    float density = 0.1 + bass * 0.5;
+    float density = 0.1 + iBass * 0.5;
 
     // Particle speed controlled by mid
-    float speed = mid * 2.0;
+    float speed = iMid * 2.0;
 
     // Particle spread controlled by treble
-    float spread = 0.1 + treble * 0.3;
+    float spread = 0.1 + iTreble * 0.3;
 
     // Generate particles using noise
-    vec2 particlePos = pos + vec2(sin(time * speed + pos.y * 10.0), cos(time * speed + pos.x * 10.0)) * spread;
+    vec2 particlePos = pos + vec2(sin(iTime * speed + pos.y * 10.0), cos(iTime * speed + pos.x * 10.0)) * spread;
 
     float particle = random(floor(particlePos * density)) * 0.5 + 0.5;
     particle = smoothstep(0.3, 0.7, particle);
@@ -45,11 +46,11 @@ void main() {
 
     // Color based on particle position and time
     vec3 color = mix(
-        mix(color0, color1, sin(time * 0.5 + particlePos.x * 3.0) * 0.5 + 0.5),
-        mix(color2, color3, cos(time * 0.3 + particlePos.y * 3.0) * 0.5 + 0.5),
+        mix(color0, color1, sin(iTime * 0.5 + particlePos.x * 3.0) * 0.5 + 0.5),
+        mix(color2, color3, cos(iTime * 0.3 + particlePos.y * 3.0) * 0.5 + 0.5),
         particle
     );
 
     // Final color with amplitude controlling intensity
-    fragColor = vec4(color * particle * amplitude, particle * amplitude);
+    fragColor = vec4(color * particle * iAmplitude, particle * iAmplitude);
 }

@@ -1,10 +1,11 @@
 #version 330 core
 
-uniform float time;
-uniform float amplitude;
-uniform float bass;
-uniform float mid;
-uniform float treble;
+uniform float iTime;
+uniform float iAmplitude;
+uniform float iBass;
+uniform float iMid;
+uniform float iTreble;
+uniform vec2 iResolution;
 
 // Color uniforms
 uniform vec3 color0;
@@ -20,11 +21,11 @@ void main() {
     vec2 pos = uv * 10.0;  // Scale for grid
 
     // Scale controlled by bass
-    float scale = 1.0 + bass * 0.5;
+    float scale = 1.0 + iBass * 0.5;
     pos /= scale;
 
     // Rotation controlled by mid
-    float angle = mid * time * 2.0;
+    float angle = iMid * iTime * 2.0;
     mat2 rot = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
     pos = rot * pos;
 
@@ -34,7 +35,7 @@ void main() {
     float gridLine = min(gridDist.x, gridDist.y);
 
     // Add detail controlled by treble
-    float detail = treble * 0.3;
+    float detail = iTreble * 0.3;
     gridLine = smoothstep(detail + 0.01, detail - 0.01, gridLine);
 
     // Glow effect
@@ -48,6 +49,6 @@ void main() {
     );
 
     // Final output
-    float brightness = (gridLine + glow * 0.5) * amplitude;
+    float brightness = (gridLine + glow * 0.5) * iAmplitude;
     fragColor = vec4(color * brightness, brightness);
 }
