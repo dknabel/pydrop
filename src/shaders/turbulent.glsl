@@ -17,7 +17,7 @@ out vec4 fragColor;
 
 // Simplex-like noise approximation
 float noise(vec2 p) {
-    return sin(p.x * 12.9898 + p.y * 78.233) * 43758.5453;
+    return fract(sin(p.x * 12.9898 + p.y * 78.233) * 43758.5453);
 }
 
 // Turbulent flow field
@@ -38,13 +38,13 @@ void main() {
     float n = 0.0;
     float amp = 1.0;
     for (int i = 0; i < 4; i++) {
-        n += amp * abs(sin(noise(pos * (1.0 + float(i) * treble))));
+        n += amp * sin(noise(pos * (1.0 + float(i) * treble)));
         pos *= 2.0;
         amp *= 0.5;
     }
 
     // Normalize and apply amplitude
-    n = n / 2.5;
+    n = n / 1.875;
     n = smoothstep(0.3, 0.7, n);
 
     // Color based on turbulence pattern
