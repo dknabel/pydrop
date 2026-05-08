@@ -38,7 +38,7 @@ class Visualizer:
         """Load all shader presets including themed shaders"""
         shader_dir = os.path.join(os.path.dirname(__file__), 'shaders')
 
-        # Map visual types to shader files
+        # Map visual types to shader files (for new presets without 'shader' field)
         shader_map = {
             'particles': 'particles',
             'geometric': 'geometric',
@@ -47,9 +47,14 @@ class Visualizer:
         }
 
         for preset in self.presets:
-            # Get the preset's visual type and route to correct shader
-            visual_type = preset.get('visual_type', 'particles')
-            shader_name = shader_map.get(visual_type, 'particles')
+            # Option 1: Use existing shader field if present
+            if 'shader' in preset and preset['shader']:
+                shader_name = preset['shader']  # Use the original shader field (e.g., 'kinetic/particle_stream')
+            else:
+                # Option 2: Only fall back to visual_type routing for presets without a shader field
+                visual_type = preset.get('visual_type', 'particles')
+                shader_name = shader_map.get(visual_type, 'particles')
+
             shader_file = os.path.join(shader_dir, shader_name + '.glsl')
 
             if os.path.exists(shader_file):
