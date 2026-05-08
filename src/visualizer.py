@@ -37,8 +37,20 @@ class Visualizer:
     def load_shaders(self):
         """Load all shader presets including themed shaders"""
         shader_dir = os.path.join(os.path.dirname(__file__), 'shaders')
+
+        # Map visual types to shader files
+        shader_map = {
+            'particles': 'particles',
+            'geometric': 'geometric',
+            'turbulent': 'turbulent',
+            'ethereal': 'ethereal'
+        }
+
         for preset in self.presets:
-            shader_file = os.path.join(shader_dir, preset['shader'] + '.glsl')
+            # Get the preset's visual type and route to correct shader
+            visual_type = preset.get('visual_type', 'particles')
+            shader_name = shader_map.get(visual_type, 'particles')
+            shader_file = os.path.join(shader_dir, shader_name + '.glsl')
 
             if os.path.exists(shader_file):
                 try:
