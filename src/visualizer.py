@@ -13,9 +13,10 @@ class Visualizer:
         self.height = height
 
         # Presets - load from PresetManager (presets.json)
-        preset_manager = PresetManager()
+        self.preset_manager = PresetManager()
         self.presets = [{'name': p.name, 'shader': p.shader, 'visual_type': p.visual_type, 'audio_mapping': p.audio_mapping}
-                        for p in preset_manager.builtin_presets]
+                        for p in self.preset_manager.builtin_presets]
+        self.preset_objects = {p.name: p for p in self.preset_manager.builtin_presets}
         self.current_preset_idx = 0 if self.presets else 0
 
         # Audio engine for getting audio dimensions
@@ -139,6 +140,19 @@ class Visualizer:
         shader.set_uniform_1f('iBass', self.audio_data['bass'])
         shader.set_uniform_1f('iMid', self.audio_data['mid'])
         shader.set_uniform_1f('iTreble', self.audio_data['treble'])
+
+        # Set color uniforms from preset
+        try:
+            preset_obj = self.preset_objects.get(preset['name'])
+            if preset_obj and preset_obj.colors:
+                # Convert colors from 0-255 to 0.0-1.0 range
+                colors = preset_obj.colors
+                if len(colors) >= 4:
+                    for i in range(4):
+                        r, g, b = colors[i]
+                        shader.set_uniform_3f(f'color{i}', r/255.0, g/255.0, b/255.0)
+        except Exception as e:
+            pass
 
         # Apply audio mappings to shader uniforms for dynamic reactivity
         if self.audio_engine is not None:
