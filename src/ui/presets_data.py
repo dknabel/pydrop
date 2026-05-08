@@ -46,11 +46,12 @@ class PresetManager:
     def load_builtin_presets(self) -> List[Preset]:
         """Load built-in presets from JSON file.
 
-        Attempts to load from src/presets/presets.json. Returns empty list
-        with a warning if file is not found or JSON is invalid.
+        Attempts to load from src/presets/presets.json. Only loads presets with
+        valid visual_type assignments to use the new visual type system.
+        Returns empty list with a warning if file is not found or JSON is invalid.
 
         Returns:
-            List of Preset objects loaded from JSON
+            List of Preset objects loaded from JSON with visual_type set
 
         Raises:
             No exceptions - handles all errors gracefully with logging
@@ -71,6 +72,10 @@ class PresetManager:
             presets = []
             for item in data:
                 try:
+                    # Only load presets with visual_type (part of new visual type system)
+                    if 'visual_type' not in item or not item.get('visual_type'):
+                        continue
+
                     preset = Preset.from_dict(item)
                     presets.append(preset)
                 except ValueError as e:
