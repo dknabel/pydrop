@@ -6,5 +6,6 @@ The core presets are defined in core.py and loaded into the JSON file.
 """
 
 from . import core
+from .core import PRESETS
 
-__all__ = ['core']
+__all__ = ['core', 'PRESETS']

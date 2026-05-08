@@ -478,7 +478,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 13,
@@ -515,7 +516,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 14,
@@ -552,7 +554,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 15,
@@ -589,7 +592,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 16,
@@ -626,7 +630,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 17,
@@ -663,7 +668,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 18,
@@ -700,7 +706,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 19,
@@ -737,7 +744,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 20,
@@ -774,7 +782,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 21,
@@ -811,7 +820,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 22,
@@ -1588,7 +1598,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "pulse"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 43,
@@ -1625,7 +1636,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "pulse"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 44,
@@ -1662,7 +1674,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "pulse"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 45,
@@ -1699,7 +1712,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "pulse"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 46,
@@ -1736,7 +1750,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "pulse"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 47,
@@ -1773,7 +1788,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "pulse"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 48,
@@ -1810,7 +1826,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "pulse"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 49,
@@ -1847,7 +1864,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "pulse"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 50,
@@ -1884,7 +1902,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "pulse"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 51,
@@ -1921,7 +1940,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "pulse"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 52,
@@ -1958,7 +1978,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 53,
@@ -1995,7 +2016,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 54,
@@ -2032,7 +2054,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 55,
@@ -2069,7 +2092,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 56,
@@ -2106,7 +2130,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 57,
@@ -2143,7 +2168,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 58,
@@ -2180,7 +2206,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 59,
@@ -2217,7 +2244,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 60,
@@ -2254,7 +2282,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 61,
@@ -2291,7 +2320,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 62,
@@ -2698,7 +2728,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 73,
@@ -2735,7 +2766,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 74,
@@ -2772,7 +2804,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 75,
@@ -2809,7 +2842,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 76,
@@ -2846,7 +2880,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 77,
@@ -2883,7 +2918,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 78,
@@ -2920,7 +2956,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 79,
@@ -2957,7 +2994,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 80,
@@ -2994,7 +3032,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 81,
@@ -3031,7 +3070,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 82,
@@ -3068,7 +3108,8 @@
       "bass": "scale",
       "mid": "kaleidoscope_rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 83,
@@ -3105,7 +3146,8 @@
       "bass": "scale",
       "mid": "kaleidoscope_rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 84,
@@ -3142,7 +3184,8 @@
       "bass": "scale",
       "mid": "kaleidoscope_rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 85,
@@ -3179,7 +3222,8 @@
       "bass": "scale",
       "mid": "kaleidoscope_rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 86,
@@ -3216,7 +3260,8 @@
       "bass": "scale",
       "mid": "kaleidoscope_rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 87,
@@ -3253,7 +3298,8 @@
       "bass": "scale",
       "mid": "kaleidoscope_rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 88,
@@ -3290,7 +3336,8 @@
       "bass": "scale",
       "mid": "kaleidoscope_rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 89,
@@ -3327,7 +3374,8 @@
       "bass": "scale",
       "mid": "kaleidoscope_rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 90,
@@ -3364,7 +3412,8 @@
       "bass": "scale",
       "mid": "kaleidoscope_rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 91,
@@ -3401,7 +3450,8 @@
       "bass": "scale",
       "mid": "kaleidoscope_rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 92,
@@ -3808,7 +3858,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "grinding"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 103,
@@ -3845,7 +3896,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "grinding"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 104,
@@ -3882,7 +3934,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "grinding"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 105,
@@ -3919,7 +3972,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "grinding"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 106,
@@ -3956,7 +4010,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "grinding"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 107,
@@ -3993,7 +4048,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "grinding"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 108,
@@ -4030,7 +4086,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "grinding"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 109,
@@ -4067,7 +4124,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "grinding"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 110,
@@ -4104,7 +4162,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "grinding"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 111,
@@ -4141,7 +4200,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "grinding"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 112,
@@ -4178,7 +4238,8 @@
       "bass": "scale",
       "mid": "pulse",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 113,
@@ -4215,7 +4276,8 @@
       "bass": "scale",
       "mid": "pulse",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 114,
@@ -4252,7 +4314,8 @@
       "bass": "scale",
       "mid": "pulse",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 115,
@@ -4289,7 +4352,8 @@
       "bass": "scale",
       "mid": "pulse",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 116,
@@ -4326,7 +4390,8 @@
       "bass": "scale",
       "mid": "pulse",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 117,
@@ -4363,7 +4428,8 @@
       "bass": "scale",
       "mid": "pulse",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 118,
@@ -4400,7 +4466,8 @@
       "bass": "scale",
       "mid": "pulse",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 119,
@@ -4437,7 +4504,8 @@
       "bass": "scale",
       "mid": "pulse",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 120,
@@ -4474,7 +4542,8 @@
       "bass": "scale",
       "mid": "pulse",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 121,
@@ -4511,7 +4580,8 @@
       "bass": "scale",
       "mid": "pulse",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 122,
@@ -4548,7 +4618,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "quantum_flicker"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 123,
@@ -4585,7 +4656,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "quantum_flicker"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 124,
@@ -4622,7 +4694,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "quantum_flicker"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 125,
@@ -4659,7 +4732,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "quantum_flicker"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 126,
@@ -4696,7 +4770,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "quantum_flicker"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 127,
@@ -4733,7 +4808,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "quantum_flicker"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 128,
@@ -4770,7 +4846,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "quantum_flicker"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 129,
@@ -4807,7 +4884,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "quantum_flicker"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 130,
@@ -4844,7 +4922,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "quantum_flicker"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 131,
@@ -4881,7 +4960,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "quantum_flicker"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 132,
@@ -4918,7 +4998,8 @@
       "bass": "past_intensity",
       "mid": "present_intensity",
       "treble": "future_intensity"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 133,
@@ -4955,7 +5036,8 @@
       "bass": "past_intensity",
       "mid": "present_intensity",
       "treble": "future_intensity"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 134,
@@ -4992,7 +5074,8 @@
       "bass": "past_intensity",
       "mid": "present_intensity",
       "treble": "future_intensity"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 135,
@@ -5029,7 +5112,8 @@
       "bass": "past_intensity",
       "mid": "present_intensity",
       "treble": "future_intensity"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 136,
@@ -5066,7 +5150,8 @@
       "bass": "past_intensity",
       "mid": "present_intensity",
       "treble": "future_intensity"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 137,
@@ -5103,7 +5188,8 @@
       "bass": "past_intensity",
       "mid": "present_intensity",
       "treble": "future_intensity"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 138,
@@ -5140,7 +5226,8 @@
       "bass": "past_intensity",
       "mid": "present_intensity",
       "treble": "future_intensity"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 139,
@@ -5177,7 +5264,8 @@
       "bass": "past_intensity",
       "mid": "present_intensity",
       "treble": "future_intensity"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 140,
@@ -5214,7 +5302,8 @@
       "bass": "past_intensity",
       "mid": "present_intensity",
       "treble": "future_intensity"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 141,
@@ -5251,7 +5340,8 @@
       "bass": "past_intensity",
       "mid": "present_intensity",
       "treble": "future_intensity"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 142,
@@ -5288,7 +5378,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 143,
@@ -5325,7 +5416,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 144,
@@ -5362,7 +5454,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 145,
@@ -5399,7 +5492,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 146,
@@ -5436,7 +5530,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 147,
@@ -5473,7 +5568,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 148,
@@ -5510,7 +5606,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 149,
@@ -5547,7 +5644,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 150,
@@ -5584,7 +5682,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 151,
@@ -5621,7 +5720,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "color_shift"
-    }
+    },
+    "visual_type": "geometric"
   },
   {
     "id": 152,
@@ -6028,7 +6128,8 @@
       "bass": "intensity",
       "mid": "rotation",
       "treble": "spark_emission"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 163,
@@ -6065,7 +6166,8 @@
       "bass": "intensity",
       "mid": "rotation",
       "treble": "spark_emission"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 164,
@@ -6102,7 +6204,8 @@
       "bass": "intensity",
       "mid": "rotation",
       "treble": "spark_emission"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 165,
@@ -6139,7 +6242,8 @@
       "bass": "intensity",
       "mid": "rotation",
       "treble": "spark_emission"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 166,
@@ -6176,7 +6280,8 @@
       "bass": "intensity",
       "mid": "rotation",
       "treble": "spark_emission"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 167,
@@ -6213,7 +6318,8 @@
       "bass": "intensity",
       "mid": "rotation",
       "treble": "spark_emission"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 168,
@@ -6250,7 +6356,8 @@
       "bass": "intensity",
       "mid": "rotation",
       "treble": "spark_emission"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 169,
@@ -6287,7 +6394,8 @@
       "bass": "intensity",
       "mid": "rotation",
       "treble": "spark_emission"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 170,
@@ -6324,7 +6432,8 @@
       "bass": "intensity",
       "mid": "rotation",
       "treble": "spark_emission"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 171,
@@ -6361,7 +6470,8 @@
       "bass": "intensity",
       "mid": "rotation",
       "treble": "spark_emission"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 172,
@@ -6398,7 +6508,8 @@
       "bass": "sway",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 173,
@@ -6435,7 +6546,8 @@
       "bass": "sway",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 174,
@@ -6472,7 +6584,8 @@
       "bass": "sway",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 175,
@@ -6509,7 +6622,8 @@
       "bass": "sway",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 176,
@@ -6546,7 +6660,8 @@
       "bass": "sway",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 177,
@@ -6583,7 +6698,8 @@
       "bass": "sway",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 178,
@@ -6620,7 +6736,8 @@
       "bass": "sway",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 179,
@@ -6657,7 +6774,8 @@
       "bass": "sway",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 180,
@@ -6694,7 +6812,8 @@
       "bass": "sway",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 181,
@@ -6731,7 +6850,8 @@
       "bass": "sway",
       "mid": "rotation",
       "treble": "twinkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 182,
@@ -7138,7 +7258,8 @@
       "bass": "color_a",
       "mid": "color_b",
       "treble": "color_c"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 193,
@@ -7175,7 +7296,8 @@
       "bass": "color_a",
       "mid": "color_b",
       "treble": "color_c"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 194,
@@ -7212,7 +7334,8 @@
       "bass": "color_a",
       "mid": "color_b",
       "treble": "color_c"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 195,
@@ -7249,7 +7372,8 @@
       "bass": "color_a",
       "mid": "color_b",
       "treble": "color_c"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 196,
@@ -7286,7 +7410,8 @@
       "bass": "color_a",
       "mid": "color_b",
       "treble": "color_c"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 197,
@@ -7323,7 +7448,8 @@
       "bass": "color_a",
       "mid": "color_b",
       "treble": "color_c"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 198,
@@ -7360,7 +7486,8 @@
       "bass": "color_a",
       "mid": "color_b",
       "treble": "color_c"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 199,
@@ -7397,7 +7524,8 @@
       "bass": "color_a",
       "mid": "color_b",
       "treble": "color_c"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 200,
@@ -7434,7 +7562,8 @@
       "bass": "color_a",
       "mid": "color_b",
       "treble": "color_c"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 201,
@@ -7471,7 +7600,8 @@
       "bass": "color_a",
       "mid": "color_b",
       "treble": "color_c"
-    }
+    },
+    "visual_type": "turbulent"
   },
   {
     "id": 202,
@@ -7878,7 +8008,8 @@
       "bass": "fundamental",
       "mid": "harmonic",
       "treble": "overtone"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 213,
@@ -7915,7 +8046,8 @@
       "bass": "fundamental",
       "mid": "harmonic",
       "treble": "overtone"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 214,
@@ -7952,7 +8084,8 @@
       "bass": "fundamental",
       "mid": "harmonic",
       "treble": "overtone"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 215,
@@ -7989,7 +8122,8 @@
       "bass": "fundamental",
       "mid": "harmonic",
       "treble": "overtone"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 216,
@@ -8026,7 +8160,8 @@
       "bass": "fundamental",
       "mid": "harmonic",
       "treble": "overtone"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 217,
@@ -8063,7 +8198,8 @@
       "bass": "fundamental",
       "mid": "harmonic",
       "treble": "overtone"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 218,
@@ -8100,7 +8236,8 @@
       "bass": "fundamental",
       "mid": "harmonic",
       "treble": "overtone"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 219,
@@ -8137,7 +8274,8 @@
       "bass": "fundamental",
       "mid": "harmonic",
       "treble": "overtone"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 220,
@@ -8174,7 +8312,8 @@
       "bass": "fundamental",
       "mid": "harmonic",
       "treble": "overtone"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 221,
@@ -8211,7 +8350,8 @@
       "bass": "fundamental",
       "mid": "harmonic",
       "treble": "overtone"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 222,
@@ -8618,7 +8758,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "particle_density"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 233,
@@ -8655,7 +8796,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "particle_density"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 234,
@@ -8692,7 +8834,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "particle_density"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 235,
@@ -8729,7 +8872,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "particle_density"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 236,
@@ -8766,7 +8910,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "particle_density"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 237,
@@ -8803,7 +8948,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "particle_density"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 238,
@@ -8840,7 +8986,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "particle_density"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 239,
@@ -8877,7 +9024,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "particle_density"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 240,
@@ -8914,7 +9062,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "particle_density"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 241,
@@ -8951,7 +9100,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "particle_density"
-    }
+    },
+    "visual_type": "particles"
   },
   {
     "id": 242,
@@ -8988,7 +9138,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 243,
@@ -9025,7 +9176,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 244,
@@ -9062,7 +9214,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 245,
@@ -9099,7 +9252,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 246,
@@ -9136,7 +9290,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 247,
@@ -9173,7 +9328,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 248,
@@ -9210,7 +9366,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 249,
@@ -9247,7 +9404,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 250,
@@ -9284,7 +9442,8 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "ethereal"
   },
   {
     "id": 251,
@@ -9321,6 +9480,7 @@
       "bass": "scale",
       "mid": "rotation",
       "treble": "sparkle"
-    }
+    },
+    "visual_type": "ethereal"
   }
 ]
