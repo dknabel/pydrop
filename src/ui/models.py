@@ -22,6 +22,7 @@ class Preset:
         shader: Path to the shader file used by this preset
         tags: List of tags for categorization (default: [])
         difficulty: Difficulty level: 'easy', 'medium', 'hard' (default: 'medium')
+        visual_type: Type of visual effect: 'particles', 'geometric', 'wave', etc. (default: 'particles')
         colors: List of 4 RGB tuples defining the color palette
         audio_mapping: Dict mapping audio dimensions to visual controls
     """
@@ -33,6 +34,7 @@ class Preset:
     shader: str
     tags: List[str] = field(default_factory=list)
     difficulty: str = "medium"
+    visual_type: str = "particles"
     colors: List[tuple] = field(default_factory=lambda: [(100, 100, 100), (150, 150, 150), (200, 200, 200), (180, 180, 180)])
     audio_mapping: Dict[str, str] = field(default_factory=lambda: {
         "amplitude": "intensity",
@@ -75,6 +77,7 @@ class Preset:
                 shader=data['shader'],
                 tags=data.get('tags', []),
                 difficulty=data.get('difficulty', 'medium'),
+                visual_type=data.get('visual_type', 'particles'),
                 colors=colors,
                 audio_mapping=data.get('audio_mapping', {
                     "amplitude": "intensity",
