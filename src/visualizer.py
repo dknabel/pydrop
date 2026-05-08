@@ -5,16 +5,18 @@ from OpenGL.GLU import *
 import numpy as np
 import os
 from .shader_manager import ShaderManager
-from .presets import PRESETS
+from .ui.presets_data import PresetManager
 
 class Visualizer:
     def __init__(self, width, height, audio_engine=None):
         self.width = width
         self.height = height
 
-        # Presets
-        self.presets = PRESETS
-        self.current_preset_idx = 0
+        # Presets - load from PresetManager (presets.json)
+        preset_manager = PresetManager()
+        self.presets = [{'name': p.name, 'shader': p.shader, 'visual_type': p.visual_type, 'audio_mapping': p.audio_mapping}
+                        for p in preset_manager.builtin_presets]
+        self.current_preset_idx = 0 if self.presets else 0
 
         # Audio engine for getting audio dimensions
         self.audio_engine = audio_engine
