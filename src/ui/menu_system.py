@@ -271,13 +271,24 @@ class MenuSystem(UIComponent):
         """Handle category filter change.
 
         Args:
-            category: Selected category name
+            category: Selected visual type (Particles, Geometric, Turbulent, Ethereal) or "All"
         """
         try:
             if category == "All":
                 self.current_filtered_presets = self.preset_manager.builtin_presets.copy()
             else:
-                self.current_filtered_presets = self.preset_manager.filter_by_theme(category)
+                # Filter by visual_type - map display names to actual types
+                type_map = {
+                    'Particles': 'particles',
+                    'Geometric': 'geometric',
+                    'Turbulent': 'turbulent',
+                    'Ethereal': 'ethereal'
+                }
+                visual_type = type_map.get(category, category.lower())
+                self.current_filtered_presets = [
+                    p for p in self.preset_manager.builtin_presets
+                    if getattr(p, 'visual_type', 'particles') == visual_type
+                ]
 
             # Set search scope for the search bar
             self.search_bar.search_scope = self.current_filtered_presets

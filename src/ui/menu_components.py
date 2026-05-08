@@ -187,21 +187,33 @@ class CategoryFilter(UIComponent):
     def _build_categories(self) -> Dict[str, int]:
         """Build dictionary of categories with preset counts.
 
-        Creates a mapping of category names to the number of presets
-        in each category. Includes "All" which represents all presets
-        combined.
+        Creates a mapping of visual type names to the number of presets
+        in each type. Includes "All" which represents all presets combined.
 
         Returns:
             Dictionary mapping category name to preset count
         """
         categories = {}
 
-        # Get all themes from preset manager
-        themes = self.preset_manager.get_all_themes()
+        # Count presets by visual_type
+        visual_types = {}
+        for preset in self.preset_manager.builtin_presets:
+            vtype = getattr(preset, 'visual_type', 'particles')
+            if vtype not in visual_types:
+                visual_types[vtype] = 0
+            visual_types[vtype] += 1
 
-        for theme in themes:
-            count = len(self.preset_manager.filter_by_theme(theme))
-            categories[theme] = count
+        # Map to display names
+        type_names = {
+            'particles': 'Particles',
+            'geometric': 'Geometric',
+            'turbulent': 'Turbulent',
+            'ethereal': 'Ethereal'
+        }
+
+        for vtype, count in visual_types.items():
+            display_name = type_names.get(vtype, vtype.title())
+            categories[display_name] = count
 
         # Add "All" category with total count
         total_count = len(self.preset_manager.builtin_presets)
@@ -213,8 +225,8 @@ class CategoryFilter(UIComponent):
         """Build list of dropdown items: (label, category, count).
 
         Creates the list of items to display in the dropdown menu.
-        "All" is always first, followed by themes sorted alphabetically
-        with "core" coming before other themes.
+        "All" is always first, followed by visual types in a fixed order:
+        Particles, Geometric, Turbulent, Ethereal.
 
         Returns:
             List of tuples (label, category_name, count) for each item
@@ -224,17 +236,11 @@ class CategoryFilter(UIComponent):
         # Add "All" first
         items.append(("All", "All", self.categories.get("All", 0)))
 
-        # Add all themes sorted, with "core" first
-        themes = sorted([k for k in self.categories.keys() if k != "All"])
-        if "core" in themes:
-            themes.remove("core")
-            themes = ["core"] + themes
-
-        for theme in themes:
-            count = self.categories.get(theme, 0)
-            # Format theme name: replace underscores with spaces and title case
-            label = theme.replace("_", " ").title()
-            items.append((label, theme, count))
+        # Add visual types in fixed order
+        visual_type_order = ["Particles", "Geometric", "Turbulent", "Ethereal"]
+        for vtype in visual_type_order:
+            count = self.categories.get(vtype, 0)
+            items.append((vtype, vtype, count))
 
         return items
 
@@ -523,7 +529,7 @@ class PresetCard(UIComponent):
         self.on_clicked = on_clicked
 
     def render(self, surface: pygame.Surface) -> None:
-        """Render preset card with transparent background and centered name.
+        """Render preset card with transparent background, centered name, and visual type label.
 
         Args:
             surface: pygame.Surface to render to
@@ -544,8 +550,17 @@ class PresetCard(UIComponent):
             )
             # Position text centered both horizontally and vertically
             text_x = self.rect.x + (self.rect.width - text_rect.width) // 2
-            text_y = self.rect.y + (self.rect.height - text_rect.height) // 2
+            text_y = self.rect.y + (self.rect.height - text_rect.height) // 2 - 10
             surface.blit(text_surf, (text_x, text_y))
+
+            # Draw visual_type label at bottom
+            visual_type = getattr(self.preset, 'visual_type', 'particles').title()
+            type_surf, type_rect = renderer.render(
+                visual_type, (180, 180, 200), size='small'
+            )
+            type_x = self.rect.x + (self.rect.width - type_rect.width) // 2
+            type_y = self.rect.y + self.rect.height - 20
+            surface.blit(type_surf, (type_x, type_y))
         except Exception as e:
             pass
 
